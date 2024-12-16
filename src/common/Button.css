@@ -1,0 +1,51 @@
+.button {
+  all: unset;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  width: 100%;
+  text-shadow: 0em 0.1em 0.1em #c1e3f873;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  border-radius: var(--radius1);
+}
+
+.button:hover {
+  background-color: #bfceff24;
+  color: #c6d4ff;
+}
+
+.button * {
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  font-family: Monofur;
+  text-align: start;
+  padding: 0.63em 0.4em 0.63em 0.4em;
+  text-decoration: none;
+}
+
+.button .ajax {
+  margin-right: 3%;
+}
+
+.button:hover .ajax,
+.button:hover .other-page {
+  color: #c6d4ff;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .button {
+    margin: 0.2em 0;
+  }
+}

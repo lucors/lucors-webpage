@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: CorelDRAW X8 -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   width="100mm"
+   height="100mm"
+   version="1.1"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   viewBox="0 0 10000 10000"
+   id="svg59"
+   sodipodi:docname="luco-logo.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
+   id="metadata63"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1017"
+   id="namedview61"
+   showgrid="false"
+   inkscape:zoom="1.2488333"
+   inkscape:cx="109.89939"
+   inkscape:cy="168.50019"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="layer2" />
+ <defs
+   id="defs4">
+  <style
+   type="text/css"
+   id="style2">
+   <![CDATA[
+    .fil3 {fill:#0C4472}
+    .fil10 {fill:#122664}
+    .fil1 {fill:#190735}
+    .fil5 {fill:#190957}
+    .fil4 {fill:#190D7C}
+    .fil2 {fill:#1FFEFE}
+    .fil7 {fill:#380A56}
+    .fil11 {fill:#3A2259}
+    .fil6 {fill:#4B0977}
+    .fil8 {fill:#4C0233}
+    .fil9 {fill:#660A47}
+    .fil0 {fill:#898989;fill-opacity:0.349020}
+   ]]>
+  </style>
+ </defs>
+ 
+<g
+   inkscape:groupmode="layer"
+   id="layer2"
+   inkscape:label="Layer 1"
+   style="display:inline"><g
+     style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     id="Слой_x0020_1"
+     transform="translate(-4.6996945,219.57544)">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <g
+   id="Логотип_x0020_Ориг._x0020_Большой">
+   <polygon
+   class="fil0"
+   points="1092,3259 5206,9066 7884,1202 "
+   id="polygon7"
+   style="fill:#898989;fill-opacity:0.34902003" />
+   <polygon
+   class="fil1"
+   points="3240,7940 3099,7940 3099,1140 3240,1140 3240,940 4938,940 4938,1140 4800,1140 4800,1300 4940,1300 4940,6740 7339,6740 7339,6939 7140,6939 7140,7099 7339,7099 7339,8301 3100,8301 3100,8141 3240,8141 "
+   id="polygon9"
+   style="fill:#190735" />
+   <g
+   id="Голубая_x0020_часть">
+    <rect
+   class="fil2"
+   transform="matrix(0.631774,8.15964e-7,-1.29268e-5,10.0088,3739.89,2000.03)"
+   width="316"
+   height="544"
+   id="rect11"
+   x="0"
+   y="0"
+   style="fill:#1ffefe" />
+    <rect
+   class="fil3"
+   transform="matrix(0.628093,8.11209e-7,-1.49092e-5,11.5437,3939.78,1840.29)"
+   width="255"
+   height="485"
+   id="rect13"
+   x="0"
+   y="0"
+   style="fill:#0c4472" />
+    <rect
+   class="fil3"
+   x="4599"
+   y="6740"
+   width="200"
+   height="161"
+   id="rect15"
+   style="fill:#0c4472" />
+    <polygon
+   class="fil2"
+   points="4800,1140 4938,1140 4938,940 3240,940 3240,1140 3099,1140 3099,7940 5640,7940 5640,7800 3399,7800 3399,1500 3600,1500 3600,1300 4800,1300 "
+   id="polygon17"
+   style="fill:#1ffefe" />
+    <polygon
+   class="fil2"
+   points="4800,6900 4599,6900 4599,7099 7140,7099 7140,6939 7339,6939 7339,6740 4800,6740 "
+   id="polygon19"
+   style="fill:#1ffefe" />
+   </g>
+   <g
+   id="Синий_x0020_контур">
+    <rect
+   class="fil4"
+   transform="matrix(0.533123,6.88551e-7,-1.95777e-5,15.1583,4799.87,1300.01)"
+   width="262"
+   height="359"
+   id="rect22"
+   x="0"
+   y="0"
+   style="fill:#190d7c" />
+    <rect
+   class="fil4"
+   x="3100"
+   y="8141"
+   width="2540"
+   height="160"
+   id="rect24"
+   style="fill:#190d7c" />
+    <rect
+   class="fil5"
+   x="4599"
+   y="1300"
+   width="201"
+   height="5440"
+   id="rect26"
+   style="fill:#190957" />
+    <rect
+   class="fil4"
+   x="4440"
+   y="1300"
+   width="159"
+   height="5440"
+   id="rect28"
+   style="fill:#190d7c" />
+    <rect
+   class="fil4"
+   x="3600"
+   y="1840"
+   width="140"
+   height="5100"
+   id="rect30"
+   style="fill:#190d7c" />
+    <polygon
+   class="fil5"
+   points="5640,8301 5640,8141 3240,8141 3240,7940 5800,7940 5800,8301 "
+   id="polygon32"
+   style="fill:#190957" />
+    <polygon
+   class="fil5"
+   points="3600,6945 3399,6945 3399,1700 3940,1700 3940,1840 3600,1840 "
+   id="polygon34"
+   style="fill:#190957" />
+    <polygon
+   class="fil5"
+   points="4599,6740 4599,6900 4300,6900 4300,1300 4440,1300 4440,6740 "
+   id="polygon36"
+   style="fill:#190957" />
+   </g>
+   <g
+   id="Фиолетовый_x0020_контур">
+    <rect
+   class="fil6"
+   x="4300"
+   y="7240"
+   width="2500"
+   height="200"
+   id="rect39"
+   style="fill:#4b0977" />
+    <polygon
+   class="fil6"
+   points="7339,7099 7339,8301 5800,8301 5800,8100 7140,8100 7140,7099 "
+   id="polygon41"
+   style="fill:#4b0977" />
+    <polygon
+   class="fil7"
+   points="7140,7099 7000,7099 7000,7940 5800,7940 5800,8100 7140,8100 "
+   id="polygon43"
+   style="fill:#380a56" />
+    <polygon
+   class="fil7"
+   points="4300,7440 4100,7440 4100,7099 6800,7099 6800,7240 4300,7240 "
+   id="polygon45"
+   style="fill:#380a56" />
+   </g>
+   <g
+   id="Красный_x0020_контур">
+    <polygon
+   class="fil8"
+   points="6800,7440 4100,7440 4100,7640 6800,7640 6800,7800 5640,7800 5640,7940 7000,7940 7000,7099 6800,7099 "
+   id="polygon48"
+   style="fill:#4c0233" />
+    <polygon
+   class="fil9"
+   points="6800,7640 6800,7800 3399,7800 3399,7100 3600,7100 3600,7640 "
+   id="polygon50"
+   style="fill:#660a47" />
+    <polygon
+   class="fil8"
+   points="3740,6940 3740,7440 3740,7640 3600,7640 3600,7100 3399,7100 3399,6945 "
+   id="polygon52"
+   style="fill:#4c0233" />
+   </g>
+   <rect
+   id="Смежный"
+   class="fil10"
+   x="3740"
+   y="1840"
+   width="200"
+   height="160"
+   style="fill:#122664" />
+   <rect
+   id="Смежный_0"
+   class="fil11"
+   x="3740"
+   y="7440"
+   width="360"
+   height="200"
+   style="fill:#3a2259" />
+  </g>
+ </g></g></svg>

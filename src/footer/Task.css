@@ -1,0 +1,51 @@
+.task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  height: 100%;
+  margin-right: 5px;
+  background-color: #3232609c;
+  -webkit-transition: background-color 0.4s ease;
+  -o-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+
+  -webkit-filter: grayscale(0.8);
+  filter: grayscale(0.8);
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* border-radius: var(--radius1) var(--radius1) 0 0; */
+}
+
+.task.current {
+  -webkit-filter: unset;
+  filter: unset;
+}
+
+.task:hover {
+  background-color: #323260;
+}
+
+.task.collapsed {
+  background-color: #34333b;
+}
+
+.task.collapsed:hover {
+  background-color: #3e3d41;
+}
+
+.task > .task-icon {
+  height: 80%;
+  width: auto;
+}

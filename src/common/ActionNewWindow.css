@@ -1,0 +1,11 @@
+.button .new-window {
+  width: auto;
+  height: 1.3em;
+  padding: 0;
+  opacity: 0.5;
+  margin-right: 0.3rem;
+}
+
+.button .new-window:hover {
+  opacity: 1;
+}
