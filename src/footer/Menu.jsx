@@ -105,7 +105,7 @@ export default function Menu() {
         {contentMenu.map((v) => {
           if (v.query) {
             return (
-              <QueryButton key={v.id} query={v.query}>
+              <QueryButton key={v.id} title={v.title} query={v.query}>
                 {v.title}
               </QueryButton>
             );

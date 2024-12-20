@@ -1,5 +1,5 @@
 import "./ExplorerButton.css";
-import { createExplorer } from "../main/WindowExplorer";
+import { createExplorer } from "../main/windows/WindowExplorer";
 
 export default function ExplorerButton() {
   return (

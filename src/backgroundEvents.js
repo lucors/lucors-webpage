@@ -69,6 +69,7 @@ function checkScreenSize() {
 function mouseMoveHandler(event) {
   cursor.x = event.pageX;
   cursor.y = event.pageY;
+  const storedCurrentWindow = store.getState()?.windows?.current;
 
   if (flags.selection) {
     desktopCtx.clear();
@@ -78,10 +79,8 @@ function mouseMoveHandler(event) {
 
   if (flags.dragging && flags.resizeType == 0) {
     desktopCtx.clear();
-    let currentWindow = store.getState()?.windows?.current;
-    if (!currentWindow) return;
-
-    currentWindow = $(`.window[data-id='${currentWindow.id}']`);
+    if (!storedCurrentWindow) return;
+    const currentWindow = $(`.window[data-id='${storedCurrentWindow.id}']`);
     const header = $("header");
     const footer = $("footer");
     // store.dispatch(updateWindow({
@@ -125,83 +124,83 @@ function mouseMoveHandler(event) {
     return;
   }
 
-  // if (currentWindow) {
-  //   const win = currentWindow.element;
-  //   const box = win[0].getBoundingClientRect();
-  //   if (flags.resize) {
-  //     const style = win[0].currentStyle || window.getComputedStyle(win[0]);
-  //     let border = 0;
-  //     switch (flags.resizeType) {
-  //       case 1:
-  //         if (cursor.x < 0) return;
-  //         border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
-  //         const width = Math.round(box.right - cursor.x) - border;
-  //         win.width(width);
-  //         if (width === win.width()){
-  //           win.css({
-  //             left:  cursor.x+"px"
-  //           });
-  //         }
-  //         break;
-  //       case 2:
-  //         if (cursor.x > $("main").width()) return;
-  //         win.width(cursor.x - box.x);
-  //         break;
-  //       case 3:
-  //         if (cursor.y < 0) return;
-  //         border = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
-  //         const height = Math.round(box.bottom - cursor.y) - border;
-  //         win.height(height);
-  //         if (height === win.height()){
-  //           win.css({
-  //             top: cursor.y + "px"
-  //           });
-  //         }
-  //         break;
-  //       case 4:
-  //         if (cursor.y > $("footer").offset().top) return;
-  //         win.height(cursor.y - box.y);
-  //         break;
-  //     }
-  //   }
-  //   else {
-  //     const aprx = 5;
-  //     if (flags.resizeType > 0) {
-  //       $("main").removeClass("resize-x resize-y");
-  //       win.removeClass("resize-left resize-right resize-top resize-bottom");
-  //       flags.resizeType = 0;
-  //     }
+  if (storedCurrentWindow) {
+    const win = $(`.window[data-id='${storedCurrentWindow.id}']`);
+		const box = win[0].getBoundingClientRect();
+		if (flags.resize) {
+			const style = win[0].currentStyle || window.getComputedStyle(win[0]);
+			let border = 0;
+			switch (flags.resizeType) {
+				case 1:
+					if (cursor.x < 0) return;
+					border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+					const width = Math.round(box.right - cursor.x) - border;
+					win.width(width);
+					if (width === win.width()){
+						win.css({
+							left:  cursor.x+"px"
+						}); 
+					}
+					break;
+				case 2:
+					if (cursor.x > $("main").width()) return;
+					win.width(cursor.x - box.x);
+					break;
+				case 3:
+					if (cursor.y < 0) return;
+					border = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+					const height = Math.round(box.bottom - cursor.y) - border;
+					win.height(height);
+					if (height === win.height()){
+						win.css({
+							top: cursor.y + "px"
+						}); 
+					}
+					break;
+				case 4:
+					if (cursor.y > $("footer").offset().top) return;
+					win.height(cursor.y - box.y);
+					break;
+			}
+		}
+		else {
+			const aprx = 5;
+			if (flags.resizeType > 0) {
+				$("main").removeClass("resize-x resize-y");
+				win.removeClass("resize-left resize-right resize-top resize-bottom");
+				flags.resizeType = 0;
+			}
 
-  //     if (cursor.x > (box.left - aprx) && cursor.x < (box.left + aprx)
-  //       && cursor.y > (box.top - aprx) && cursor.y < (box.bottom + aprx)) {
-  //       $("main").addClass("resize-x");
-  //       win.addClass("resize-left");
-  //       flags.resizeType = 1;
-  //       return;
-  //     }
-  //     else if (cursor.x > (box.right - aprx) && cursor.x < (box.right + aprx)
-  //       && cursor.y > (box.top - aprx) && cursor.y < (box.bottom + aprx)) {
-  //       $("main").addClass("resize-x");
-  //       win.addClass("resize-right");
-  //       flags.resizeType = 2;
-  //       return;
-  //     }
-  //     else if (cursor.y > (box.top - aprx) && cursor.y < (box.top + aprx)
-  //       && cursor.x > (box.left - aprx) && cursor.x < (box.right + aprx)) {
-  //       $("main").addClass("resize-y");
-  //       win.addClass("resize-top");
-  //       flags.resizeType = 3;
-  //       return;
-  //     }
-  //     else if (cursor.y > (box.bottom - aprx) && cursor.y < (box.bottom + aprx)
-  //       && cursor.x > (box.left - aprx) && cursor.x < (box.right + aprx)) {
-  //       $("main").addClass("resize-y");
-  //       win.addClass("resize-bottom");
-  //       flags.resizeType = 4;
-  //       return;
-  //     }
-  //   }
-  // }
+			if (cursor.x > (box.left - aprx) && cursor.x < (box.left + aprx) 
+				&& cursor.y > (box.top - aprx) && cursor.y < (box.bottom + aprx)) {
+				$("main").addClass("resize-x");
+				win.addClass("resize-left");
+				flags.resizeType = 1;
+				return;
+			}
+			else if (cursor.x > (box.right - aprx) && cursor.x < (box.right + aprx)
+				&& cursor.y > (box.top - aprx) && cursor.y < (box.bottom + aprx)) {
+				$("main").addClass("resize-x");
+				win.addClass("resize-right");
+				flags.resizeType = 2;
+				return;
+			}
+			else if (cursor.y > (box.top - aprx) && cursor.y < (box.top + aprx)
+				&& cursor.x > (box.left - aprx) && cursor.x < (box.right + aprx)) {
+				$("main").addClass("resize-y");
+				win.addClass("resize-top");
+				flags.resizeType = 3;
+				return;
+			}
+			else if (cursor.y > (box.bottom - aprx) && cursor.y < (box.bottom + aprx)
+				&& cursor.x > (box.left - aprx) && cursor.x < (box.right + aprx)) {
+				$("main").addClass("resize-y");
+				win.addClass("resize-bottom");
+				flags.resizeType = 4;
+				return;
+			}
+		}
+	}
 }
 
 function mouseUpHandler(event) {
@@ -259,10 +258,11 @@ function mouseDownHandler(event) {
   }
   cursor.startX = event.pageX;
   cursor.startY = event.pageY;
+  const storedCurrentWindow = store.getState()?.windows?.current;
 
-  if (flags.resizeType > 0 && currentWindow && !currentWindow.expanded) {
+  if (flags.resizeType > 0 && storedCurrentWindow && !storedCurrentWindow.expanded) {
     $(document.body).addClass("nonselect");
-    currentWindow.element.find(".frame-block").addClass("active");
+    $(`.window[data-id='${storedCurrentWindow.id}']`).find(".frame-block").addClass("active");
     flags.resize = true;
     event.preventDefault();
     return false;

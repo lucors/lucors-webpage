@@ -5,16 +5,14 @@ import "./index.css";
 import "./oldstyle.css";
 import App from "./App.jsx";
 import store from "./store/store.js";
-import backgroundEvents, {prepareWindow} from "./backgroundEvents.js";
-import { createExplorer } from "./main/WindowExplorer.jsx";
+import backgroundEvents, { prepareWindow } from "./backgroundEvents.js";
+import { createExplorer } from "./main/windows/WindowExplorer.jsx";
 
 prepareWindow();
 createRoot(document.getElementById("app")).render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 backgroundEvents();
 createExplorer();

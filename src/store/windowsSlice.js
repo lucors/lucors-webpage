@@ -20,6 +20,7 @@ export const windowsSlice = createSlice({
         startY: 0,
         width: 0,
         height: 0,
+        query: null,
         type: "explorer",
         ...payload,
         id: v4(),
