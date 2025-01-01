@@ -68,6 +68,10 @@ export const byId = (state, id) => {
   return state.windows.list.find((v) => v.id === id);
 };
 
+export const byType = (state, type) => {
+  return state.windows.list.find((v) => v.type === type);
+};
+
 export const isCurrent = (state, id) => {
   return state.windows.current?.id === id;
 };

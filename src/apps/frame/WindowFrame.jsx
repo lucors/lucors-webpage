@@ -4,10 +4,10 @@ import { addWindow } from "#store/windowsSlice";
 import Window from "#main/windows/Window";
 import { setCurrentWindowById } from "#store/windowsSlice.js";
 
-export const WINDOW_TYPE_FRAME = "frame";
+export const WINDOW_APP_FRAME = "frame";
 
 export function createFrame(title, href, icon = "img/unknow-app.svg") {
-  const frames = store.getState().windows.list.filter((w) => w.type == WINDOW_TYPE_FRAME && w.href == href);
+  const frames = store.getState().windows.list.filter((w) => w.type == WINDOW_APP_FRAME && w.href == href);
   if (
     frames.length
   ) {
@@ -18,7 +18,7 @@ export function createFrame(title, href, icon = "img/unknow-app.svg") {
     addWindow({
       title,
       icon,
-      type: WINDOW_TYPE_FRAME,
+      type: WINDOW_APP_FRAME,
       href: href,
     })
   );

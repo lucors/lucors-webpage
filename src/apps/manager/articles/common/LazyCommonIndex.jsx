@@ -1,4 +1,4 @@
-import QueryButton from "#common/QueryButton";
+import QueryButton from "#apps/manager/QueryButton.jsx";
 
 export default function LazyCommonIndex() {
   return (

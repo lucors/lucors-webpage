@@ -1,8 +1,5 @@
-import { setWindowQuery } from "#common/QueryButton.jsx";
+import { createApp } from "#apps/trash/WindowTrash.jsx";
 
 export default function TrashcanIcon() {
-  function showTrash() {
-    setWindowQuery("Trash zone", "trashcan");
-  }
-  return <a id="trashcan" onClick={showTrash}></a>;
+  return <a id="trashcan" onClick={createApp}></a>;
 }

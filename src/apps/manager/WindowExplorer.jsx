@@ -1,9 +1,9 @@
 import { lazy, memo } from "react";
-import QueryButton from "#common/QueryButton";
+import QueryButton from "./QueryButton";
 import store from "#store/store";
 import { addWindow } from "#store/windowsSlice";
 import Window from "#main/windows/Window";
-import FrameButton from "#common/FrameButton.jsx";
+import FrameButton from "#apps/frame/FrameButton.jsx";
 
 const LazyWelcome = lazy(() => import("./LazyWelcome"));
 const LazyContacts = lazy(() => import("./LazyContacts"));
@@ -13,16 +13,15 @@ const LazyAbout = lazy(() => import("./LazyAbout"));
 const LazyArticles = lazy(() => import("./articles/LazyArticles"));
 const LazyCommonIndex = lazy(() => import("./articles/common/LazyCommonIndex"));
 const LazyArticleMapReduce = lazy(() => import("./articles/common/LazyArticleMapReduce"));
-const LazyTrashzone = lazy(() => import("./LazyTrashzone"));
 
-export const WINDOW_TYPE_EXPLORER = "explorer";
+export const WINDOW_APP_EXPLORER = "explorer";
 
 export function createExplorer() {
   store.dispatch(
     addWindow({
       title: "Главная страница",
       icon: "img/manager.svg",
-      type: WINDOW_TYPE_EXPLORER,
+      type: WINDOW_APP_EXPLORER,
       query: "main-page",
     })
   );
@@ -77,8 +76,6 @@ const contentType = {
   articles: <LazyArticles />,
   "article-category-common": <LazyCommonIndex/>,
   "article-map-reduce": <LazyArticleMapReduce/>,
-
-  "trashcan": <LazyTrashzone/>,
 };
 
 export default memo(function WindowExplorer({ data }) {

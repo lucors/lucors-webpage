@@ -1,4 +1,5 @@
-import QueryButton from "#common/QueryButton";
+import QueryButton from "./QueryButton";
+
 
 export default function LazyAbout() {
   return (

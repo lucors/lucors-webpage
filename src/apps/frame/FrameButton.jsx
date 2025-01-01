@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "#common/Button";
 import { createFrame } from "#apps/frame/WindowFrame.jsx";
 
 export default function FrameButton({

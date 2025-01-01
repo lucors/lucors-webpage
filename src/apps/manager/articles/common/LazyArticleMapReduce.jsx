@@ -1,4 +1,5 @@
-import QueryButton from "#common/QueryButton";
+
+import QueryButton from "#apps/manager/QueryButton.jsx";
 import { useEffect } from "react";
 
 export default function LazyArticleMapReduce() {

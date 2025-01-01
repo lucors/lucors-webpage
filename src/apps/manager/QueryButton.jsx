@@ -1,14 +1,14 @@
-import Button from "./Button";
-import ActionNewWindow from "./ActionNewWindow";
+import Button from "#common/Button";
+import ActionNewWindow from "#common/ActionNewWindow";
 import store from "#store/store.js";
 import { addWindow, byId, setCurrentWindowById, updateWindow } from "#store/windowsSlice.js";
-import { WINDOW_TYPE_EXPLORER } from "#apps/manager/WindowExplorer.jsx";
+import { WINDOW_APP_EXPLORER } from "#apps/manager/WindowExplorer.jsx";
 
 export const setWindowQuery = (title, query, winid = undefined) => {
   if (!winid) winid = store.getState().windows.current?.id;
   if (!winid) return createWindowWithQuery(title, query);
   const win = byId(store.getState(), winid);
-  if (win.type !== WINDOW_TYPE_EXPLORER) return createWindowWithQuery(title, query);
+  if (win.type !== WINDOW_APP_EXPLORER) return createWindowWithQuery(title, query);
 
   store.dispatch(setCurrentWindowById(winid));
   return store.dispatch(
@@ -26,7 +26,7 @@ export const createWindowWithQuery = (title, query) => {
     addWindow({
       title,
       icon: "img/manager.svg",
-      type: WINDOW_TYPE_EXPLORER,
+      type: WINDOW_APP_EXPLORER,
       query,
     })
   );

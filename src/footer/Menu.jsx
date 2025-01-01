@@ -2,13 +2,13 @@ import $ from "jquery";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import store from "#store/store";
-import QueryButton from "#common/QueryButton";
 import "./Menu.css";
 import FullscreenButton from "./FullscreenButton";
 import ExplorerButton from "./ExplorerButton";
-import FrameButton from "#common/FrameButton.jsx";
 import { contentMenu } from "#apps/manager/WindowExplorer.jsx";
 import { setMenu } from "#store/menuSlice.js";
+import QueryButton from "#apps/manager/QueryButton.jsx";
+import FrameButton from "#apps/frame/FrameButton.jsx";
 
 export default function Menu() {
   const dispatch = useDispatch();
