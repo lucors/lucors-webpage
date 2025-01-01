@@ -1,0 +1,108 @@
+.contactsContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 30vw;
+  max-width: 40vw;
+}
+
+.window.expanded .contactsContent {
+  max-width: 46em;
+  height: 22em;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.aboutmeField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: rgba(81, 87, 128, 0.28);
+  margin-bottom: 20px;
+  border-radius: var(--radius1);
+}
+
+.contactsField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(81, 87, 128, 0.28);
+  border-radius: var(--radius1);
+}
+
+.sendForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.formReview {
+  height: 50px;
+  resize: none;
+  border-radius: var(--radius1);
+}
+
+.formButton {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 10px 6px 10px 6px;
+  color: white;
+  font-size: 16px;
+  font-family: Monofur;
+  cursor: pointer;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  border-radius: var(--radius1);
+  margin-top: 0.4em;
+}
+
+.formButton:hover {
+  background-color: #bfceff24;
+  color: #c6d4ff;
+}
+
+.reviewSent {
+  margin: 1em;
+}
+
+.contactsText {
+  padding: 10px;
+  max-width: 300px;
+}
+.window.expanded .contactsText {
+  max-width: 50%;
+}
+
+/*MOBILE*/
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .contactsContent {
+    width: 90vw;
+  }
+}

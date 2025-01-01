@@ -57,7 +57,7 @@
 }
 .window:not(.frame):before {
   content: "";
-  background: url("img/background_bakedBlur.jpg") no-repeat;
+  background: url("img/background_blur.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   position: absolute;
@@ -385,6 +385,54 @@
   filter: brightness(1.5) grayscale(1);
 }
 
+.section {
+  background-color: var(--color-mainContent);
+  padding: 1em;
+  max-width: 40em;
+  border-radius: var(--radius1);
+}
+.section ~ .section {
+  margin-top: 1em;
+}
+.window.expanded .section {
+  max-width: 65em;
+  /*max-width: 40em;*/
+}
+.section-button {
+  text-decoration: none;
+  padding: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+  -webkit-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+  opacity: 0;
+  -webkit-animation: showFromRotateX 0.5s forwards 0s;
+  animation: showFromRotateX 0.5s forwards 0s;
+  border-radius: var(--radius1);
+}
+.section-button:hover {
+  background-color: var(--color-pushedButton);
+  color: var(--color-textButtton);
+}
+
+.section.error {
+  background-color: #80515147;
+}
+.section.error h1,
+.section.error h2 {
+  color: #ffc2c2;
+}
 
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {

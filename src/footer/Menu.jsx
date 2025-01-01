@@ -1,57 +1,17 @@
 import $ from "jquery";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
-import store from "../store/store";
-import Button from "../common/Button";
-import QueryButton from "../common/QueryButton";
-import ActionNewWindow from "../common/ActionNewWindow";
+import store from "#store/store";
+import QueryButton from "#common/QueryButton";
 import "./Menu.css";
 import FullscreenButton from "./FullscreenButton";
 import ExplorerButton from "./ExplorerButton";
-import { addWindow } from "../store/windowsSlice";
-
-const contentMenu = [
-  { id: 1, title: "Главная страница", query: "main-page" },
-  { id: 2, title: "Контакты", query: "contacts" },
-  { id: 3, title: "Проекты", query: "projects" },
-  { id: 4, title: "Статьи", query: "articles" },
-  { id: 5, title: "Сайт в окно", query: "external-app" },
-  {
-    id: 6,
-    title: "Чат",
-    href: "https://lucors.ru/iochat",
-    icon: "https://lucors.ru/iochat/img/favicon.png",
-  },
-  { id: 7, title: "О сайте", query: "about" },
-  {
-    id: 8,
-    title: "Привет мир!",
-    onClick: () => {
-      store.dispatch(
-        addWindow({
-          title: "Привет мир!",
-          icon: "img/manager.svg",
-          type: "",
-        })
-      );
-    },
-    subAction: (
-      <ActionNewWindow
-        onClick={() =>
-          store.dispatch(
-            addWindow({
-              title: "Приветики",
-              icon: "img/app.svg",
-              type: "",
-            })
-          )
-        }
-      />
-    ),
-  },
-];
+import FrameButton from "#common/FrameButton.jsx";
+import { contentMenu } from "#apps/manager/WindowExplorer.jsx";
+import { setMenu } from "#store/menuSlice.js";
 
 export default function Menu() {
+  const dispatch = useDispatch();
   const openned = useSelector((state) => state.menu.openned);
   const menuBoxRef = useRef(null);
 
@@ -64,20 +24,20 @@ export default function Menu() {
   useEffect(() => {
     if (!menuBoxRef?.current) return;
     menuBoxRef.current.ontransitionend = () => {
+      if ((menuBoxRef.current.getAnimations() || []).length > 0) return;
       if (store.getState().menu.openned) return;
       menuBoxRef.current.style.visibility = "hidden";
     };
-    const menuResize = () => {
+    const observer = new ResizeObserver(() => {
       if (store.getState().menu.openned) return;
       hideToLeft();
-    };
-    const observer = new ResizeObserver(menuResize);
+    });
     observer.observe(menuBoxRef.current);
 
     return () => {
       menuBoxRef.current.ontransitionend = undefined;
       observer.disconnect();
-    }
+    };
   }, []);
 
   useEffect(() => {
@@ -90,11 +50,15 @@ export default function Menu() {
     hideToLeft();
   }, [openned]);
 
+  const hideMenu = () => {
+    dispatch(setMenu(false));
+  };
+
   return (
     <div id="menuBox" ref={menuBoxRef}>
       <div className="menuLeft">
         <div id="logoPlace" data-query="main-page" title="На главную страницу">
-          <img className="logoType" src="img/luco-logo.svg" />
+          <img className="logoType" src="img/lucors-logo.svg" />
         </div>
         <div className="actions">
           <FullscreenButton />
@@ -105,15 +69,26 @@ export default function Menu() {
         {contentMenu.map((v) => {
           if (v.query) {
             return (
-              <QueryButton key={v.id} title={v.title} query={v.query}>
+              <QueryButton
+                key={v.id}
+                title={v.title}
+                query={v.query}
+                onClick={hideMenu}
+              >
                 {v.title}
               </QueryButton>
             );
           }
           return (
-            <Button key={v.id} {...v}>
+            <FrameButton
+              key={v.id}
+              title={v.title}
+              href={v.href}
+              icon={v.icon}
+              onClick={hideMenu}
+            >
               {v.title}
-            </Button>
+            </FrameButton>
           );
         })}
       </div>

@@ -234,7 +234,7 @@ function mouseUpHandler(event) {
     flags.resizeType = 0;
     flags.resize = false;
     $("main").removeClass("resize-x resize-y");
-    const win = $(`.window[data-id='${storedCurrentWindow.id}']`);
+    const win = $(".window.current");
     win.removeClass("resize-left resize-right resize-top resize-bottom");
     store.dispatch(
       updateWindow({
@@ -284,9 +284,7 @@ function mouseDownHandler(event) {
     !storedCurrentWindow.expanded
   ) {
     $(document.body).addClass("nonselect");
-    $(`.window[data-id='${storedCurrentWindow.id}']`)
-      .find(".frame-block")
-      .addClass("active");
+    $(`.window.current`).find(".frame-block").addClass("active");
     flags.resize = true;
     event.preventDefault();
     return false;
@@ -300,9 +298,6 @@ function mouseDownHandler(event) {
 
 function mouseOutHandler() {
   $("main").removeClass("resize-x resize-y");
-  // if (currentWindow){
-  //   currentWindow.element.removeClass("resize-left resize-right resize-top resize-bottom");
-  // }
 }
 
 function resizeHandler() {

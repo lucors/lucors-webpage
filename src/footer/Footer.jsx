@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { toogleMenu } from "../store/menuSlice";
+import { toogleMenu } from "#store/menuSlice";
 import Menu from "./Menu";
 import Separator from "./Separator";
 import "./Footer.css";
@@ -13,7 +13,7 @@ export default function Footer() {
     <footer>
       <div className="leftFootBox">
         <div id="startButt" onClick={() => dispatch(toogleMenu())}>
-          <img className="menuImg" src="img/app-menu.svg" />
+          <img className="menuImg" src="img/menu.svg" />
           <span className="menuText">Меню</span>
         </div>
         <Separator />

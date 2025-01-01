@@ -130,6 +130,40 @@ iframe {
   user-select: none;
 }
 
+
+/*Ползунок!*/
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 15px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+::-webkit-scrollbar-track-piece {
+  background: #8a80aead;
+  border-radius: var(--radius1);
+}
+::-webkit-scrollbar-thumb {
+  background: #404071;
+  border-radius: var(--radius1);
+}
+
+.formInput {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 10px 6px 10px 6px;
+  color: black;
+  font-size: 16px;
+  font-family: Monofur;
+  border-radius: var(--radius1);
+  margin-top: 0.4em;
+  margin-right: 0.4em;
+  background: white;
+}
+
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {
   :root {
@@ -150,4 +184,3 @@ iframe {
 /*PC*/
 @media screen and (min-width: 1241px) {
 }
-

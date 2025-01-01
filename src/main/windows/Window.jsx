@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo, Suspense } from "react";
 import $ from "jquery";
 import {
   byId,
@@ -7,19 +7,30 @@ import {
   isCurrent,
   setCurrentWindowById,
   updateWindow,
-} from "../../store/windowsSlice";
+} from "#store/windowsSlice";
 import "./Window.css";
-import { cursor, flags } from "../../backgroundEvents";
-import store from "../../store/store";
+import { cursor, flags } from "#backgroundEvents";
+import store from "#store/store";
 
-export default function Window({
+export function ContentLoadError({ message = "Контент не задан" }) {
+  return (
+    <>
+      <div className="section mwem30 error">
+        <h1>Ошибка</h1>
+        <h2>{message}</h2>
+      </div>
+    </>
+  );
+}
+
+export default memo(function Window({
   data,
   menu,
   content,
-  rawContent,
   collapsible = true,
   closeable = true,
   expandable = true,
+  className,
 }) {
   const windowRef = useRef(null);
   const draggableRef = useRef(null);
@@ -42,8 +53,14 @@ export default function Window({
   }
 
   function mouseDownHandler(event) {
-    if (store.getState().screen.mobile || !windowRef?.current) return;
+    if (
+      flags.resizeType > 0 ||
+      store.getState().screen.mobile ||
+      !windowRef?.current
+    )
+      return;
     flags.dragging = true;
+    $(windowRef.current).find(".frame-block").addClass("active");
     $(document.body).addClass("nonselect");
     dispatch(setCurrentWindowById(id));
     const updateEntity = {
@@ -92,7 +109,11 @@ export default function Window({
   useEffect(() => {
     if (!draggableRef?.current || !windowRef?.current) return;
     $(draggableRef.current).on("mousedown", mouseDownHandler);
-    $(windowRef.current).on("mousedown", setCurrent);
+    $(windowRef.current).on("mousedown", () => {
+      setCurrent();
+      $(".window .frame-block").addClass("alt");
+      $(windowRef.current).find(".frame-block").removeClass("alt");
+    });
     windowRef.current.ontransitionend = () => {
       if (stored()?.collapsed) windowRef.current.style.visibility = "hidden";
     };
@@ -119,12 +140,20 @@ export default function Window({
     if (!collapsed) windowRef.current.style.visibility = "visible";
   }, [collapsed]);
 
+  const cssClass = [
+    className,
+    "window",
+    current ? "current" : "",
+    collapsed ? "collapsed" : "",
+    expanded ? "expanded" : "",
+    dragging ? "dragging" : "",
+  ]
+    .filter((v) => !!v)
+    .join(" ");
   return (
     <div
       data-id={data.id}
-      className={`window ${current ? "current" : ""} ${
-        collapsed ? "collapsed" : ""
-      } ${expanded ? "expanded" : ""} ${dragging ? "dragging" : ""}`}
+      className={cssClass}
       style={{
         top: y,
         left: x,
@@ -160,24 +189,21 @@ export default function Window({
         </div>
         <div className="main">
           {menu && <div className="left">{menu}</div>}
-          {!rawContent && (
-            <div className="right">
-              {content}
-              {!content && (
-                <img className="window-loader" src="img/loading.gif" />
-              )}
-            </div>
-          )}
-          {rawContent && (
-            <div
-              className="right"
-              dangerouslySetInnerHTML={{
-                __html: rawContent,
-              }}
-            ></div>
-          )}
+
+          <div className="right">
+            {!content && <ContentLoadError />}
+            {content && (
+              <Suspense
+                fallback={
+                  <img className="window-loader" src="img/loading.gif" />
+                }
+              >
+                {content}
+              </Suspense>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
-}
+});

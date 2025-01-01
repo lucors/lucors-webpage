@@ -5,6 +5,7 @@ import WindowsList from "./windows/WindowsList";
 import store from "../store/store";
 import { setMenu } from "../store/menuSlice";
 import "./Main.css";
+import TrashcanIcon from "./icons/TrashcanIcon";
 
 export default function Main() {
   const mainRef = useRef(null);
@@ -22,6 +23,7 @@ export default function Main() {
 
   return (
     <main ref={mainRef}>
+      <TrashcanIcon/>
       <DesktopCanvas/>
       <WindowsList/>
     </main>

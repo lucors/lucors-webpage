@@ -21,8 +21,7 @@ export const windowsSlice = createSlice({
         // Значения по-умолчанию
         width: "50em", 
         height: "20em",
-        query: null,
-        type: "explorer",
+        type: null,
         ...payload,
         id: v4(),
       };
