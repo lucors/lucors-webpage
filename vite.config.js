@@ -12,5 +12,6 @@ export default defineConfig({
         entryFileNames: '[name]-[hash].js'
       }
     }
-  }
+  },
+  base: ''
 })
