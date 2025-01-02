@@ -72,7 +72,14 @@ body {
   width: 100vw;
   overflow: hidden;
   background-color: #212125;
+  transition: transform 3s;
+  transition-timing-function: ease-in;
 }
+
+body.fade {
+  background-color: black;
+  transform: scale(0.9);
+} 
 
 body.nonselect {
   -webkit-user-select: none;

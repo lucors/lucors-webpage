@@ -1,8 +1,8 @@
-import { createFrame } from "#apps/frame/WindowFrame.jsx";
+import { createFrame } from "#apps/frame/shared.js";
 import ActionNewWindow from "#common/ActionNewWindow.jsx";
 import Link from "#common/Link.jsx";
 
-export default function LazyTrashzone() {
+export default function Trashzone() {
   return (
     <div id="trashcanContent" className="section">
       <h1>Welcome to the trash zone</h1>

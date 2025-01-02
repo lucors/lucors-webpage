@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import axios from "axios";
-import "./LazyContacts.css";
+import "./Contacts.css";
 
-export default function LazyContacts() {
+export default function Contacts() {
   const [sended, setSended] = useState(false);
   const textRef = useRef(null);
 

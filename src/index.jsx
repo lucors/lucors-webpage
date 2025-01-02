@@ -6,7 +6,7 @@ import "./prism.css";
 import App from "./App.jsx";
 import store from "./store/store.js";
 import backgroundEvents, { prepareWindow } from "./backgroundEvents.js";
-import { createExplorer } from "#apps/manager/WindowExplorer.jsx";
+import { createExplorer } from "#apps/manager/shared.jsx";
 
 prepareWindow();
 createRoot(document.getElementById("app")).render(

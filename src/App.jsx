@@ -6,6 +6,7 @@ import Main from "./main/Main.jsx";
 function App() {
   return (
     <>
+      <div id="fade"></div>
       <Header />
       <Main />
       <Footer />

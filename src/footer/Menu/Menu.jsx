@@ -5,10 +5,11 @@ import store from "#store/store";
 import "./Menu.css";
 import FullscreenButton from "./FullscreenButton";
 import ExplorerButton from "./ExplorerButton";
-import { contentMenu } from "#apps/manager/WindowExplorer.jsx";
 import { setMenu } from "#store/menuSlice.js";
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import FrameButton from "#apps/frame/FrameButton.jsx";
+import ShutdownButton from "./ShutdownButton";
+import { contentMenu } from "#apps/manager/shared.jsx";
 
 export default function Menu() {
   const dispatch = useDispatch();
@@ -61,8 +62,9 @@ export default function Menu() {
           <img className="logoType" src="img/lucors-logo.svg" />
         </div>
         <div className="actions">
-          <FullscreenButton />
           <ExplorerButton />
+          <FullscreenButton />
+          <ShutdownButton />
         </div>
       </div>
       <div id="menuContent">

@@ -32,6 +32,10 @@ export const windowsSlice = createSlice({
       state.list = [...state.list.filter((v) => v.id != payload)];
       if (state.current?.id == payload) state.current = null;
     },
+    deleteAllWindows(state, { payload }) {
+      state.list = [];
+      state.current = null;
+    },
     updateWindow(state, { payload }) {
       state.list = [
         ...state.list.map((v) => {
@@ -79,6 +83,7 @@ export const isCurrent = (state, id) => {
 export const {
   addWindow,
   deleteWindowById,
+  deleteAllWindows,
   updateWindow,
   updateAllWindows,
   setCurrentWindowById,

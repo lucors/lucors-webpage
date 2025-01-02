@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import "./LazyContacts.css";
-import { createFrame } from "#apps/frame/WindowFrame.jsx";
+import "./Contacts.css";
+import { createFrame } from "#apps/frame/shared.js";
 
-export default function LazyHref2Window() {
+export default function Href2Window() {
   const urlRef = useRef(null);
   const nameRef = useRef(null);
 

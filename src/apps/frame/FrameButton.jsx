@@ -1,5 +1,5 @@
 import Button from "#common/Button";
-import { createFrame } from "#apps/frame/WindowFrame.jsx";
+import { createFrame } from "./shared";
 
 export default function FrameButton({
   title,

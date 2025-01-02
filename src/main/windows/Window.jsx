@@ -57,8 +57,9 @@ export default memo(function Window({
       flags.resizeType > 0 ||
       store.getState().screen.mobile ||
       !windowRef?.current
-    )
+    ) {
       return;
+    }
     flags.dragging = true;
     $(windowRef.current).find(".frame-block").addClass("active");
     $(document.body).addClass("nonselect");
@@ -110,6 +111,7 @@ export default memo(function Window({
     if (!draggableRef?.current || !windowRef?.current) return;
     $(draggableRef.current).on("mousedown", mouseDownHandler);
     $(windowRef.current).on("mousedown", () => {
+      if (flags.resizeType > 0 || !windowRef?.current) return;
       setCurrent();
       $(".window .frame-block").addClass("alt");
       $(windowRef.current).find(".frame-block").removeClass("alt");

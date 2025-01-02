@@ -17,3 +17,20 @@
   overflow: hidden;
   background-color: #212125;
 }
+
+#fade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0;
+  z-index: -100000;
+  transition: opacity 3.5s;
+  transition-timing-function: ease-in;
+}
+#fade.active {
+  z-index: 100000;
+  opacity: 1;
+}

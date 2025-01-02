@@ -1,5 +1,5 @@
 import "./ExplorerButton.css";
-import { createExplorer } from "../apps/manager/WindowExplorer";
+import { createExplorer } from "#apps/manager/shared.jsx";
 
 export default function ExplorerButton() {
   return (

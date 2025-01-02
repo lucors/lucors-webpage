@@ -44,3 +44,43 @@ footer {
 #startButt:hover {
   background-color: #2c2c49;
 }
+
+#task-bar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  padding: 0 5px;
+  /* overflow: hidden; */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #2c2c49 #212125;
+}
+#task-bar::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+#task-bar::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+#task-bar::-webkit-scrollbar-thumb {
+  background-color: transparent !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  #task-bar {
+    padding: 0;
+  }
+}

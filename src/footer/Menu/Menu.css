@@ -57,9 +57,7 @@
   width: 80%;
 }
 
-#logoPlace:hover,
-#startProgram:hover,
-#fullscreen:hover {
+#logoPlace:hover {
   background-color: #bfceff24;
 }
 

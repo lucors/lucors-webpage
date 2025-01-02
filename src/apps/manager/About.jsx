@@ -1,7 +1,7 @@
 import QueryButton from "./QueryButton";
 
 
-export default function LazyAbout() {
+export default function About() {
   return (
     <div className="section about mwem25">
       Данная страница является моим PET-проектом. Подробнее обо мне в разделе{" "}

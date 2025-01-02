@@ -1,5 +1,5 @@
-import { createFrame } from "#apps/frame/WindowFrame.jsx";
-import "./LazyProjects.css";
+import { createFrame } from "#apps/frame/shared.js";
+import "./Projects.css";
 
 // TODO: Использовать БД
 const projects = [
@@ -256,7 +256,7 @@ function Project({
   );
 }
 
-export default function LazyProjects() {
+export default function Projects() {
   return (
     <div className="projectsRoot">
       {projects.map((v) => (

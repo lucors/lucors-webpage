@@ -1,7 +1,7 @@
 import QueryButton from "./QueryButton";
 
 
-export default function LazyWelcome() {
+export default function Welcome() {
   return (
     <div className="section mwem30">
       Добро пожаловать!

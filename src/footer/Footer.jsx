@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { toogleMenu } from "#store/menuSlice";
-import Menu from "./Menu";
+import Menu from "./Menu/Menu";
 import Separator from "./Separator";
 import "./Footer.css";
 import FooterRight from "./FooterRight";

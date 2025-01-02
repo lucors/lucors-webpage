@@ -1,7 +1,7 @@
-import $ from "jquery";
 import { useSelector } from "react-redux";
-import store from "../store/store";
-import { setFullscreen } from "../store/screenSlice";
+import store from "#store/store";
+import { setFullscreen } from "#store/screenSlice";
+import "./FullscreenButton.css";
 
 function requestFullscreen() {
   const elem = document.body;
@@ -35,7 +35,7 @@ function toggleFullScreen() {
 }
 
 export default function FullscreenButton() {
-  const fullscreeen = useSelector(state => state.screen.fullscreen);
+  const fullscreeen = useSelector((state) => state.screen.fullscreen);
 
   return (
     <div id="fullscreen" title="Во весь экран" onClick={toggleFullScreen}>

@@ -2,7 +2,7 @@
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import { useEffect } from "react";
 
-export default function LazyArticleMapReduce() {
+export default function ArticleMapReduce() {
 
   useEffect(() => {
     window.Prism.highlightAll();

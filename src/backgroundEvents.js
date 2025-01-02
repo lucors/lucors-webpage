@@ -165,7 +165,7 @@ function mouseMoveHandler(event) {
           win.height(cursor.y - box.y);
           break;
       }
-    } else if (!flags.mobileVersion) {
+    } else if (!mobile) {
       const aprx = 5;
       if (flags.resizeType > 0) {
         $("main").removeClass("resize-x resize-y");

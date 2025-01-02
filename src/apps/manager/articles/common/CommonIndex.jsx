@@ -1,6 +1,6 @@
 import QueryButton from "#apps/manager/QueryButton.jsx";
 
-export default function LazyCommonIndex() {
+export default function CommonIndex() {
   return (
     <div className="section arcticle-list">
       <nav>

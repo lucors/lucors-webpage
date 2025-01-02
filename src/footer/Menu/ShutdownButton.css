@@ -1,0 +1,16 @@
+#shutdownButton {
+  border-radius: var(--radius1);
+  width: 80%;
+  height: 1.8em;
+  cursor: pointer;
+}
+#shutdownButton > .ico {
+  background-image: url("img/shutdown.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+}
+#shutdownButton:hover {
+  background-color: #bfceff24;
+}
