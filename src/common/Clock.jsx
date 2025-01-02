@@ -9,8 +9,8 @@ export default function Clock() {
   useEffect(() => {
     const interval = setInterval(function(){
       const now = new Date();
-      setTime(now.toLocaleTimeString());
-      setDate(now.toLocaleDateString());
+      setTime(now.toLocaleTimeString("ru-RU"));
+      setDate(now.toLocaleDateString("ru-RU"));
     }, 1000);
 
     return () => {
