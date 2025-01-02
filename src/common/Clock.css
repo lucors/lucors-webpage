@@ -10,10 +10,12 @@
   #clock {
     position: fixed;
     height: 36%;
-    width: 100%;
+    /* width: 100%; */
+    width: 97%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    align-items: self-end;
     top: 0px;
     flex-direction: column;
     user-select: none;
