@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toogleMenu } from "#store/menuSlice";
 import Menu from "./Menu/Menu";
 import Separator from "./Separator";
@@ -8,6 +8,7 @@ import TaskBar from "./TaskBar";
 
 export default function Footer() {
   const dispatch = useDispatch();
+  const mobile = useSelector(state => state.screen.mobile);
 
   return (
     <footer>
@@ -20,7 +21,7 @@ export default function Footer() {
         <TaskBar/>
         <Menu />
       </div>
-      <FooterRight />
+      {!mobile && <FooterRight />}
     </footer>
   );
 }

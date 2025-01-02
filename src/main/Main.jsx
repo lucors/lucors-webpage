@@ -6,9 +6,12 @@ import { setMenu } from "#store/menuSlice";
 import "./Main.css";
 import IconsList from "./IconsList";
 import DesktopCanvas from "./DesktopCanvas";
+import Clock from "#common/Clock.jsx";
+import { useSelector } from "react-redux";
 
 export default function Main() {
   const mainRef = useRef(null);
+  const mobile = useSelector((state) => state.screen.mobile);
 
   useEffect(() => {
     if (!mainRef?.current) return;
@@ -26,6 +29,7 @@ export default function Main() {
       <DesktopCanvas />
       <IconsList />
       <WindowsList />
+      {mobile && <Clock />}
     </main>
   );
 }

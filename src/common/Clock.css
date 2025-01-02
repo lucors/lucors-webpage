@@ -1,0 +1,35 @@
+#clock > .time,
+#clock > .date {
+  margin-left: 15px;
+  font-size: 14px;
+  font-family: monospace;
+  text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  #clock {
+    position: fixed;
+    height: 36%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    flex-direction: column;
+    user-select: none;
+  }
+
+  #clock > .time,
+  #clock > .date {
+    margin-left: 0;
+    font-size: 0;
+  }
+
+  #clock > .time {
+    font-size: 3em;
+  }
+
+  #clock > .date {
+    font-size: 1.6em;
+  }
+}
