@@ -1,16 +1,16 @@
 import { useRef } from "react";
 import { createApp } from "./shared";
-import "./IconAppCalc.css";
+import "./IconAppChat.css";
 import { withDoubleClick } from "#common/utils.js";
 
-export default function IconAppCalc() {
+export default function IconAppChat() {
   const timer = useRef();
 
   return (
     <div
-      id="icon-calc"
+      id="icon-chat"
       className="desktop-icon"
-      title="Калькулятор"
+      title="Чат"
       onClick={withDoubleClick(timer, createApp)}
     ></div>
   );

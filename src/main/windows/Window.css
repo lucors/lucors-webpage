@@ -60,6 +60,7 @@
   background: url("img/background_blur.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position-x: center;
   position: absolute;
   width: 110%;
   height: 110%;

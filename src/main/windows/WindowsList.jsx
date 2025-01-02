@@ -5,6 +5,7 @@ import { WINDOW_APP_FRAME } from "#apps/frame/shared.js";
 import { WINDOW_APP_MANAGER } from "#apps/manager/shared.jsx";
 import { WINDOW_APP_TRASH } from "#apps/trash/shared.jsx";
 import { WINDOW_APP_CALC } from "#apps/calc/shared.jsx";
+import { WINDOW_APP_PAINT } from "#apps/paint/shared.jsx";
 
 const windowTypesMap = {};
 (function () {
@@ -19,6 +20,9 @@ const windowTypesMap = {};
   );
   windowTypesMap[WINDOW_APP_CALC] = lazy(() =>
     import("#apps/calc/WindowCalc")
+  );
+  windowTypesMap[WINDOW_APP_PAINT] = lazy(() =>
+    import("#apps/paint/WindowPaint")
   );
 })();
 

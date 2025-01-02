@@ -1,0 +1,17 @@
+.desktop-icon {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+
+.desktop-icons {
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .desktop-icon {
+    width: 3em;
+    height: 3em;
+  }
+}

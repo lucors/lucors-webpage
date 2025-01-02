@@ -1,16 +1,16 @@
 import { useRef } from "react";
 import { createApp } from "./shared";
-import "./IconAppCalc.css";
+import "./IconAppPaint.css";
 import { withDoubleClick } from "#common/utils.js";
 
-export default function IconAppCalc() {
+export default function IconAppPaint() {
   const timer = useRef();
 
   return (
     <div
-      id="icon-calc"
+      id="icon-paint"
       className="desktop-icon"
-      title="Калькулятор"
+      title="Рисовалка"
       onClick={withDoubleClick(timer, createApp)}
     ></div>
   );

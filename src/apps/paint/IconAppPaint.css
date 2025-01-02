@@ -1,7 +1,7 @@
-#icon-calc {
+#icon-paint {
   cursor: pointer;
   z-index: 1;
-  background: url("img/calc.png") no-repeat;
+  background: url("img/icon-paint.png") no-repeat;
   background-size: contain;
   background-position: center;
 }

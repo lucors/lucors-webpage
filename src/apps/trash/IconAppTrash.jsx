@@ -6,5 +6,12 @@ import { withDoubleClick } from "#common/utils.js";
 export default function IconAppTrash() {
   const timer = useRef();
 
-  return <div id="trashcan" onClick={withDoubleClick(timer, createApp)}></div>;
+  return (
+    <div
+      id="icon-trashcan"
+      className="desktop-icon"
+      title="Корзина"
+      onClick={withDoubleClick(timer, createApp)}
+    ></div>
+  );
 }

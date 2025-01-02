@@ -45,12 +45,12 @@ export const contentMenu = [
     title: "Сайт в окно",
     query: "external-app",
   },
-  {
-    id: 7,
-    title: "Чат",
-    href: "https://lucors.ru/iochat",
-    icon: "https://lucors.ru/iochat/assets/img/favicon.png",
-  },
+  // {
+  //   id: 7,
+  //   title: "Чат",
+  //   href: "https://lucors.ru/iochat",
+  //   icon: "https://lucors.ru/iochat/assets/img/favicon.png",
+  // },
   {
     id: 8,
     title: "О сайте",
