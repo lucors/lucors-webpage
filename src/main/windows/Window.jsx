@@ -34,6 +34,7 @@ export default memo(function Window({
 }) {
   const windowRef = useRef(null);
   const draggableRef = useRef(null);
+  const menuRef = useRef(null);
 
   const collapsed = data?.collapsed;
   const expanded = data?.expanded;
@@ -105,6 +106,11 @@ export default memo(function Window({
 
   function setCurrent() {
     dispatch(setCurrentWindowById(id));
+  }
+
+  function toggleMenu() {
+    if (!menuRef?.current) return;
+    $(menuRef.current).toggleClass("active");
   }
 
   useEffect(() => {
@@ -190,7 +196,18 @@ export default memo(function Window({
           </div>
         </div>
         <div className="main">
-          {menu && <div className="left">{menu}</div>}
+          {menu && mobile && (
+            <img
+              className="menu-button"
+              src="img/menu.svg"
+              onClick={toggleMenu}
+            />
+          )}
+          {menu && (
+            <div className="left" ref={menuRef}>
+              {menu}
+            </div>
+          )}
 
           <div className="right">
             {!content && <ContentLoadError />}

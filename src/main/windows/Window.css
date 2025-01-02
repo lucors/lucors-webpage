@@ -114,7 +114,9 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background-color: rgba(23, 23, 45, 0.6);
+  /* Фоновое изображение гор слишком яркое */
+  /* background-color: rgba(23, 23, 45, 0.6); */
+  background-color: rgba(23, 23, 45, 0.7);
 }
 
 .window.current .header {
@@ -439,6 +441,29 @@
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .window .main > .left {
     display: none;
+  }
+
+  .menu-button {
+    position: fixed;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    height: 2em;
+    width: 2em;
+    background-color: #212125;
+    border-radius: 0 var(--radius1) var(--radius1) 0;
+  }
+
+  .window .main > .left.active {
+    display: initial;
+    position: fixed;
+    min-width: calc(100vw - 2em);
+    height: calc(
+      100vh - (var(--height-footer) + var(--height-header)) -
+        var(--window-header) - 4em
+    );
+    padding: 1em;
+    padding-top: 3em;
   }
 
   .window.expanded .right {
