@@ -32,22 +32,27 @@ export const contentMenu = [
   },
   {
     id: 4,
+    title: "Архив",
+    query: "archive",
+  },
+  {
+    id: 5,
     title: "Статьи",
     query: "articles",
   },
   {
-    id: 5,
+    id: 6,
     title: "Сайт в окно",
     query: "external-app",
   },
   {
-    id: 6,
+    id: 7,
     title: "Чат",
     href: "https://lucors.ru/iochat",
     icon: "https://lucors.ru/iochat/assets/img/favicon.png",
   },
   {
-    id: 7,
+    id: 8,
     title: "О сайте",
     query: "about",
   },

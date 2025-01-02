@@ -4,7 +4,7 @@
 }
 
 .calculator {
-  width: 250px;
+  width: fit-content;
   padding: 10px;
   background-color: var(--color-mainContent);
   padding: 1em;
@@ -23,6 +23,7 @@
   color: black;
   font-size: 1.3em;
   font-family: monospace;
+  min-width: fit-content;
 }
 
 .calculator .buttons {

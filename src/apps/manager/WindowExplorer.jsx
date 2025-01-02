@@ -6,6 +6,7 @@ import { contentMenu } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
+import Archive from "./Archive";
 import Href2Window from "./Href2Window";
 import About from "./About";
 import Articles from "./articles/Articles";
@@ -17,6 +18,7 @@ const contentType = {
   "main-page": <Welcome />,
   contacts: <Contacts />,
   projects: <Projects />,
+  archive: <Archive />,
   "external-app": <Href2Window />,
   about: <About />,
   // Статьи
