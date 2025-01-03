@@ -1,4 +1,5 @@
 # lucors-webpage
 Личная страница Lucors
 
-![lucors-webpage preview](./doc/lucors-preview-small.png)
+![lucors-webpage pc preview](./doc/lucors-preview-pc.png)
+![lucors-webpage mobile preview](./doc/lucors-preview-mobile.png)
