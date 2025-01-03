@@ -2,7 +2,7 @@ import { memo } from "react";
 import QueryButton from "./QueryButton";
 import Window from "#main/windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import { managerMenu } from "./shared";
+import { managerMenu, WINDOW_ICON, WINDOW_TITLE } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
@@ -28,7 +28,11 @@ const contentType = {
 function Menu({ winid }) {
   return managerMenu.map((v) => {
     if (v.onClick) {
-      return <Button key={v.id} onClick={v.onClick}>{v.title}</Button>;
+      return (
+        <Button key={v.id} onClick={v.onClick}>
+          {v.title}
+        </Button>
+      );
     }
     if (v.query) {
       return (

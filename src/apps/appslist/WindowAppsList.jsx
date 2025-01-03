@@ -1,17 +1,30 @@
 import { memo } from "react";
 import Window from "#main/windows/Window";
-import "./WindowAppsList.css";
-import IconsList from "./IconsList";
+import IconAppManager from "#apps/manager/IconAppManager.jsx";
+import IconAppUrl2Frame from "#apps/url2frame/IconAppUrl2Frame.jsx";
+import IconAppChat from "#apps/chat/IconAppChat.jsx";
+import IconAppCalc from "#apps/calc/IconAppCalc.jsx";
+import IconAppPaint from "#apps/paint/IconAppPaint.jsx";
+import IconAppTrash from "#apps/trash/IconAppTrash.jsx";
 
-function AppsList() {
+function IconsList() {
   return (
-    <div className="section mwem20">
-      {/* <h3>Открыть веб-страницу в окне iframe</h3> */}
-      <IconsList />
+    <div className="section mwem20 desktop-icons">
+      <IconAppManager />
+      <IconAppUrl2Frame />
+      <IconAppChat />
+      <IconAppCalc />
+      <IconAppPaint />
+      <IconAppTrash />
     </div>
   );
 }
 
-export default memo(function WindowUrl2Frame({ data }) {
-  return <Window data={data} content={<AppsList />} />;
+export default memo(function WindowAppsList({ data }) {
+  return (
+    <Window
+      data={data}
+      content={<IconsList />}
+    />
+  );
 });

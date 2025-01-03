@@ -1,4 +1,4 @@
-import { createApp } from "./shared";
+import { createApp, WINDOW_TITLE } from "./shared";
 import "./IconAppTrash.css";
 
 export default function IconAppTrash() {
@@ -6,7 +6,7 @@ export default function IconAppTrash() {
     <div
       id="icon-trashcan"
       className="desktop-icon"
-      title="Корзина"
+      title={WINDOW_TITLE}
       onClick={createApp}
     ></div>
   );

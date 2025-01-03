@@ -1,16 +1,18 @@
-import { createApp } from "#apps/appslist/shared.jsx";
 import store from "#store/store";
 import { addWindow } from "#store/windowsSlice";
 
+export const WINDOW_TITLE = "Главная страница";
+export const WINDOW_ICON = "img/manager.svg";
 export const WINDOW_APP_MANAGER = "explorer";
+export const WINDOW_DEFAULT_QUERY = "main-page";
 
 export function createExplorer() {
   store.dispatch(
     addWindow({
-      title: "Главная страница",
-      icon: "img/manager.svg",
+      title: WINDOW_TITLE,
+      icon: WINDOW_ICON,
       type: WINDOW_APP_MANAGER,
-      query: "main-page",
+      query: WINDOW_DEFAULT_QUERY,
     })
   );
 }
@@ -50,11 +52,11 @@ export const managerMenu = [
     title: "Архив",
     query: "archive",
   },
-  {
-    id: 4,
-    title: "Приложения",
-    onClick: createApp
-  },
+  // {
+  //   id: 4,
+  //   title: "Приложения",
+  //   onClick: createApp,
+  // },
   // {
   //   id: 6,
   //   title: "Сайт в окно",

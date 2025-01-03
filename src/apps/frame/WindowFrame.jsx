@@ -8,10 +8,8 @@ export default memo(function WindowFrame({ data }) {
   return (
     <Window
       className="frame"
-      data={{
-        ...data,
-        title: isLucors ? "Рекурсия" : data.title,
-      }}
+      title={isLucors ? "Рекурсия" : data.title}
+      data={data}
       content={
         <>
           <div className="frame-block"></div>

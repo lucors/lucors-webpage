@@ -6,6 +6,8 @@ import {
   updateWindow,
 } from "#store/windowsSlice.js";
 
+export const WINDOW_TITLE = "Калькулятор";
+export const WINDOW_ICON = "img/calc.png";
 export const WINDOW_APP_CALC = "app_calc";
 
 export function createApp() {
@@ -13,8 +15,8 @@ export function createApp() {
   if (!win) {
     return store.dispatch(
       addWindow({
-        title: "Калькулятор",
-        icon: "img/calc.png",
+        title: WINDOW_TITLE,
+        icon: WINDOW_ICON,
         type: WINDOW_APP_CALC,
       })
     );

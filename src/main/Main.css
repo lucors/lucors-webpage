@@ -27,3 +27,24 @@ main > canvas {
   width: 100vw;
   overflow: hidden;
 }
+
+.desktop-icon {
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+
+.desktop-icons {
+  display: flex;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .desktop-icon {
+    width: 3em;
+    height: 3em;
+  }
+}

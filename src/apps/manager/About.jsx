@@ -1,6 +1,5 @@
 import QueryButton from "./QueryButton";
 
-
 export default function About() {
   return (
     <div className="section about mwem25">
@@ -14,14 +13,25 @@ export default function About() {
         контакты
       </QueryButton>
       . <br />
-      Этот сайт использует технологию <code className="language-none">AJAX</code> для динамической
-      подгрузки контента с сервера без перезагрузки страницы. <br />
+      Этот сайт использует технологию{" "}
+      <code className="language-none">AJAX</code> для динамической подгрузки
+      контента с сервера без перезагрузки страницы. <br />
       Для отображения контента с других страниц данного домена или внешних
-      доменных имен используется <code className="language-none">iframe</code>. Для получения иконок
-      внешних страниц используется сервер статики Google:{" "}
-      <code className="language-none">https://www.google.com/s2/favicons?</code>. <br />
-      Сохранение состояния окон происходит на вашем устройстве посредством{" "}
-      <code className="language-none">IndexedDB</code>.<br />
+      доменных имен используется <code className="language-none">iframe</code>.
+      <br />
+      <s>
+        Для получения иконок внешних страниц используется сервер статики Google:
+        <code className="language-none">
+          https://www.google.com/s2/favicons?
+        </code>
+        .
+      </s>
+      <br />
+      <s>
+        Сохранение состояния окон происходит на вашем устройстве посредством
+        <code className="language-none">IndexedDB</code>.
+      </s>
+      <br />
       <br />
       На странице используются библиотеки:
       <ul>

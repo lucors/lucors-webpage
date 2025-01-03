@@ -1,4 +1,4 @@
-import { createApp } from "./shared";
+import { createApp, WINDOW_TITLE } from "./shared";
 import "./IconAppPaint.css";
 
 export default function IconAppPaint() {
@@ -6,7 +6,7 @@ export default function IconAppPaint() {
     <div
       id="icon-paint"
       className="desktop-icon"
-      title="Рисовалка"
+      title={WINDOW_TITLE}
       onClick={createApp}
     ></div>
   );

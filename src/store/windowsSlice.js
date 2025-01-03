@@ -1,3 +1,4 @@
+import { saveLocation } from "#common/utils.js";
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 } from "uuid";
 
@@ -10,7 +11,9 @@ export const windowsSlice = createSlice({
   reducers: {
     addWindow(state, { payload }) {
       const windowInstance = {
+        title: "Окно",
         icon: "img/manager.svg",
+        type: null,
         collapsed: false,
         dragging: false,
         expanded: false,
@@ -19,22 +22,26 @@ export const windowsSlice = createSlice({
         startX: 0,
         startY: 0,
         // Значения по-умолчанию
-        width: "50em", 
+        width: "50em",
         height: "20em",
-        type: null,
         ...payload,
         id: v4(),
       };
       state.list = [...state.list, windowInstance];
       state.current = windowInstance;
+      saveCurrentWindowToURI(state);
     },
     deleteWindowById(state, { payload }) {
       state.list = [...state.list.filter((v) => v.id != payload)];
-      if (state.current?.id == payload) state.current = null;
+      if (state.current?.id == payload) {
+        state.current = null;
+        saveLocation();
+      }
     },
     deleteAllWindows(state, { payload }) {
       state.list = [];
       state.current = null;
+      saveLocation();
     },
     updateWindow(state, { payload }) {
       state.list = [
@@ -47,26 +54,27 @@ export const windowsSlice = createSlice({
           return newEntity;
         }),
       ];
-    },
-    updateAllWindows(state, { payload }){
-      state.list = [
-        ...state.list.map((v) => {
-          const newEntity = { ...v, ...payload };
-          if (state.current?.id === payload.id) {
-            state.current = newEntity;
-          }
-          return newEntity;
-        }),
-      ];
+      saveCurrentWindowToURI(state);
     },
     setCurrentWindowById: (state, { payload }) => {
       state.current = state.list.find((v) => v.id === payload);
-    },
-    setCurrentWindow: (state, { payload }) => {
-      state.current = payload;
+      saveCurrentWindowToURI(state);
     },
   },
 });
+
+function saveCurrentWindowToURI(state) {
+  /**
+   * i  = icon
+   * tp = type
+   * tt = title
+   * m  = meta (query/href)
+   */
+  saveLocation(
+    `i=${state.current?.icon}&tp=${state.current?.type}&tt=${state.current?.title}&` +
+      `m=${state.current?.query || state.current?.href || 0}`
+  );
+}
 
 export const byId = (state, id) => {
   return state.windows.list.find((v) => v.id === id);
@@ -85,9 +93,7 @@ export const {
   deleteWindowById,
   deleteAllWindows,
   updateWindow,
-  updateAllWindows,
   setCurrentWindowById,
-  setCurrentWindow,
 } = windowsSlice.actions;
 
 export default windowsSlice.reducer;

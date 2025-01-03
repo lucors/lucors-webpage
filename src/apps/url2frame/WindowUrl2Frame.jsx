@@ -2,6 +2,7 @@ import { memo, useRef } from "react";
 import Window from "#main/windows/Window";
 import { createFrame } from "#apps/frame/shared.js";
 import "./WindowUrl2Frame.css";
+import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
 
 function Url2Window() {
   const urlRef = useRef(null);
