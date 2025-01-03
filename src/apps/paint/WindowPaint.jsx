@@ -6,7 +6,7 @@ function Paint() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [lastPos, setLastPos] = useState({ x: 0, y: 0 });
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState("#000000");
   const [brushSize, setBrushSize] = useState(3);
 
   useEffect(() => {

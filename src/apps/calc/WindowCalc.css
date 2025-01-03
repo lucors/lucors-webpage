@@ -26,6 +26,22 @@
   min-width: fit-content;
 }
 
+.calculator .ops {
+  font-family: monospace;
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.calculator .ops * {
+  opacity: 0.5;
+  margin-left: 0.6em;
+}
+.calculator .ops .active {
+  opacity: 1;
+}
+
 .calculator .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,8 +1,9 @@
-import { useRef } from "react";
-import "./Contacts.css";
+import { memo, useRef } from "react";
+import Window from "#main/windows/Window";
 import { createFrame } from "#apps/frame/shared.js";
+import "./WindowUrl2Frame.css";
 
-export default function Href2Window() {
+function Url2Window() {
   const urlRef = useRef(null);
   const nameRef = useRef(null);
 
@@ -21,7 +22,8 @@ export default function Href2Window() {
         окно"
       </p>
       <p>
-        Например <code className="language-none">URL:https://www.youtube.com/</code>,{" "}
+        Например{" "}
+        <code className="language-none">URL:https://www.youtube.com/</code>,{" "}
         <code className="language-none">Имя:YouTube</code>
       </p>
       <input
@@ -49,3 +51,7 @@ export default function Href2Window() {
     </div>
   );
 }
+
+export default memo(function WindowUrl2Frame({ data }) {
+  return <Window data={data} content={<Url2Window />} />;
+});

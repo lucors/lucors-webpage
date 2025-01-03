@@ -1,0 +1,7 @@
+#icon-appslist {
+  width: 3em;
+  height: 3em;
+  background: url("img/apps.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+}

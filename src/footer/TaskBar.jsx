@@ -24,7 +24,7 @@ export default function TaskBar() {
       {windowsList.map((v) => (
         <Task key={v.id} data={v} />
       ))}
-      {mobile && <TaskKillAll />}
+      {mobile && windowsList.length > 0 && <TaskKillAll />}
     </div>
   );
 }

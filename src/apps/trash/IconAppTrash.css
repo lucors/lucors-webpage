@@ -1,9 +1,4 @@
 #icon-trashcan {
-  cursor: pointer;
-  position: absolute;
-  bottom: calc(var(--height-footer) + 1vh);
-  right: 1%;
-  z-index: 1;
   background: url("img/trashico.svg") no-repeat;
   background-size: contain;
   background-position: center;

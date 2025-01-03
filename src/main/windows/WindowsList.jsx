@@ -6,6 +6,8 @@ import { WINDOW_APP_MANAGER } from "#apps/manager/shared.jsx";
 import { WINDOW_APP_TRASH } from "#apps/trash/shared.jsx";
 import { WINDOW_APP_CALC } from "#apps/calc/shared.jsx";
 import { WINDOW_APP_PAINT } from "#apps/paint/shared.jsx";
+import { WINDOW_APP_URL2FRAME } from "#apps/url2frame/shared.jsx";
+import { WINDOW_APP_APPSLIST } from "#apps/appslist/shared.jsx";
 
 const windowTypesMap = {};
 (function () {
@@ -23,6 +25,12 @@ const windowTypesMap = {};
   );
   windowTypesMap[WINDOW_APP_PAINT] = lazy(() =>
     import("#apps/paint/WindowPaint")
+  );
+  windowTypesMap[WINDOW_APP_URL2FRAME] = lazy(() =>
+    import("#apps/url2frame/WindowUrl2Frame")
+  );
+  windowTypesMap[WINDOW_APP_APPSLIST] = lazy(() =>
+    import("#apps/appslist/WindowAppsList")
   );
 })();
 

@@ -1,3 +1,4 @@
+import { createApp } from "#apps/appslist/shared.jsx";
 import store from "#store/store";
 import { addWindow } from "#store/windowsSlice";
 
@@ -31,29 +32,38 @@ export const contentMenu = [
     query: "projects",
   },
   {
-    id: 4,
-    title: "Архив",
-    query: "archive",
-  },
-  {
     id: 5,
     title: "Статьи",
     query: "articles",
   },
-  {
-    id: 6,
-    title: "Сайт в окно",
-    query: "external-app",
-  },
-  // {
-  //   id: 7,
-  //   title: "Чат",
-  //   href: "https://lucors.ru/iochat",
-  //   icon: "https://lucors.ru/iochat/assets/img/favicon.png",
-  // },
   {
     id: 8,
     title: "О сайте",
     query: "about",
   },
 ];
+
+export const managerMenu = [
+  ...contentMenu,
+  {
+    id: 6,
+    title: "Архив",
+    query: "archive",
+  },
+  {
+    id: 4,
+    title: "Приложения",
+    onClick: createApp
+  },
+  // {
+  //   id: 6,
+  //   title: "Сайт в окно",
+  //   query: "external-app",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Чат",
+  //   href: "https://lucors.ru/iochat",
+  //   icon: "https://lucors.ru/iochat/assets/img/favicon.png",
+  // },
+].sort((a, b) => a.id - b.id);

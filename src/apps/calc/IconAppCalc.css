@@ -1,6 +1,4 @@
 #icon-calc {
-  cursor: pointer;
-  z-index: 1;
   background: url("img/calc.png") no-repeat;
   background-size: contain;
   background-position: center;

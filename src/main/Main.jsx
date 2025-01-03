@@ -4,10 +4,11 @@ import WindowsList from "./windows/WindowsList";
 import store from "#store/store";
 import { setMenu } from "#store/menuSlice";
 import "./Main.css";
-import IconsList from "./IconsList";
+import IconsList from "../apps/appslist/IconsList";
 import DesktopCanvas from "./DesktopCanvas";
 import Clock from "#common/Clock.jsx";
 import { useSelector } from "react-redux";
+import IconAppAppsList from "#apps/appslist/IconAppAppsList.jsx";
 
 export default function Main() {
   const mainRef = useRef(null);
@@ -27,7 +28,7 @@ export default function Main() {
   return (
     <main ref={mainRef}>
       <DesktopCanvas />
-      <IconsList />
+      <IconAppAppsList/>
       <WindowsList />
       {mobile && <Clock />}
     </main>
