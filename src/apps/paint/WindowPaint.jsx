@@ -1,6 +1,7 @@
 import { memo, useRef, useEffect, useState } from "react";
 import Window from "#main/windows/Window";
 import "./WindowPaint.css";
+import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
 
 function Paint() {
   const canvasRef = useRef(null);

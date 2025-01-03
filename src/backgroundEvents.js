@@ -231,6 +231,7 @@ function mouseUpHandler(event) {
 
   const storedCurrentWindow = store.getState()?.windows?.current;
   if (flags.resizeType > 0 || flags.resize) {
+    prevent = true;
     flags.resizeType = 0;
     flags.resize = false;
     $("main").removeClass("resize-x resize-y");
@@ -243,10 +244,10 @@ function mouseUpHandler(event) {
         height: win.height(),
       })
     );
-    prevent = true;
   }
 
   if (flags.dragging) {
+    const win = $(".window.current");
     prevent = true;
     flags.dragging = false;
     cursor.tooglePointer();
@@ -255,8 +256,10 @@ function mouseUpHandler(event) {
       updateWindow({
         id: storedCurrentWindow.id,
         dragging: false,
-        x: store.getState().windows.current.startX + cursor.dX(),
-        y: store.getState().windows.current.startY + cursor.dY(),
+        x: win.offset().left,
+        y: win.offset().top,
+        // x: store.getState().windows.current.startX + cursor.dX(),
+        // y: store.getState().windows.current.startY + cursor.dY(),
       })
     );
   }

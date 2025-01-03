@@ -1,4 +1,4 @@
-import { createApp } from "./shared";
+import { createApp, WINDOW_TITLE } from "./shared";
 import "./IconAppAppsList.css";
 import { useRef } from "react";
 import { withDoubleClick } from "#common/utils.js";
@@ -10,7 +10,7 @@ export default function IconAppAppsList() {
     <div
       id="icon-appslist"
       className="desktop-icon"
-      title="Приложения"
+      title={WINDOW_TITLE}
       onClick={withDoubleClick(timer, createApp)}
     ></div>
   );

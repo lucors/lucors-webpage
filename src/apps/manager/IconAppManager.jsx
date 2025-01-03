@@ -1,4 +1,4 @@
-import { createExplorer } from "./shared";
+import { createExplorer, WINDOW_TITLE } from "./shared";
 import "./IconAppManager.css";
 
 export default function IconAppManager() {
@@ -6,7 +6,7 @@ export default function IconAppManager() {
     <div
       id="icon-manager"
       className="desktop-icon"
-      title="Проводник"
+      title={WINDOW_TITLE}
       onClick={createExplorer}
     ></div>
   );

@@ -25,6 +25,8 @@ export function ContentLoadError({ message = "Контент не задан" })
 
 export default memo(function Window({
   data,
+  title,
+  icon,
   menu,
   content,
   collapsible = true,
@@ -173,8 +175,8 @@ export default memo(function Window({
       <div className="body">
         <div className="header">
           <div className="title">
-            <img className="icon" src={data.icon} />
-            <span className="value draggable">{data.title}</span>
+            <img className="icon" src={icon || data.icon} />
+            <span className="value draggable">{title || data.title}</span>
           </div>
           <div className="wdz draggable" ref={draggableRef}></div>
           <div className="control">

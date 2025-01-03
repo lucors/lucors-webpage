@@ -4,7 +4,6 @@ import WindowsList from "./windows/WindowsList";
 import store from "#store/store";
 import { setMenu } from "#store/menuSlice";
 import "./Main.css";
-import IconsList from "../apps/appslist/IconsList";
 import DesktopCanvas from "./DesktopCanvas";
 import Clock from "#common/Clock.jsx";
 import { useSelector } from "react-redux";

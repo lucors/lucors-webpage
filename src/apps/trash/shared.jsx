@@ -6,6 +6,8 @@ import {
   updateWindow,
 } from "#store/windowsSlice.js";
 
+export const WINDOW_TITLE = "Корзина";
+export const WINDOW_ICON = "img/trashico.svg";
 export const WINDOW_APP_TRASH = "app_trash";
 
 export function createApp() {
@@ -13,8 +15,8 @@ export function createApp() {
   if (!win) {
     return store.dispatch(
       addWindow({
-        title: "Trash zone",
-        icon: "img/trashico.svg",
+        title: WINDOW_TITLE,
+        icon: WINDOW_ICON,
         type: WINDOW_APP_TRASH,
       })
     );

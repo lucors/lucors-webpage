@@ -1,4 +1,4 @@
-import { createApp } from "./shared";
+import { createApp, WINDOW_TITLE } from "./shared";
 import "./IconAppUrl2Frame.css";
 
 export default function IconAppUrl2Frame() {
@@ -6,7 +6,7 @@ export default function IconAppUrl2Frame() {
     <div
       id="icon-url2frame"
       className="desktop-icon"
-      title="Сайт в окно"
+      title={WINDOW_TITLE}
       onClick={createApp}
     ></div>
   );
