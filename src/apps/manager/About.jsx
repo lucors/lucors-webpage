@@ -38,13 +38,16 @@ export default function About() {
         <li>
           <a href="https://jquery.com/">jquery</a>
         </li>
-        <li>
-          <a href="https://animejs.com/">animejs</a>
-        </li>
+        <s>
+          <li>
+            <a href="https://animejs.com/">animejs</a>
+          </li>
+        </s>
         <li>
           <a href="https://prismjs.com/">prism</a>
         </li>
       </ul>
+      <a href="https://github.com/lucors/lucors-webpage">Репозиторий проекта</a>
     </div>
   );
 }
