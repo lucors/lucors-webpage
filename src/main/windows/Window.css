@@ -436,6 +436,13 @@
 .section.error h2 {
   color: #ffc2c2;
 }
+  
+.window .header .title .value {
+  max-width: 60vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {

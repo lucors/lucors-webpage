@@ -70,10 +70,12 @@ function saveCurrentWindowToURI(state) {
    * tt = title
    * m  = meta (query/href)
    */
-  saveLocation(
-    `i=${state.current?.icon}&tp=${state.current?.type}&tt=${state.current?.title}&` +
-      `m=${state.current?.query || state.current?.href || 0}`
-  );
+  saveLocation({
+    i: state.current?.icon,
+    tp: state.current?.type,
+    tt: state.current?.title,
+    m: state.current?.query || state.current?.href || 0
+  });
 }
 
 export const byId = (state, id) => {

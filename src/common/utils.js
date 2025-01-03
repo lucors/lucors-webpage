@@ -17,18 +17,17 @@ export function withDoubleClick(ref, onDoubleClick, onClick = null) {
   };
 }
 
-export function saveLocation(currentLocation) {
-  if (!currentLocation) {
+export function saveLocation(params) {
+  if (!params) {
     window.history.pushState(null, null, "?");
     window.location.hash = "#";
     return;
   }
-  currentLocation = "?" + currentLocation;
-  try {
-    window.history.pushState(null, null, currentLocation);
-    return;
-  } catch (e) {}
-  window.location.hash = "#" + currentLocation;
+  const url = new URL(window.location.href)
+  for (const key in params) {
+    url.searchParams.set(key, String(params[key]).replaceAll(" ", "~"));
+  }
+  window.history.pushState(null, '', url);
 }
 
 export function parseQuery(queryString) {
@@ -39,7 +38,7 @@ export function parseQuery(queryString) {
   ).split("&");
   for (var i = 0; i < pairs.length; i++) {
     var pair = pairs[i].split("=");
-    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "").replaceAll("~", " ");
   }
   return query;
 }
