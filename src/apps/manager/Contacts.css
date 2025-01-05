@@ -189,7 +189,8 @@
 }
 
 .heart {
-  color: #ffa1a1;
+  /* color: #ffa1a1; */
+  color: #a8a1ff;
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s;
@@ -203,6 +204,7 @@
 .avatar-container {
   display: flex;
   justify-content: center;
+  /* justify-content: space-around; */
   background-color: #00000052;
   border-radius: var(--radius1);
   padding-top: 0.6em;
@@ -212,19 +214,18 @@
 }
 
 .avatar-container .text {
-  margin-right: 0.9em;
-  margin-bottom: 0.9em;
+  margin: 0.9em;
 }
 
 .avatar-container .makishimudesu {
-  font-size: 1.7em;
+  font-size: 1.3em;
 }
 .avatar-container .makishimudesu .name {
   font-size: 2em;
 }
 
 .avatar-container .avatar {
-  height: 13em;
+  height: 11em;
   border-radius: var(--radius1);
 }
 

@@ -35,8 +35,9 @@ export default function Contacts() {
           <div className="avatar-container">
             <div className="text">
               <div className="makishimudesu">
-                Меня зовут <div className="name">Максим</div>
+                Привет! <br /> Меня зовут...<div className="name">Максим</div>
               </div>
+              <div>Также известен как <code className="language-none">lucors</code></div>
               <div className="watashinopage">Я создатель этого сайта</div>
             </div>
             <img className="avatar" src="img/logo-avatar.png" alt="Моё фото" />
@@ -48,7 +49,7 @@ export default function Contacts() {
           . <br />
           Отучился на бакалавра в{" "}
           <a href="https://www.sgu.ru/" target="_blank">
-            Саратовском государственном университете имени Н. Г. Чернышевского
+            СГУ имени Н. Г. Чернышевского
           </a>{" "}
           на Механико-математическом факультете, там же и пристрастился к
           веб-технологиям. <br />
