@@ -1,14 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toogleMenu } from "#store/menuSlice";
 import Menu from "./Menu/Menu";
 import Separator from "./Separator";
 import "./Footer.css";
 import FooterRight from "./FooterRight";
 import TaskBar from "./TaskBar";
+import TaskKillAll from "./TaskKillAll";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
   const dispatch = useDispatch();
-  const mobile = useSelector(state => state.screen.mobile);
+  const windowsList = useSelector((state) => state.windows.list) ?? [];
+  const mobile = useSelector((state) => state.screen.mobile);
 
   return (
     <footer>
@@ -18,8 +21,13 @@ export default function Footer() {
           <span className="menuText">Меню</span>
         </div>
         <Separator />
-        <TaskBar/>
+        <TaskBar />
         <Menu />
+        {mobile && windowsList.length > 0 && (
+          <>
+            <Separator /> <TaskKillAll />
+          </>
+        )}
       </div>
       {!mobile && <FooterRight />}
     </footer>

@@ -83,4 +83,9 @@ footer {
   #task-bar {
     padding: 0;
   }
+  .rightFootBox {
+    max-width: 100%;
+    width: auto;
+    margin-right: 0;
+  }
 }
