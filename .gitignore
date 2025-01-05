@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 public/imgold
+imgold
 
 # Editor directories and files
 .vscode

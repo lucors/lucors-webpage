@@ -52,7 +52,7 @@ export default function Menu() {
   }, [openned]);
 
   const hideMenu = () => {
-    dispatch(setMenu(false));
+    if (store.getState().menu.openned) store.dispatch(setMenu(false));
   };
 
   return (

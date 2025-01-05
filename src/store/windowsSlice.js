@@ -57,6 +57,7 @@ export const windowsSlice = createSlice({
       saveCurrentWindowToURI(state);
     },
     setCurrentWindowById: (state, { payload }) => {
+      if (state.current?.id === payload) return;
       state.current = state.list.find((v) => v.id === payload);
       saveCurrentWindowToURI(state);
     },

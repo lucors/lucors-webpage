@@ -16,7 +16,7 @@ export default function Main() {
   useEffect(() => {
     if (!mainRef?.current) return;
     $(mainRef.current).on("click", function () {
-      store.dispatch(setMenu(false));
+      if (store.getState().menu.openned) store.dispatch(setMenu(false));
     });
 
     return () => {
@@ -27,7 +27,7 @@ export default function Main() {
   return (
     <main ref={mainRef}>
       <DesktopCanvas />
-      <IconAppAppsList/>
+      <IconAppAppsList />
       <WindowsList />
       {mobile && <Clock />}
     </main>
