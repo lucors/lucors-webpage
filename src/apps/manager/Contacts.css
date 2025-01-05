@@ -17,8 +17,7 @@
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
-
-.aboutmeField {
+А .aboutmeField {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -130,6 +129,7 @@
   background-color: rgba(81, 87, 128, 0.28);
   border-radius: var(--radius1);
   margin-bottom: 0.5em;
+  flex-wrap: wrap;
 }
 .aboutmeHrefs .about {
   text-decoration: none;
@@ -208,10 +208,12 @@
   padding-top: 0.6em;
   padding-bottom: 0.6em;
   margin-bottom: 0.6em;
+  flex-wrap: wrap;
 }
 
 .avatar-container .text {
   margin-right: 0.9em;
+  margin-bottom: 0.9em;
 }
 
 .avatar-container .makishimudesu {

@@ -1,6 +1,7 @@
 .about .libs {
   display: flex;
   margin-top: 0.5em;
+  flex-wrap: wrap;
 }
 
 .about .libs > a {

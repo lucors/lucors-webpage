@@ -436,7 +436,7 @@
 .section.error h2 {
   color: #ffc2c2;
 }
-  
+
 .window .header .title .value {
   max-width: 60vw;
   text-overflow: ellipsis;
@@ -457,8 +457,8 @@
     cursor: pointer;
     height: 2em;
     width: 2em;
-    background-color: #212125;
-    border-radius: 0 var(--radius1) var(--radius1) 0;
+    background-color: #4d4d55;
+    border-radius: 0 0 var(--radius1) 0;
   }
 
   .window .main > .left.active {
