@@ -192,7 +192,7 @@ function Project({
 
 export default function Projects() {
   return (
-    <div className="projectsRoot">
+    <div className="projectsRoot section"> 
       {projects.map((v) => (
         <Project key={v.id} {...v} />
       ))}

@@ -1,0 +1,15 @@
+.about .libs {
+  display: flex;
+  margin-top: 0.5em;
+}
+
+.about .libs > a {
+  margin-right: 1em;
+}
+
+.about .libs img {
+  height: 2em;
+  background-color: #ffffff;
+  border-radius: var(--radius1);
+  padding: 0.3em;
+}

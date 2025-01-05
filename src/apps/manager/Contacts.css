@@ -6,8 +6,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 30vw;
-  max-width: 40vw;
+  /* min-width: 30vw; */
+  /* max-width: 40vw; */
 }
 
 .window.expanded .contactsContent {
@@ -35,14 +35,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   background-color: rgba(81, 87, 128, 0.28);
   border-radius: var(--radius1);
+  align-items: flex-start;
 }
 
 .sendForm {
@@ -65,6 +61,15 @@
   height: 50px;
   resize: none;
   border-radius: var(--radius1);
+  border: none;
+  margin-top: 0.4em;
+  font-size: 0.8em;
+}
+
+.formName {
+  border-radius: var(--radius1);
+  border: none;
+  font-size: 0.8em;
 }
 
 .formButton {
@@ -98,6 +103,133 @@
 }
 .window.expanded .contactsText {
   max-width: 50%;
+}
+
+.aboutmeField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: rgba(81, 87, 128, 0.28);
+  border-radius: var(--radius1);
+  margin-bottom: 0.5em;
+}
+.aboutmeText {
+  padding: 10px;
+  /*box-shadow: 0px -2px 0px 0px white inset;*/
+}
+.aboutmeHrefs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* justify-content: flex-end; */
+  justify-content: center;
+  background-color: rgba(81, 87, 128, 0.28);
+  border-radius: var(--radius1);
+  margin-bottom: 0.5em;
+}
+.aboutmeHrefs .about {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 4px;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  /* width: 100%; */
+  text-align: center;
+  border-radius: var(--radius1);
+  margin: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+}
+.aboutmeHrefs .about img {
+  height: 2em;
+  width: auto;
+}
+/* .aboutmeHrefs .about:first-child {
+  border-radius: var(--radius1) 0 0 var(--radius1);
+}
+.aboutmeHrefs .about:last-child {
+  border-radius: 0 var(--radius1) var(--radius1) 0;
+} */
+.aboutmeHrefs .about:hover {
+  -webkit-box-shadow: 0px 10px 10px -8px #bfceff;
+  box-shadow: 0px 10px 10px -8px #bfceff;
+}
+.aboutmeVk {
+  background-color: white;
+  color: white;
+}
+.aboutmeTg {
+  background-color: white;
+  /* background-color: #4a76a8; */
+  color: white;
+}
+.aboutmeYamail {
+  background-color: white;
+  color: #ff0000;
+}
+.aboutmeGmail {
+  background-color: white;
+  color: black;
+}
+.aboutmeGitHub {
+  background-color: white;
+  color: white;
+}
+.aboutmeGitLab {
+  background-color: white;
+  color: #ffb855;
+  text-shadow: 0em 0.1em 0.1em #ed683073;
+}
+
+.heart {
+  color: #ffa1a1;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s;
+  user-select: none;
+}
+.heart:active {
+  color: #ff2d2d;
+  transform: scale(1.25) rotate(25deg);
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  background-color: #00000052;
+  border-radius: var(--radius1);
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.avatar-container .text {
+  margin-right: 0.9em;
+}
+
+.avatar-container .makishimudesu {
+  font-size: 1.7em;
+}
+.avatar-container .makishimudesu .name {
+  font-size: 2em;
+}
+
+.avatar-container .avatar {
+  height: 13em;
+  border-radius: var(--radius1);
+}
+
+.playLucors {
+  cursor: pointer;
+  height: 0.9em;
+  margin-left: 0.1em;
 }
 
 /*MOBILE*/

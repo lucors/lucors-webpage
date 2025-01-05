@@ -83,7 +83,7 @@ export const byId = (state, id) => {
 };
 
 export const byType = (state, type) => {
-  return state.windows.list.find((v) => v.type === type);
+  return state.windows.list.findLast((v) => v.type === type);
 };
 
 export const isCurrent = (state, id) => {
