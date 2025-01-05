@@ -7,7 +7,7 @@ export default function IconAppManager() {
       id="icon-manager"
       className="desktop-icon"
       title={WINDOW_TITLE}
-      onClick={createExplorer}
+      onClick={() => createExplorer()}
     ></div>
   );
 }
