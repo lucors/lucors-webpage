@@ -116,7 +116,7 @@ export const contentMenu = [
 export const managerMenu = [
   ...contentMenu,
   {
-    id: 6,
+    id: 4,
     title: "Архив",
     query: "archive",
   },
