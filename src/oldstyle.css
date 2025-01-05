@@ -39,11 +39,6 @@
   margin-right: 15px;
 }
 
-#trashcanContent {
-  min-width: 25vw;
-  max-width: 40vw;
-}
-
 #title {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;

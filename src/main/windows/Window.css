@@ -478,9 +478,10 @@
     width: 100%;
   }
 
-  .window.expanded .section {
+  /* TODO: WTF */
+  /* .window.expanded .section {
     width: calc(95vw - 2vw - 3em);
-  }
+  } */
 
   .window .collapse,
   .window .expand,

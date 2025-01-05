@@ -1,6 +1,7 @@
 import { createFrame } from "#apps/frame/shared.js";
 import ActionNewWindow from "#common/ActionNewWindow.jsx";
 import Link from "#common/Link.jsx";
+import "./Trashzone.css";
 
 export default function Trashzone() {
   return (

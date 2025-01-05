@@ -1,0 +1,11 @@
+#trashcanContent {
+  min-width: 25vw;
+  max-width: 40vw;
+}
+
+/*MOBILE*/
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  #trashcanContent {
+    max-width: 100vw;
+  }
+}
