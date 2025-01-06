@@ -1,5 +1,4 @@
 import { createApp, WINDOW_TITLE } from "./shared";
-import "./IconAppTrash.css";
 
 export default function IconAppTrash() {
   return (
@@ -7,7 +6,10 @@ export default function IconAppTrash() {
       id="icon-trashcan"
       className="desktop-icon"
       title={WINDOW_TITLE}
-      onClick={createApp}
-    ></div>
+      onClick={() => createApp()}
+    >
+      <img src="img/trashico.svg" />
+      <div className="label">{WINDOW_TITLE}</div>
+    </div>
   );
 }

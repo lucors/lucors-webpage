@@ -1,7 +1,0 @@
-#icon-manager {
-  cursor: pointer;
-  z-index: 1;
-  background: url("img/manager.svg") no-repeat;
-  background-size: contain;
-  background-position: center;
-}

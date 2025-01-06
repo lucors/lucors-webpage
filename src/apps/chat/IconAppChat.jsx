@@ -1,5 +1,4 @@
 import { createApp } from "./shared";
-import "./IconAppChat.css";
 
 export default function IconAppChat() {
   return (
@@ -7,7 +6,10 @@ export default function IconAppChat() {
       id="icon-chat"
       className="desktop-icon"
       title="Чат"
-      onClick={createApp}
-    ></div>
+      onClick={() => createApp()}
+    >
+      <img src="https://lucors.ru/iochat/assets/img/favicon.png" />
+      <div className="label">Чат</div>
+    </div>
   );
 }

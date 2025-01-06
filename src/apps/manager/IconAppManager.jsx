@@ -1,5 +1,4 @@
 import { createExplorer, WINDOW_TITLE } from "./shared";
-import "./IconAppManager.css";
 
 export default function IconAppManager() {
   return (
@@ -8,6 +7,9 @@ export default function IconAppManager() {
       className="desktop-icon"
       title={WINDOW_TITLE}
       onClick={() => createExplorer()}
-    ></div>
+    >
+      <img src="img/manager.svg"/>
+      <div className="label">{WINDOW_TITLE}</div>
+    </div>
   );
 }
