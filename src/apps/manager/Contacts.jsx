@@ -37,10 +37,12 @@ export default function Contacts() {
               <div className="makishimudesu">
                 Привет! <br /> Меня зовут...<div className="name">Максим</div>
               </div>
-              <div>Также известен как <code className="language-none">lucors</code></div>
+              <div>
+                Также известен как <code className="language-none">lucors</code>
+              </div>
               <div className="watashinopage">Я создатель этого сайта</div>
             </div>
-            <img className="avatar" src="img/logo-avatar.png" alt="Моё фото" />
+            <img className="avatar" src="img/logo-avatar-small-alpha.png" alt="Моё фото" />
           </div>
           Родился в России, в{" "}
           <a href="https://ru.wikipedia.org/wiki/Саратов" target="_blank">
@@ -71,56 +73,56 @@ export default function Contacts() {
           также мои аккаунты в Git хостах, где я храню свои репозитории. <br />
           Спасибо, что посетили мой сайт <span className="heart">❤</span> <br />
         </span>
-      </div>
 
-      <div className="aboutmeHrefs">
-        <a
-          target="_blank"
-          className="about aboutmeTg"
-          href="https://t.me/lucors"
-          title="Telegram"
-        >
-          <img src="img/contact-tg.png" />
-        </a>
-        <a
-          target="_blank"
-          className="about aboutmeVk"
-          href="https://vk.com/lucors"
-          title="Вконтакте"
-        >
-          <img src="img/contact-vk.png" />
-        </a>
-        <a
-          target="_blank"
-          className="about aboutmeYamail"
-          href="mailto:thesourcecode.max@yandex.ru"
-          title="Почта Яндекс"
-        >
-          <img src="img/contact-ya.png" />
-        </a>
-        <a
-          className="about aboutmeGmail"
-          href="mailto:lucors.dev@gmail.com"
-          title="Почта Gmail"
-        >
-          <img src="img/contact-gm.png" />
-        </a>
-        <a
-          target="_blank"
-          className="about aboutmeGitHub"
-          href="https://github.com/lucors"
-          title="GitHub"
-        >
-          <img src="img/contact-gh.png" />
-        </a>
-        <a
-          target="_blank"
-          className="about aboutmeGitLab"
-          href="https://gitlab.com/lucors-dev"
-          title="GitLab"
-        >
-          <img src="img/contact-gl.png" />
-        </a>
+        <div className="aboutmeHrefs">
+          <a
+            target="_blank"
+            className="about aboutmeTg"
+            href="https://t.me/lucors"
+            title="Telegram"
+          >
+            <img src="img/contact-tg.png" />
+          </a>
+          <a
+            target="_blank"
+            className="about aboutmeVk"
+            href="https://vk.com/lucors"
+            title="Вконтакте"
+          >
+            <img src="img/contact-vk.png" />
+          </a>
+          <a
+            target="_blank"
+            className="about aboutmeYamail"
+            href="mailto:thesourcecode.max@yandex.ru"
+            title="Почта Яндекс"
+          >
+            <img src="img/contact-ya.png" />
+          </a>
+          <a
+            className="about aboutmeGmail"
+            href="mailto:lucors.dev@gmail.com"
+            title="Почта Gmail"
+          >
+            <img src="img/contact-gm.png" />
+          </a>
+          <a
+            target="_blank"
+            className="about aboutmeGitHub"
+            href="https://github.com/lucors"
+            title="GitHub"
+          >
+            <img src="img/contact-gh.png" />
+          </a>
+          <a
+            target="_blank"
+            className="about aboutmeGitLab"
+            href="https://gitlab.com/lucors-dev"
+            title="GitLab"
+          >
+            <img src="img/contact-gl.png" />
+          </a>
+        </div>
       </div>
 
       <div className="contactsField">

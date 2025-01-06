@@ -1,16 +1,15 @@
-
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import { useEffect } from "react";
+import "../Articles.css";
 
 export default function ArticleMapReduce() {
-
   useEffect(() => {
     window.Prism.highlightAll();
-  })
+  });
 
   return (
     <>
-      <div className="section">
+      <div className="section article">
         <nav>
           <ul>
             <QueryButton
@@ -85,8 +84,8 @@ export default function ArticleMapReduce() {
         <pre>
           <code className="language-python line-numbers">
             {`
-    list_of_strings = ['abc', 'python', 'dima']
-  %time max_length = print(find_longest_string(list_of_strings))
+list_of_strings = ['abc', 'python', 'dima']
+max_length = print(find_longest_string(list_of_strings))
     `}
           </code>
         </pre>
@@ -95,7 +94,6 @@ export default function ArticleMapReduce() {
           <code className="language-bash">
             {`
 OUTPUT:
-python
 CPU times: user 0 ns, sys: 0 ns, total: 0 ns
 Затраченное время: 75.8 µs
 `}
@@ -111,7 +109,7 @@ CPU times: user 0 ns, sys: 0 ns, total: 0 ns
           <code className="language-python line-numbers">
             {`
 large_list_of_strings = list_of_strings*1000
-%time print(find_longest_string(large_list_of_strings))
+print(find_longest_string(large_list_of_strings))
 `}
           </code>
         </pre>
@@ -120,7 +118,6 @@ large_list_of_strings = list_of_strings*1000
           <code className="language-bash">
             {`
 OUTPUT:
-python
 CPU times: user 0 ns, sys: 0 ns, total: 0 ns
 Затраченное время: 307 µs
 `}
@@ -133,7 +130,7 @@ CPU times: user 0 ns, sys: 0 ns, total: 0 ns
           <code className="language-python line-numbers">
             {`
 large_list_of_strings = list_of_strings*100000000
-%time max_length = max(large_list_of_strings, key=len)
+max_length = max(large_list_of_strings, key=len)
 `}
           </code>
         </pre>
@@ -142,14 +139,13 @@ large_list_of_strings = list_of_strings*100000000
           <code className="language-bash">
             {`
 OUTPUT:
-python
 CPU times: user 21.8 s, sys: 0 ns, total: 21.8 s
 Затраченное время: 21.8 s
 `}
           </code>
         </pre>
 
-        <p>
+        <p className="indent">
           Теперь это проблема. В большистве приложений время отклика более 20-ти
           секунд недопустимо. Один из вариантов сократить время вычислений —
           купить более мощный и быстрый процессор. Такое масштабирование системы
@@ -172,7 +168,8 @@ CPU times: user 21.8 s, sys: 0 ns, total: 21.8 s
         <ol>
           <li>Разбить данные на множество блоков;</li>
           <li>
-            Параллельно выполнить функцию <code>find_longest_string</code> для
+            Параллельно выполнить функцию{" "}
+            <code className="language-none">find_longest_string</code> для
             каждого блока;
           </li>
           <li>Найти самую длинную строку среди собранных воедино блоков.</li>
@@ -180,30 +177,46 @@ CPU times: user 21.8 s, sys: 0 ns, total: 21.8 s
         <p>
           Наш код слишком сложно раздробить из-за узкой направленности, поэтому
           вместо функции
-          <code>find_longest_string</code> мы разработаем более общую структуру,
-          которая поможет нам выполнять различные вычисления с большими объемами
-          данных параллельно.
+          <code className="language-none">find_longest_string</code> мы
+          разработаем более общую структуру, которая поможет нам выполнять
+          различные вычисления с большими объемами данных параллельно.
         </p>
         <p>
-          В коде мы делаем две основные вещи: вычисляем <code>len</code> строки
-          и сравниваем это значение с самым большим на данным момент. Раздлем
-          код на два шага: 1)Вычислим <code>len</code>
-          всех строк списка; 2)Выберем <code>max</code> значение.
+          В коде мы делаем две основные вещи: вычисляем{" "}
+          <code className="language-none">len</code> строки и сравниваем это
+          значение с самым большим на данным момент.
+          <br /> Разделим код на два шага:
+          <ol>
+            <li>
+              Вычислим <code className="language-none">len</code> всех строк
+              списка;
+            </li>
+            <li>
+              Выберем <code className="language-none">max</code> значение.
+            </li>
+          </ol>
         </p>
 
         <pre>
           <code className="language-python line-numbers">
-            %%time # Шаг 1: list_of_string_lens = [len(s) for s in
-            list_of_strings] list_of_string_lens = zip(list_of_strings,
-            list_of_string_lens) #Шаг 2: max_len = max(list_of_string_lens,
-            key=lambda t: t[1]) print(max_len)
+            {`
+            # Шаг 1: 
+            list_of_string_lens = [len(s) for s in list_of_strings] 
+            list_of_string_lens = zip(list_of_strings, list_of_string_lens) 
+            # Шаг 2: 
+            max_len = max(list_of_string_lens, key=lambda t: t[1]) 
+            print(max_len)
+            `}
           </code>
         </pre>
 
         <pre>
           <code className="language-bash">
-            OUTPUT: ('python', 6) CPU times: user 51.6 s, sys: 804 ms, total:
-            52.4 s Затраченное время: 52.4 s
+            {`
+            OUTPUT:
+            CPU times: user 51.6 s, sys: 804 ms, total: 52.4 s
+            Затраченное время: 52.4 s
+            `}
           </code>
         </pre>
         <div className="foot">
@@ -215,17 +228,18 @@ CPU times: user 21.8 s, sys: 0 ns, total: 21.8 s
         <p>
           В этом состоянии код работает на самом деле медленнее, чем раньше,
           потому что вместо того, чтобы выполнить один проход для всех наших
-          строк, мы делаем это 2 раза, сначала для вычисления <code>len</code>,
-          а затем для поиска <code>max</code> значения. Почему это хорошо для
-          нас? Потому что теперь наш "шаг 2" получает на вход не исходный
+          строк, мы делаем это 2 раза, сначала для вычисления{" "}
+          <code className="language-none">len</code>, а затем для поиска{" "}
+          <code className="language-none">max</code> значения. Почему это хорошо
+          для нас? Потому что теперь наш "шаг 2" получает на вход не исходный
           список, а некоторые предварительно обработанные данные. Это позволяет
           нам выполнить второй шаг, используя выходные данные другого "шаг 2".
           Давайте дадим названия этим шагам. Мы будем называть первый шаг{" "}
-          <code>mapper</code>, потому что он отображает какое-то одно значение в
-          какое-то другое значение, а второй шаг мы будем называть{" "}
-          <code>reductor</code>, поскольку он получает список значений и
-          возвращает единственное значение. Вот две вспомогательные функции для
-          mapper и reductor:
+          <code className="language-none">mapper</code>, потому что он
+          отображает какое-то одно значение в какое-то другое значение, а второй
+          шаг мы будем называть <code className="language-none">reductor</code>,
+          поскольку он получает список значений и возвращает единственное
+          значение. Вот две вспомогательные функции для mapper и reductor:
         </p>
         <pre>
           <code className="language-python line-numbers">
@@ -240,27 +254,38 @@ def reducer(p, c):
         </pre>
 
         <p>
-          Mapper — это просто функция <code>len</code>. Он получает строку и
-          возвращает её длину. Reducer — это функция, получающая на вход два
-          кортежа и возвращающая тот, который имеет большую длину (строки).
+          Mapper — это просто функция <code className="language-none">len</code>
+          . Он получает строку и возвращает её длину. Reducer — это функция,
+          получающая на вход два кортежа и возвращающая тот, который имеет
+          большую длину (строки).
         </p>
         <p>
-          Перепишем наш код, испольщуя <code>map</code> и <code>reduce</code>,
-          которые являются встроенными функциями в Python. (В Python 3 нам нужно
-          импортировать их из библиотеки <code>functools</code>).
+          Перепишем наш код, испольщуя{" "}
+          <code className="language-none">map</code> и{" "}
+          <code className="language-none">reduce</code>, которые являются
+          встроенными функциями в Python. (В Python 3 нам нужно импортировать их
+          из библиотеки <code className="language-none">functools</code>).
         </p>
         <pre>
           <code className="language-python line-numbers">
-            %%time #Шаг 1: mapped = map(mapper, list_of_strings) mapped =
-            zip(list_of_strings, mapped) #Шаг 2: reduced = reduce(reducer,
-            mapped) print(reduced)
+            {`
+            # Шаг 1: 
+            mapped = map(mapper, list_of_strings) 
+            mapped = zip(list_of_strings, mapped) 
+            # Шаг 2: 
+            reduced = reduce(reducer, mapped) 
+            print(reduced)
+            `}
           </code>
         </pre>
 
         <pre>
           <code className="language-bash">
-            OUTPUT: ('python', 6) CPU times: user 57.9 s, sys: 0 ns, total: 57.9
-            s Затраченное время: 57.9 s
+            {`
+            OUTPUT:
+            CPU times: user 57.9 s, sys: 0 ns, total: 57.9s
+            Затраченное время: 57.9 s
+          `}
           </code>
         </pre>
 
@@ -284,28 +309,35 @@ def reducer(p, c):
           Теперь разделим наши входные данные на блоки и разберемся, как это
           работает, прежде чем выполнять какое-либо распараллеливание: Now let's
           break our input into chunks and understand how it works before we do
-          any parallelization (we’ll use the <code>chunkify</code> that breaks a
-          large list into chunks of equal size):
+          any parallelization (we’ll use the{" "}
+          <code className="language-none">chunkify</code> that breaks a large
+          list into chunks of equal size):
         </p>
 
         <pre>
           <code className="language-python line-numbers">
-            data_chunks = chunkify(list_of_strings, number_of_chunks=30) #Шаг 1:
-            reduced_all = [] for chunk in data_chunks: mapped_chunk =
-            map(mapper, chunk) mapped_chunk = zip(chunk, mapped_chunk)
-            reduced_chunk = reduce(reducer, mapped_chunk)
-            reduced_all.append(reduced_chunk) #Шаг 2: reduced = reduce(reducer,
-            reduced_all) print(reduced)
+            {`
+data_chunks = chunkify(list_of_strings, number_of_chunks=30)
+
+#Шаг 1:
+reduced_all = []
+for chunk in data_chunks:
+    mapped_chunk = map(mapper, chunk)
+    mapped_chunk = zip(chunk, mapped_chunk)
+    reduced_chunk = reduce(reducer, mapped_chunk)
+    reduced_all.append(reduced_chunk)
+    
+#Шаг 2:
+reduced = reduce(reducer, reduced_all)
+print(reduced)
+          `}
           </code>
         </pre>
-
-        <pre>
-          <code className="language-bash">OUTPUT: ('python', 6)</code>
-        </pre>
         <div className="foot">
-          Мы воспользуемся функцией <code>chunkify</code>, которая разбивает
+          Мы воспользуемся функцией{" "}
+          <code className="language-none">chunkify</code>, которая разбивает
           большой список на части равного размера, в нашем случае{" "}
-          <code>number_of_chunks=36</code>.
+          <code className="language-none">number_of_chunks=36</code>.
         </div>
 
         <p>
@@ -319,50 +351,77 @@ def reducer(p, c):
         <h2>Параллельные вычисления</h2>
         <p className="indent">
           Мы почти готовы запустить наш код параллельно. Единственное, что мы
-          можем улучшить, так это добавить первый шаг <code>reduce</code> в
-          mapper. Мы делаем это потому, что хотим разбить наш код на два простых
-          шага, а первый <code>reduce</code> работает на одном блоке, и мы хотим
-          его распараллелить. Вот как это выглядит:
+          можем улучшить, так это добавить первый шаг{" "}
+          <code className="language-none">reduce</code> в mapper. Мы делаем это
+          потому, что хотим разбить наш код на два простых шага, а первый{" "}
+          <code className="language-none">reduce</code> работает на одном блоке,
+          и мы хотим его распараллелить. Вот как это выглядит:
         </p>
 
         <pre>
           <code className="language-python line-numbers">
-            def chunks_mapper(chunk): mapped_chunk = map(mapper, chunk)
-            mapped_chunk = zip(chunk, mapped_chunk) return reduce(reducer,
-            mapped_chunk) %%time data_chunks = chunkify(list_of_strings,
-            number_of_chunks=30) #Шаг 1: mapped = map(chunks_mapper,
-            data_chunks) #Шаг 2: reduced = reduce(reducer, mapped)
-            print(reduced)
+            {`
+def chunks_mapper(chunk):
+    mapped_chunk = map(mapper, chunk) 
+    mapped_chunk = zip(chunk, mapped_chunk)
+    return reduce(reducer, mapped_chunk)
+
+data_chunks = chunkify(list_of_strings, number_of_chunks=30)
+
+#Шаг 1:
+mapped = map(chunks_mapper, data_chunks)
+
+#Шаг 2:
+reduced = reduce(reducer, mapped)
+print(reduced)
+`}
           </code>
         </pre>
 
         <pre>
           <code className="language-bash">
-            OUTPUT: ('python', 6) CPU times: user 58.5 s, sys: 968 ms, total:
-            59.5 s Затраченное время: 59.5 s
+            {`
+OUTPUT:
+CPU times: user 58.5 s, sys: 968 ms, total: 59.5 s
+Затраченное время: 59.5 s
+`}
           </code>
         </pre>
 
         <p>
           Теперь у нас есть изящный двухшаговый код. Если мы выполним это как
           есть, мы получим то же время вычисления, но теперь мы можем
-          распараллелить шаг 1, используя модуль <code>multiprocessing</code>,
-          просто заменив фунцию <code>map</code> на <code>pool.map</code>:
+          распараллелить шаг 1, используя модуль{" "}
+          <code className="language-none">multiprocessing</code>, просто заменив
+          фунцию <code className="language-none">map</code> на{" "}
+          <code className="language-none">pool.map</code>:
         </p>
 
         <pre>
           <code className="language-python line-numbers">
-            from multiprocessing import Pool pool = Pool(8) data_chunks =
-            chunkify(large_list_of_strings, number_of_chunks=8) #Шаг 1: mapped =
-            pool.map(mapper, data_chunks) #Шаг 2: reduced = reduce(reducer,
-            mapped) print(reduced)
+            {`
+from multiprocessing import Pool
+
+pool = Pool(8)
+data_chunks = chunkify(large_list_of_strings, number_of_chunks=8)
+
+#Шаг 1:
+mapped = pool.map(mapper, data_chunks)
+
+#Шаг 2:
+reduced = reduce(reducer, mapped)
+print(reduced)
+`}
           </code>
         </pre>
 
         <pre>
           <code className="language-bash">
-            OUTPUT: ('python', 6) CPU times: user 7.74 s, sys: 1.46 s, total:
-            9.2 s Затраченное время: 10.8 s
+{`
+OUTPUT:
+CPU times: user 7.74 s, sys: 1.46 s, total: 9.2 s
+Затраченное время: 10.8 s
+`}
           </code>
         </pre>
 
@@ -377,10 +436,11 @@ def reducer(p, c):
         <h2>Итоги</h2>
         <p className="indent">
           Архитектура построенная нами включает в себя две функций:{" "}
-          <code>map</code> и <code>reduce</code>. Каждый вычислительный блок
-          отображает входные данные и выполняет начальное уменьшение. Наконец,
-          некоторое централизованное устройство (мастер) выполняет окончательное
-          уменьшение и возвращает вывод. Схема выглядит так:
+          <code className="language-none">map</code> и{" "}
+          <code className="language-none">reduce</code>. Каждый вычислительный
+          блок отображает входные данные и выполняет начальное уменьшение.
+          Наконец, некоторое централизованное устройство (мастер) выполняет
+          окончательное уменьшение и возвращает вывод. Схема выглядит так:
         </p>
         <div className="example">
           <img className="img" src="img/mapreduce.png" />
@@ -398,8 +458,9 @@ def reducer(p, c):
           </li>
           <li>
             Она универсальна: эта архитектура поддерживает широкий спектр задач,
-            мы можем изменить функционал наших <code>map</code> и{" "}
-            <code>reduce</code> так, как захотим.
+            мы можем изменить функционал наших{" "}
+            <code className="language-none">map</code> и{" "}
+            <code className="language-none">reduce</code> так, как захотим.
           </li>
         </ol>
         <p>
@@ -418,7 +479,7 @@ def reducer(p, c):
           [Электронный ресурс] : [сайт]. – URL:{" "}
           <a href="https://towardsdatascience.com/a-beginners-introduction-into-mapreduce-2c912bb5e6ac">
             https://towardsdatascience.com/
-          </a>
+          </a>{" "}
           (дата обращения: 20.11.2021). — Загл. с экрана. — Яз. англ
         </p>
       </div>

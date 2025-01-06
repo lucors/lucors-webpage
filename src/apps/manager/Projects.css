@@ -25,11 +25,14 @@
 }
 .projectBox span {
   color: white;
-  width: 100%;
+  width: 90%;
   font-family: Monofur;
   text-align: center;
   font-size: 17px;
   margin: 0 0.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .projectBottom {
   display: -webkit-box;
@@ -45,12 +48,21 @@
   /* box-shadow: 0px 2px 0px 0px white inset; */
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  flex-direction: column;
+}
+.projectBottom .actions {
+  display: flex;
+  justify-content: center;
+}
+.projectBottom .actions > * {
+  margin: 0.3em;
+  margin-bottom: 0;
 }
 .projectAboutA,
 .projectStartA,
 .projectDownloadA {
-  width: 20%;
-  padding: 2px;
+  /* width: 20%; */
+  /* padding: 2px; */
 }
 .projectAboutImg,
 .projectStartImg,

@@ -398,7 +398,7 @@
   margin-top: 1em;
 }
 .window.expanded .section {
-  max-width: 65em;
+  /* max-width: 65em; */
   /*max-width: 40em;*/
 }
 .section-button {

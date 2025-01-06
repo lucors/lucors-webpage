@@ -117,7 +117,7 @@ const projects = [
   },
 ];
 
-function Project({
+export function Project({
   shortname,
   logo,
   name,
@@ -139,52 +139,61 @@ function Project({
         alt="Логотип проекта"
       />
       <div className="projectBottom">
-        <span className="projectName">{name}</span>
-
-        {infoHref && (
-          <a
-            className="projectAboutA"
-            target="_blank"
-            href={infoHref}
-            title="Информация о проекте"
-          >
-            <img className="projectAboutImg" src="img/project-about.svg" />
-          </a>
-        )}
-        {startHref && (
-          <>
+        <span className="projectName" title={name}>
+          {name}
+        </span>
+        <div className="actions">
+          {infoHref && (
             <a
-              className="projectStartA"
+              className="projectAboutA"
               target="_blank"
-              href={startHref}
-              title="В новой вкладке"
+              href={infoHref}
+              title="Информация о проекте"
             >
-              <img className="projectStartImg" src="img/project-external.svg" />
+              <img className="projectAboutImg" src="img/project-about.svg" />
             </a>
-            {frameAllow && (
-              <div
+          )}
+          {startHref && (
+            <>
+              <a
                 className="projectStartA"
-                title="Запустить"
-                onClick={() => createFrame(name, startHref, icon)}
+                target="_blank"
+                href={startHref}
+                title="В новой вкладке"
               >
-                <img className="projectStartImg" src="img/project-frame.svg" />
-              </div>
-            )}
-          </>
-        )}
-        {downloadHref && (
-          <a
-            className="projectDownloadA"
-            target="_blank"
-            href={downloadHref}
-            title="Скачать"
-          >
-            <img
-              className="projectDownloadImg"
-              src="img/project-download.svg"
-            />
-          </a>
-        )}
+                <img
+                  className="projectStartImg"
+                  src="img/project-external.svg"
+                />
+              </a>
+              {frameAllow && (
+                <div
+                  className="projectStartA"
+                  title="Запустить"
+                  onClick={() => createFrame(name, startHref, icon)}
+                >
+                  <img
+                    className="projectStartImg"
+                    src="img/project-frame.svg"
+                  />
+                </div>
+              )}
+            </>
+          )}
+          {downloadHref && (
+            <a
+              className="projectDownloadA"
+              target="_blank"
+              href={downloadHref}
+              title="Скачать"
+            >
+              <img
+                className="projectDownloadImg"
+                src="img/project-download.svg"
+              />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -192,7 +201,7 @@ function Project({
 
 export default function Projects() {
   return (
-    <div className="projectsRoot section"> 
+    <div className="projectsRoot section">
       {projects.map((v) => (
         <Project key={v.id} {...v} />
       ))}

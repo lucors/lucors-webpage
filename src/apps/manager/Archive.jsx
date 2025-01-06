@@ -1,4 +1,4 @@
-import { createFrame } from "#apps/frame/shared.js";
+import { Project } from "./Projects";
 import "./Projects.css";
 
 // TODO: Использовать БД
@@ -70,79 +70,6 @@ const projects = [
     downloadHref: "https://lucors.ru/projects/stochasticity.py",
   },
 ];
-
-function Project({
-  shortname,
-  logo,
-  name,
-  icon,
-  frameAllow,
-  startHref,
-  infoHref,
-  downloadHref,
-}) {
-  function openFrame() {
-    console.log(`Открыть фрейм "${startHref}"`);
-  }
-
-  return (
-    <div shortname={shortname} className="projectBox">
-      <img
-        className="projectLogo"
-        src={`projects/${logo}`}
-        alt="Логотип проекта"
-      />
-      <div className="projectBottom">
-        <span className="projectName">{name}</span>
-
-        {infoHref && (
-          <a
-            className="projectAboutA"
-            target="_blank"
-            href={infoHref}
-            title="Информация о проекте"
-          >
-            <img className="projectAboutImg" src="img/project-about.svg" />
-          </a>
-        )}
-        {startHref && (
-          <>
-            <a
-              className="projectStartA"
-              target="_blank"
-              href={startHref}
-              title="В новой вкладке"
-            >
-              <img className="projectStartImg" src="img/project-external.svg" />
-            </a>
-            {frameAllow && (
-              <div
-                className="projectStartA"
-                title="Запустить"
-                onClick={() => createFrame(name, startHref, icon)}
-              >
-                <img className="projectStartImg" src="img/project-frame.svg" />
-              </div>
-            )}
-          </>
-        )}
-        {downloadHref && (
-          <a
-            className="projectDownloadA"
-            target="_blank"
-            href={downloadHref}
-            title="Скачать"
-          >
-            <img
-              className="projectDownloadImg"
-              src="img/project-download.svg"
-            />
-          </a>
-        )}
-      </div>
-    </div>
-  );
-}
 
 export default function Archive() {
   return (
