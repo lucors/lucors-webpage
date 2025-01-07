@@ -3,8 +3,10 @@ import "./App.css";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import Main from "./main/Main.jsx";
-import { Dvd } from "#apps/dvd/WindowDvd.jsx";
 import { setShutdown } from "#store/screenSlice.js";
+import { lazy, Suspense } from "react";
+
+const Dvd = lazy(() => import("#apps/dvd/Dvd.jsx"));
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <>
-      {shutdown && <Dvd fullscreen={true} onClick={deshutdown} />}
+      {shutdown && <Suspense><Dvd fullscreen={true} onClick={deshutdown} /></Suspense>}
       <Header />
       <Main />
       <Footer />
