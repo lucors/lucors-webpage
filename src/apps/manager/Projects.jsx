@@ -2,7 +2,15 @@ import { createFrame } from "#apps/frame/shared.js";
 import "./Projects.css";
 
 // TODO: Использовать БД
+// TODO: ID не в ту сторону))
 const projects = [
+  {
+    id: 0,
+    name: "Screen Portals",
+    shortname: "prj-screen-portals",
+    logo: "screenPortalsProject.png",
+    infoHref: "https://github.com/lucors/screen-portals",
+  },
   {
     id: 1,
     name: "React Todo App",
