@@ -122,6 +122,7 @@ const projects = [
     icon: "img/lucors-logo.svg",
     frameAllow: true,
     startHref: "https://lucors.ru/",
+    infoHref: "https://github.com/lucors/lucors-webpage",
   },
 ];
 
