@@ -1,13 +1,11 @@
+import { setShutdown } from "#store/screenSlice.js";
+import store from "#store/store.js";
 import "./ShutdownButton.css";
-import $ from "jquery";
 
 export default function ShutdownButton() {
   function shutdown() {
     console.log("Спокойной ночи~");
-    $("#fade").addClass("active");
-    setTimeout(() => {
-      $("body").addClass("fade");
-    }, 2000);
+    store.dispatch(setShutdown(true));
   }
 
   return (

@@ -8,6 +8,7 @@ import { WINDOW_APP_CALC } from "#apps/calc/shared.jsx";
 import { WINDOW_APP_PAINT } from "#apps/paint/shared.jsx";
 import { WINDOW_APP_URL2FRAME } from "#apps/url2frame/shared.jsx";
 import { WINDOW_APP_APPSLIST } from "#apps/appslist/shared.jsx";
+import { WINDOW_APP_DVD } from "#apps/dvd/shared.jsx";
 
 const windowTypesMap = {};
 (function () {
@@ -31,6 +32,9 @@ const windowTypesMap = {};
   );
   windowTypesMap[WINDOW_APP_APPSLIST] = lazy(() =>
     import("#apps/appslist/WindowAppsList")
+  );
+  windowTypesMap[WINDOW_APP_DVD] = lazy(() =>
+    import("#apps/dvd/WindowDvd.jsx")
   );
 })();
 

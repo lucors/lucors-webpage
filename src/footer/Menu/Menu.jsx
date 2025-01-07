@@ -36,7 +36,7 @@ export default function Menu() {
     observer.observe(menuBoxRef.current);
 
     return () => {
-      menuBoxRef.current.ontransitionend = undefined;
+      if (menuBoxRef?.current) menuBoxRef.current.ontransitionend = undefined;
       observer.disconnect();
     };
   }, []);
