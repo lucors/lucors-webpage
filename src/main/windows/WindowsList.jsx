@@ -21,7 +21,7 @@ const windowTypesMap = {};
   windowTypesMap[WINDOW_APP_TRASH] = lazy(() =>
     import("#apps/trash/WindowTrash")
   );
-  windowTypesMap[WINDOW_APP_CALC] = lazy(() =>
+  windowTypesMap[WINDOW_APP_CALC] = lazy(() => 
     import("#apps/calc/WindowCalc")
   );
   windowTypesMap[WINDOW_APP_PAINT] = lazy(() =>

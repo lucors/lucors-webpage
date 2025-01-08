@@ -26,6 +26,7 @@ export function ContentLoadError({ message = "Контент не задан" })
 export default memo(function Window({
   data,
   title,
+  titleHref,
   icon,
   menu,
   content,
@@ -176,7 +177,14 @@ export default memo(function Window({
         <div className="header">
           <div className="title">
             <img className="icon" src={icon || data.icon} />
-            <span className="value draggable">{title || data.title}</span>
+            {titleHref && (
+              <a className="value draggable" target="_blank" href={titleHref}>
+                {title || data.title}
+              </a>
+            )}
+            {!titleHref && (
+              <span className="value draggable">{title || data.title}</span>
+            )}
           </div>
           <div className="wdz draggable" ref={draggableRef}></div>
           <div className="control">

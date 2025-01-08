@@ -9,6 +9,7 @@ export default memo(function WindowFrame({ data }) {
     <Window
       className="frame"
       title={isLucors ? "Рекурсия" : data.title}
+      titleHref={data.href}
       data={data}
       content={
         <>

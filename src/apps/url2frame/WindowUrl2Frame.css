@@ -1,4 +1,4 @@
-.formButton {
+.url2frame .formButton {
   border: none;
   background: none;
   outline: none;
@@ -14,7 +14,11 @@
   margin-top: 0.4em;
 }
 
-.formButton:hover {
+.url2frame .formButton:hover {
   background-color: #bfceff24;
   color: #c6d4ff;
+}
+
+.url2frame code {
+  cursor: pointer;
 }

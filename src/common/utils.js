@@ -1,5 +1,10 @@
 import store from "#store/store.js";
-import { addWindow, byType, setCurrentWindowById, updateWindow } from "#store/windowsSlice.js";
+import {
+  addWindow,
+  byType,
+  setCurrentWindowById,
+  updateWindow,
+} from "#store/windowsSlice.js";
 
 export function withDoubleClick(ref, onDoubleClick, onClick = null) {
   return (event) => {
@@ -23,11 +28,11 @@ export function saveLocation(params) {
     window.location.hash = "#";
     return;
   }
-  const url = new URL(window.location.href)
+  const url = new URL(window.location.href);
   for (const key in params) {
     url.searchParams.set(key, String(params[key]).replaceAll(" ", "~"));
   }
-  window.history.pushState(null, '', url);
+  window.history.pushState(null, "", url);
 }
 
 export function parseQuery(queryString) {
@@ -38,7 +43,9 @@ export function parseQuery(queryString) {
   ).split("&");
   for (var i = 0; i < pairs.length; i++) {
     var pair = pairs[i].split("=");
-    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "").replaceAll("~", " ");
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(
+      pair[1] || ""
+    ).replaceAll("~", " ");
   }
   return query;
 }
@@ -67,4 +74,12 @@ export function addWindowFromUri(params) {
       href: params.m,
     })
   );
+}
+
+export function isInIframe() {
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    return true;
+  }
 }
