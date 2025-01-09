@@ -13,7 +13,7 @@ const projects = [
   },
   {
     id: 1,
-    name: "React Todo App",
+    name: "Todo App",
     shortname: "prj-react-todo",
     logo: "reactTodoProject.png",
     icon: "https://lucors.ru/todo/logo192.png",
