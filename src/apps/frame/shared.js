@@ -1,9 +1,16 @@
+import { appsComponents } from "#common/apps.js";
 import store from "#store/store";
 import { addWindow } from "#store/windowsSlice";
 import { setCurrentWindowById } from "#store/windowsSlice.js";
+import { lazy } from "react";
 
 export const WINDOW_APP_FRAME = "frame";
 export const DEFAULT_ICON = "img/unknow-app.svg";
+
+appsComponents.set(
+  WINDOW_APP_FRAME,
+  lazy(() => import("./WindowFrame"))
+);
 
 export function createFrame(title, href, icon = undefined) {
   const frames = store

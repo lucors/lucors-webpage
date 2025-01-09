@@ -5,6 +5,7 @@ import {
   setCurrentWindowById,
   updateWindow,
 } from "#store/windowsSlice.js";
+import { appsComponents } from "./apps";
 
 export function withDoubleClick(ref, onDoubleClick, onClick = null) {
   return (event) => {
@@ -82,4 +83,26 @@ export function isInIframe() {
   } catch (e) {
     return true;
   }
+}
+
+export function getSingletonAppCreator(type, title, icon) {
+  return function () {
+    const win = byType(store.getState(), type);
+    if (!win) {
+      return store.dispatch(
+        addWindow({
+          title,
+          icon,
+          type,
+        })
+      );
+    }
+    store.dispatch(setCurrentWindowById(win.id));
+    return store.dispatch(
+      updateWindow({
+        id: win.id,
+        collapsed: false,
+      })
+    );
+  };
 }

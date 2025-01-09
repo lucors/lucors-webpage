@@ -1,31 +1,18 @@
-import store from "#store/store";
-import { addWindow } from "#store/windowsSlice";
-import {
-  byType,
-  setCurrentWindowById,
-  updateWindow,
-} from "#store/windowsSlice.js";
+import { appsComponents } from "#common/apps.js";
+import { getSingletonAppCreator } from "#common/utils.js";
+import { lazy } from "react";
 
 export const WINDOW_TITLE = "Корзина";
 export const WINDOW_ICON = "img/trashico.svg";
 export const WINDOW_APP_TRASH = "app_trash";
 
-export function createApp() {
-  const win = byType(store.getState(), WINDOW_APP_TRASH);
-  if (!win) {
-    return store.dispatch(
-      addWindow({
-        title: WINDOW_TITLE,
-        icon: WINDOW_ICON,
-        type: WINDOW_APP_TRASH,
-      })
-    );
-  }
-  store.dispatch(setCurrentWindowById(win.id));
-  return store.dispatch(
-    updateWindow({
-      id: win.id,
-      collapsed: false,
-    })
-  );
-}
+appsComponents.set(
+  WINDOW_APP_TRASH,
+  lazy(() => import("./WindowTrash"))
+);
+
+export const createApp = getSingletonAppCreator(
+  WINDOW_APP_TRASH,
+  WINDOW_TITLE,
+  WINDOW_ICON
+);

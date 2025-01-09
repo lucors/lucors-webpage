@@ -1,3 +1,5 @@
+import { cmds } from "#apps/console/shared.jsx";
+import { appsComponents } from "#common/apps.js";
 import store from "#store/store";
 import { addWindow } from "#store/windowsSlice";
 import {
@@ -6,11 +8,22 @@ import {
   setCurrentWindowById,
   updateWindow,
 } from "#store/windowsSlice.js";
+import { lazy } from "react";
 
 export const WINDOW_TITLE = "Главная страница";
 export const WINDOW_ICON = "img/manager.svg";
 export const WINDOW_APP_MANAGER = "explorer";
 export const WINDOW_DEFAULT_QUERY = "main-page";
+
+appsComponents.set(
+  WINDOW_APP_MANAGER,
+  lazy(() => import("./WindowExplorer"))
+);
+
+cmds.set("manager", () => {
+  createExplorer();
+  return "Открываю WindowExplorer";
+});
 
 export function createExplorer(title, query) {
   return createApp(title, query);

@@ -7,6 +7,7 @@ import IconAppCalc from "#apps/calc/IconAppCalc.jsx";
 import IconAppPaint from "#apps/paint/IconAppPaint.jsx";
 import IconAppDvd from "#apps/dvd/IconAppDvd.jsx";
 import IconAppTrash from "#apps/trash/IconAppTrash.jsx";
+import IconAppConsole from "#apps/console/IconAppConsole.jsx";
 
 function IconsList() {
   return (
@@ -17,6 +18,7 @@ function IconsList() {
       <IconAppCalc />
       <IconAppPaint />
       <IconAppDvd />
+      <IconAppConsole/>
       <IconAppTrash />
     </div>
   );

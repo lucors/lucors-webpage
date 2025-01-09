@@ -1,0 +1,24 @@
+.console-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(23 28 59);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.console-container input {
+  width: 100%;
+  border: none;
+  font-size: 1.2em;
+  position: sticky;
+  bottom: 0;
+}
+
+.console-container pre {
+  padding: 0.5em;
+  min-height: calc(100% - 3em);
+}
+
+.window .main > .right:has(.console-container) {
+  margin: 0;
+}
