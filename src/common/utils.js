@@ -85,7 +85,7 @@ export function isInIframe() {
   }
 }
 
-export function getSingletonAppCreator(type, title, icon) {
+export function getSingletonAppCreator(type, title, icon, stateOptions = {}) {
   return function () {
     const win = byType(store.getState(), type);
     if (!win) {
@@ -94,6 +94,7 @@ export function getSingletonAppCreator(type, title, icon) {
           title,
           icon,
           type,
+          ...stateOptions
         })
       );
     }

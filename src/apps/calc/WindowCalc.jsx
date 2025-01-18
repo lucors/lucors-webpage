@@ -71,10 +71,10 @@ function Calculator() {
     <div className="calculator">
       <div className="display">{displayValue}</div>
       <div className="ops">
-        <span className={operator == "/" && "active"}>/</span>
-        <span className={operator == "*" && "active"}>*</span>
-        <span className={operator == "-" && "active"}>-</span>
-        <span className={operator == "+" && "active"}>+</span>
+        <span className={operator == "/" ? "active" : ""}>/</span>
+        <span className={operator == "*" ? "active" : ""}>*</span>
+        <span className={operator == "-" ? "active" : ""}>-</span>
+        <span className={operator == "+" ? "active" : ""}>+</span>
       </div>
       <div className="buttons">
         <button onClick={handleClear}>C</button>

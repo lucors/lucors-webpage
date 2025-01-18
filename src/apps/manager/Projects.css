@@ -107,3 +107,7 @@
 .window.expanded .projectsRoot {
   min-width: 100%;
 }
+
+.button.archive-button > * {
+  text-align: center;
+}

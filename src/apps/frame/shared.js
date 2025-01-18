@@ -31,6 +31,8 @@ export function createFrame(title, href, icon = undefined) {
       icon,
       type: WINDOW_APP_FRAME,
       href: href,
+      width: "50em",
+      height: "20em",
     })
   );
 }

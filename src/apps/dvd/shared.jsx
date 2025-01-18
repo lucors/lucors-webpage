@@ -14,5 +14,9 @@ appsComponents.set(
 export const createApp = getSingletonAppCreator(
   WINDOW_APP_DVD,
   WINDOW_TITLE,
-  WINDOW_ICON
+  WINDOW_ICON,
+  {
+    width: "50em",
+    height: "20em",
+  }
 );

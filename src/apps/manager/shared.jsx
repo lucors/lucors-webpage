@@ -10,7 +10,7 @@ import {
 } from "#store/windowsSlice.js";
 import { lazy } from "react";
 
-export const WINDOW_TITLE = "Главная страница";
+export const WINDOW_TITLE = "Информация";
 export const WINDOW_ICON = "img/manager.svg";
 export const WINDOW_APP_MANAGER = "explorer";
 export const WINDOW_DEFAULT_QUERY = "main-page";
@@ -38,10 +38,12 @@ const byQuery = (state, query) => {
 export function createApp(title, query) {
   return store.dispatch(
     addWindow({
-      title: title || WINDOW_TITLE,
+      title: title || "Главная страница",
       icon: WINDOW_ICON,
       type: WINDOW_APP_MANAGER,
       query: query || WINDOW_DEFAULT_QUERY,
+      width: "50em",
+      height: "20em",
     })
   );
 }
@@ -128,11 +130,11 @@ export const contentMenu = [
 
 export const managerMenu = [
   ...contentMenu,
-  {
-    id: 4,
-    title: "Архив",
-    query: "archive",
-  },
+  // {
+  //   id: 4,
+  //   title: "Архив",
+  //   query: "archive",
+  // },
   // {
   //   id: 4,
   //   title: "Приложения",

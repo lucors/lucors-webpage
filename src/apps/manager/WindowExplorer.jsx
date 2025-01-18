@@ -2,11 +2,10 @@ import { memo } from "react";
 import QueryButton from "./QueryButton";
 import Window from "#main/windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import { managerMenu, WINDOW_ICON, WINDOW_TITLE } from "./shared";
+import { managerMenu } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
-import Archive from "./Archive";
 import About from "./About";
 import Articles from "./articles/Articles";
 import CommonIndex from "./articles/common/CommonIndex";
@@ -16,8 +15,8 @@ import Button from "#common/Button.jsx";
 const contentType = {
   "main-page": <Welcome />,
   contacts: <Contacts />,
-  projects: <Projects />,
-  archive: <Archive />,
+  projects: <Projects isArchive={false} />,
+  archive: <Projects isArchive={true} />,
   about: <About />,
   // Статьи
   articles: <Articles />,

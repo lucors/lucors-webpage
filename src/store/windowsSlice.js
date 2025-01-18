@@ -22,8 +22,8 @@ export const windowsSlice = createSlice({
         startX: 0,
         startY: 0,
         // Значения по-умолчанию
-        width: "50em",
-        height: "20em",
+        width: null,
+        height: null,
         ...payload,
         id: v4(),
       };
@@ -71,6 +71,9 @@ function saveCurrentWindowToURI(state) {
    * tt = title
    * m  = meta (query/href)
    */
+  if (!state.current?.icon || !state.current?.type || !state.current?.title) {
+    return;
+  }
   saveLocation({
     i: state.current?.icon,
     tp: state.current?.type,

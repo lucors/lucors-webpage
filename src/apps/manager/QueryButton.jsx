@@ -6,6 +6,7 @@ export default function QueryButton({
   title,
   winid,
   query,
+  className = "",
   onClick,
   children,
   subActionAllow = true,
@@ -13,6 +14,7 @@ export default function QueryButton({
 }) {
   return (
     <Button
+      className={className}
       onClick={() => {
         setWindowQuery(title, query, winid);
         if (onClick) onClick();

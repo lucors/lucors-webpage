@@ -2,11 +2,14 @@
 .window .body:has(.calculator) {
   min-height: max-content;
 }
+.window .main > .right:has(.calculator) {
+  margin: 0;
+}
 
 .calculator {
   width: fit-content;
   padding: 10px;
-  background-color: var(--color-mainContent);
+  /* background-color: var(--color-mainContent); */
   padding: 1em;
   max-width: 40em;
   border-radius: var(--radius1);

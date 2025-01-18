@@ -22,6 +22,8 @@ export const cmds = new Map([
       return "Спокойной ночи~";
     },
   ],
+  ["hi", () => "hello",],
+  ["hello", () => "hi",],
 ]);
 
 appsComponents.set(
@@ -32,5 +34,9 @@ appsComponents.set(
 export const createApp = getSingletonAppCreator(
   WINDOW_APP_CONSOLE,
   WINDOW_TITLE,
-  WINDOW_ICON
+  WINDOW_ICON,
+  {
+    width: "50em",
+    height: "20em",
+  }
 );

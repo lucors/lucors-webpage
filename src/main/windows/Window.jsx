@@ -12,12 +12,12 @@ import "./Window.css";
 import { cursor, flags } from "#backgroundEvents";
 import store from "#store/store";
 
-export function ContentLoadError({ message = "Контент не задан" }) {
+export function ContentLoadError({ message = "" }) {
   return (
     <>
-      <div className="section mwem30 error">
-        <h1>Ошибка</h1>
-        <h2>{message}</h2>
+      <div className="section error">
+        <h1>{message === "" ? "?" : "Ошибка"}</h1>
+        {message !== "" && <h2>{message}</h2>}
       </div>
     </>
   );
@@ -161,6 +161,7 @@ export default memo(function Window({
   ]
     .filter((v) => !!v)
     .join(" ");
+
   return (
     <div
       data-id={data.id}
