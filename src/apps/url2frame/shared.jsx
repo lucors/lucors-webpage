@@ -1,3 +1,4 @@
+import { cmds } from "#apps/console/shared.jsx";
 import { appsComponents } from "#common/apps.js";
 import { getSingletonAppCreator } from "#common/utils.js";
 import { lazy } from "react";
@@ -10,6 +11,11 @@ appsComponents.set(
   WINDOW_APP_URL2FRAME,
   lazy(() => import("./WindowUrl2Frame"))
 );
+
+cmds.set("html2frame", () => {
+  createApp();
+  return "Открываю приложение \"Сайт в окно\"";
+});
 
 export const createApp = getSingletonAppCreator(
   WINDOW_APP_URL2FRAME,

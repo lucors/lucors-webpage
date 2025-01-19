@@ -1,3 +1,4 @@
+import { cmds } from "#apps/console/shared.jsx";
 import { appsComponents } from "#common/apps.js";
 import { getSingletonAppCreator } from "#common/utils.js";
 import { lazy } from "react";
@@ -10,6 +11,11 @@ appsComponents.set(
   WINDOW_APP_TRASH,
   lazy(() => import("./WindowTrash"))
 );
+
+cmds.set("trash", () => {
+  createApp();
+  return "Открываю корзину";
+});
 
 export const createApp = getSingletonAppCreator(
   WINDOW_APP_TRASH,

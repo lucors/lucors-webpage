@@ -17,17 +17,17 @@ export default function Console() {
 
   const handleCommand = (cmdRaw = "") => {
     const _log = log + "\n> " + cmdRaw;
-    cmdRaw = cmdRaw.trim().toLowerCase();
-    if (cmdRaw === "clear") {
+    const args = cmdRaw.trim().toLowerCase().split(" ");
+    if (args[0] === "clear") {
       setLog("");
       return;
     }
-    const handler = cmds.get(cmdRaw);
+    const handler = cmds.get(args[0]);
     if (!handler) {
       setLog(_log + "\nНеизвестная команда");
       return;
     }
-    setLog(_log + "\n" + handler());
+    setLog(_log + "\n" + handler(args.slice(1)));
   };
 
   const handleKeyDown = (event) => {

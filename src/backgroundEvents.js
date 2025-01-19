@@ -125,22 +125,25 @@ function mouseMoveHandler(event) {
 
   if (!mobile && storedCurrentWindow && !storedCurrentWindow.expanded) {
     const win = $(`.window[data-id='${storedCurrentWindow.id}']`);
-    const box = win[0].getBoundingClientRect();
+    const box = win?.[0]?.getBoundingClientRect();
     if (flags.resize) {
       const style = win[0].currentStyle || window.getComputedStyle(win[0]);
       let border = 0;
+      let oldVal = 0;
       switch (flags.resizeType) {
         case 1:
           if (cursor.x < 0) return;
-          border =
-            parseFloat(style.borderLeftWidth) +
-            parseFloat(style.borderRightWidth);
+          border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
           const width = Math.round(box.right - cursor.x) - border;
+          oldVal = win.width();
           win.width(width);
           if (width === win.width()) {
             win.css({
               left: cursor.x + "px",
             });
+          }
+          else {
+            win.width(oldVal);
           }
           break;
         case 2:
@@ -149,15 +152,17 @@ function mouseMoveHandler(event) {
           break;
         case 3:
           if (cursor.y < 0) return;
-          border =
-            parseFloat(style.borderTopWidth) +
-            parseFloat(style.borderBottomWidth);
+          border = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
           const height = Math.round(box.bottom - cursor.y) - border;
+          oldVal = win.height();
           win.height(height);
           if (height === win.height()) {
             win.css({
               top: cursor.y + "px",
             });
+          }
+          else {
+            win.height(oldVal);
           }
           break;
         case 4:

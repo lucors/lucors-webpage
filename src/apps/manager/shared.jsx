@@ -10,7 +10,7 @@ import {
 } from "#store/windowsSlice.js";
 import { lazy } from "react";
 
-export const WINDOW_TITLE = "Информация";
+export const WINDOW_TITLE = "Менеджер справки";
 export const WINDOW_ICON = "img/manager.svg";
 export const WINDOW_APP_MANAGER = "explorer";
 export const WINDOW_DEFAULT_QUERY = "main-page";
@@ -22,7 +22,7 @@ appsComponents.set(
 
 cmds.set("manager", () => {
   createExplorer();
-  return "Открываю WindowExplorer";
+  return "Открываю менеджер справки";
 });
 
 export function createExplorer(title, query) {

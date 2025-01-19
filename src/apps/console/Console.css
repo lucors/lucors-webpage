@@ -17,6 +17,7 @@
 .console-container pre {
   padding: 0.5em;
   min-height: calc(100% - 3em);
+  text-wrap: auto;
 }
 
 .window .main > .right:has(.console-container) {
