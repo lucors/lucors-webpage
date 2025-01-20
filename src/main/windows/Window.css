@@ -160,6 +160,7 @@
 }
 
 .window .header > .title {
+  width: min-content;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

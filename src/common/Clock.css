@@ -1,6 +1,6 @@
 #clock > .time,
 #clock > .date {
-  margin-left: 15px;
+  /* margin-left: 15px; */
   font-size: 14px;
   font-family: monospace;
   text-align: center;

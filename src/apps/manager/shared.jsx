@@ -9,11 +9,28 @@ import {
   updateWindow,
 } from "#store/windowsSlice.js";
 import { lazy } from "react";
+import i18next from "i18next";
 
 export const WINDOW_TITLE = "Менеджер справки";
 export const WINDOW_ICON = "img/manager.svg";
 export const WINDOW_APP_MANAGER = "explorer";
 export const WINDOW_DEFAULT_QUERY = "main-page";
+
+i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
+  menu1: "Main page",
+  menu2: "Contacts",
+  menu3: "Projects",
+  menu5: "Articles",
+  menu8: "About",
+});
+i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
+  menu1: "Главная страница",
+  menu2: "Контакты",
+  menu3: "Проекты",
+  menu5: "Статьи",
+  menu8: "О сайте",
+});
+const t = (key, options) => i18next.t(key, { ns: WINDOW_APP_MANAGER, ...options });
 
 appsComponents.set(
   WINDOW_APP_MANAGER,
@@ -103,27 +120,27 @@ export const setWindowQuery = (title, query, winid = undefined) => {
 export const contentMenu = [
   {
     id: 1,
-    title: "Главная страница",
+    title: t("menu1"),
     query: "main-page",
   },
   {
     id: 2,
-    title: "Контакты",
+    title: t("menu2"),
     query: "contacts",
   },
   {
     id: 3,
-    title: "Проекты",
+    title: t("menu3"),
     query: "projects",
   },
   {
     id: 5,
-    title: "Статьи",
+    title: t("menu5"),
     query: "articles",
   },
   {
     id: 8,
-    title: "О сайте",
+    title: t("menu8"),
     query: "about",
   },
 ];

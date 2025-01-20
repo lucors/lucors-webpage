@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import store from "#store/store";
 import "./Menu.css";
@@ -12,7 +12,6 @@ import ShutdownButton from "./ShutdownButton";
 import { contentMenu } from "#apps/manager/shared.jsx";
 
 export default function Menu() {
-  const dispatch = useDispatch();
   const openned = useSelector((state) => state.menu.openned);
   const menuBoxRef = useRef(null);
 
