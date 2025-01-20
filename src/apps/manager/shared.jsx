@@ -30,7 +30,6 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menu5: "Статьи",
   menu8: "О сайте",
 });
-const t = (key, options) => i18next.t(key, { ns: WINDOW_APP_MANAGER, ...options });
 
 appsComponents.set(
   WINDOW_APP_MANAGER,
@@ -55,7 +54,7 @@ const byQuery = (state, query) => {
 export function createApp(title, query) {
   return store.dispatch(
     addWindow({
-      title: title || "Главная страница",
+      title: title || "menu1",
       icon: WINDOW_ICON,
       type: WINDOW_APP_MANAGER,
       query: query || WINDOW_DEFAULT_QUERY,
@@ -120,27 +119,27 @@ export const setWindowQuery = (title, query, winid = undefined) => {
 export const contentMenu = [
   {
     id: 1,
-    title: t("menu1"),
+    title: "menu1",
     query: "main-page",
   },
   {
     id: 2,
-    title: t("menu2"),
+    title: "menu2",
     query: "contacts",
   },
   {
     id: 3,
-    title: t("menu3"),
+    title: "menu3",
     query: "projects",
   },
   {
     id: 5,
-    title: t("menu5"),
+    title: "menu5",
     query: "articles",
   },
   {
     id: 8,
-    title: t("menu8"),
+    title: "menu8",
     query: "about",
   },
 ];

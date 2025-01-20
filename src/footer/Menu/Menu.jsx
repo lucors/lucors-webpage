@@ -9,11 +9,13 @@ import { setMenu } from "#store/menuSlice.js";
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import FrameButton from "#apps/frame/FrameButton.jsx";
 import ShutdownButton from "./ShutdownButton";
-import { contentMenu } from "#apps/manager/shared.jsx";
+import { contentMenu, WINDOW_APP_MANAGER } from "#apps/manager/shared.jsx";
+import { useTranslation } from "react-i18next";
 
 export default function Menu() {
   const openned = useSelector((state) => state.menu.openned);
   const menuBoxRef = useRef(null);
+  const {t} = useTranslation(WINDOW_APP_MANAGER);
 
   const hideToLeft = () => {
     menuBoxRef.current.style.left = `-${$(menuBoxRef.current).outerWidth(
@@ -68,27 +70,28 @@ export default function Menu() {
       </div>
       <div id="menuContent">
         {contentMenu.map((v) => {
+          const title = t(v.title);
           if (v.query) {
             return (
               <QueryButton
                 key={v.id}
-                title={v.title}
+                title={title}
                 query={v.query}
                 onClick={hideMenu}
               >
-                {v.title}
+                {title}
               </QueryButton>
             );
           }
           return (
             <FrameButton
               key={v.id}
-              title={v.title}
+              title={title}
               href={v.href}
               icon={v.icon}
               onClick={hideMenu}
             >
-              {v.title}
+              {title}
             </FrameButton>
           );
         })}
