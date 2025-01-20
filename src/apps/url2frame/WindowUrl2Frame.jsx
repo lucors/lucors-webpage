@@ -2,6 +2,7 @@ import { memo, useRef } from "react";
 import Window from "#main/windows/Window";
 import { createFrame } from "#apps/frame/shared.js";
 import "./WindowUrl2Frame.css";
+import { WINDOW_TITLE } from "./shared";
 
 function Url2Window() {
   const urlRef = useRef(null);
@@ -60,5 +61,5 @@ function Url2Window() {
 }
 
 export default memo(function WindowUrl2Frame({ data }) {
-  return <Window data={data} content={<Url2Window />} />;
+  return <Window data={data} title={WINDOW_TITLE} content={<Url2Window />} />;
 });

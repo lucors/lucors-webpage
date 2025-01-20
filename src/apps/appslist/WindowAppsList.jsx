@@ -8,6 +8,7 @@ import IconAppPaint from "#apps/paint/IconAppPaint.jsx";
 import IconAppDvd from "#apps/dvd/IconAppDvd.jsx";
 import IconAppTrash from "#apps/trash/IconAppTrash.jsx";
 import IconAppConsole from "#apps/console/IconAppConsole.jsx";
+import { WINDOW_TITLE } from "./shared";
 
 function IconsList() {
   return (
@@ -25,5 +26,5 @@ function IconsList() {
 }
 
 export default memo(function WindowAppsList({ data }) {
-  return <Window data={data} content={<IconsList />} />;
+  return <Window data={data} title={WINDOW_TITLE} content={<IconsList />} />;
 });

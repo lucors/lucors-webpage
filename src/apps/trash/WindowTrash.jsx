@@ -1,8 +1,8 @@
 import { memo } from "react";
 import Window from "#main/windows/Window";
 import Trashzone from "./Trashzone";
-import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
+import { WINDOW_TITLE } from "./shared";
 
 export default memo(function WindowTrash({ data }) {
-  return <Window data={data} content={<Trashzone />} />;
+  return <Window data={data} title={WINDOW_TITLE} content={<Trashzone />} />;
 });

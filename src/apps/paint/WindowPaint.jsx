@@ -1,7 +1,7 @@
 import { memo, useRef, useEffect, useState } from "react";
 import Window from "#main/windows/Window";
 import "./WindowPaint.css";
-import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
+import { WINDOW_TITLE } from "./shared";
 
 function Paint() {
   const canvasRef = useRef(null);
@@ -97,5 +97,5 @@ function Paint() {
 }
 
 export default memo(function WindowPaint({ data }) {
-  return <Window data={data} content={<Paint />} />;
+  return <Window data={data} title={WINDOW_TITLE} content={<Paint />} />;
 });

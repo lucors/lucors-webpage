@@ -1,6 +1,7 @@
 import { memo, useState } from "react";
 import Window from "#main/windows/Window";
 import "./WindowCalc.css";
+import { WINDOW_TITLE } from "./shared";
 
 function Calculator() {
   const [displayValue, setDisplayValue] = useState("0");
@@ -101,5 +102,5 @@ function Calculator() {
 }
 
 export default memo(function WindowCalc({ data }) {
-  return <Window data={data} content={<Calculator />} />;
+  return <Window data={data} title={WINDOW_TITLE} content={<Calculator />} />;
 });

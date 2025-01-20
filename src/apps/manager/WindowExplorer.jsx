@@ -2,7 +2,7 @@ import { memo } from "react";
 import QueryButton from "./QueryButton";
 import Window from "#main/windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import { managerMenu, WINDOW_APP_MANAGER } from "./shared";
+import { contentMenu, managerMenu, WINDOW_APP_MANAGER } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
@@ -54,11 +54,11 @@ function Menu({ winid }) {
 
 export default memo(function WindowExplorer({ data }) {
   const {t} = useTranslation(WINDOW_APP_MANAGER);
-
+  const title = t((contentMenu.find(v => v.query === data.query)?.title || "menu1"));
   return (
     <Window
       data={data}
-      title={t(data.title)}
+      title={title}
       menu={<Menu winid={data.id} />}
       content={contentType[data.query]}
     />
