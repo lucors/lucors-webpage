@@ -96,14 +96,20 @@ footer {
   width: 90%;
 }
 .rightFootBox {
-  max-width: 10%;
+  /* max-width: 10%; */
   margin-right: 15px;
 }
 
-.rightFootBox > .button {
-  margin: 0em 0.4em 0 0.4em;
+.rightFootBox > .button.change-lang {
+  margin: 0em 0.2em 0 0.2em;
   height: 1.5em;
   user-select: none;
+  height: 100%;
+  border-radius: 0;
+}
+
+.button.change-lang > * {
+  text-align: center;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -114,5 +120,8 @@ footer {
     max-width: 100%;
     width: auto;
     margin-right: 0;
+  }
+  .leftFootBox {
+    width: 100%;
   }
 }

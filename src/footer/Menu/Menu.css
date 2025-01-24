@@ -97,6 +97,16 @@
   background-color: #161626;
 }
 
+.menuLeft > .actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menuLeft > .actions > * {
+  margin: 0.3em;
+}
+
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {
   #menuBox {

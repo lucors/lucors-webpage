@@ -11,6 +11,7 @@ import FrameButton from "#apps/frame/FrameButton.jsx";
 import ShutdownButton from "./ShutdownButton";
 import { contentMenu, WINDOW_APP_MANAGER } from "#apps/manager/shared.jsx";
 import { useTranslation } from "react-i18next";
+import { ChangeLanguage } from "#footer/FooterRight.jsx";
 
 export default function Menu() {
   const openned = useSelector((state) => state.menu.openned);
