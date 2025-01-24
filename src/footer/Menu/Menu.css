@@ -16,17 +16,15 @@
   flex-direction: row;
 
   background-color: #161626;
-  -webkit-transition: left 0.5s ease;
-  -o-transition: left 0.5s ease;
-  transition: left 0.5s ease;
+  transition: left 0.5s ease, opacity 0.5s ease;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   min-height: 14em;
-
-  border-radius: 0 var(--radius1) 0 0;
-  border-top: var(--border1) solid #4d4d55;
-  border-right: var(--border1) solid #4d4d55;
+  
+  margin-bottom: 0.5em;
+  border-radius: var(--radius1);
+  border: var(--border1) solid #4d4d55;
 }
 
 #logoPlace,

@@ -16,16 +16,18 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* <div className="leftFootBox"> */}
-      <div id="startButt" onClick={() => dispatch(toogleMenu())}>
-        <img className="menuImg" src="img/menu.svg" />
-        <span className="menuText">{t("menu")}</span>
+      <div id="footer-body">
+        {/* <div className="leftFootBox"> */}
+        <div id="startButt" onClick={() => dispatch(toogleMenu())}>
+          <img className="menuImg" src="img/menu.svg" />
+          <span className="menuText">{t("menu")}</span>
+        </div>
+        <Separator />
+        <TaskBar />
+        <Menu />
+        {/* </div> */}
+        <FooterRight isMobile={mobile} winCount={windowsList.length}/>
       </div>
-      <Separator />
-      <TaskBar />
-      <Menu />
-      {/* </div> */}
-      <FooterRight isMobile={mobile} winCount={windowsList.length}/>
     </footer>
   );
 }

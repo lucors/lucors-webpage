@@ -14,7 +14,7 @@
 :root {
   --window-header: 26px;
   --height-header: 0px;
-  --height-footer: 40px;
+  --height-footer: calc(40px + 0.5em);
   --border1: 0.15em;
   --logo-h: 55px;
   --projectBox-w: 220px;

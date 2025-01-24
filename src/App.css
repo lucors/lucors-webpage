@@ -16,6 +16,10 @@
   width: 100vw;
   overflow: hidden;
   background-color: #212125;
+  background: url(img/background.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-x: center;
 }
 
 #fade {

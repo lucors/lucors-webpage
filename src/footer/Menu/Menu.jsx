@@ -11,7 +11,6 @@ import FrameButton from "#apps/frame/FrameButton.jsx";
 import ShutdownButton from "./ShutdownButton";
 import { contentMenu, WINDOW_APP_MANAGER } from "#apps/manager/shared.jsx";
 import { useTranslation } from "react-i18next";
-import { ChangeLanguage } from "#footer/FooterRight.jsx";
 
 export default function Menu() {
   const openned = useSelector((state) => state.menu.openned);
@@ -22,15 +21,11 @@ export default function Menu() {
     menuBoxRef.current.style.left = `-${$(menuBoxRef.current).outerWidth(
       true
     )}px`;
+    menuBoxRef.current.style.opacity = 0;
   };
 
   useEffect(() => {
     if (!menuBoxRef?.current) return;
-    menuBoxRef.current.ontransitionend = () => {
-      if ((menuBoxRef.current.getAnimations() || []).length > 0) return;
-      if (store.getState().menu.openned) return;
-      menuBoxRef.current.style.visibility = "hidden";
-    };
     const observer = new ResizeObserver(() => {
       if (store.getState().menu.openned) return;
       hideToLeft();
@@ -46,8 +41,9 @@ export default function Menu() {
   useEffect(() => {
     if (!menuBoxRef?.current) return;
     if (openned) {
-      menuBoxRef.current.style.left = 0;
-      menuBoxRef.current.style.visibility = "visible";
+      console.log($("#footer-body").offset().left);
+      menuBoxRef.current.style.left = `${$("#footer-body").offset().left}px`;
+      menuBoxRef.current.style.opacity = 1;
       return;
     }
     hideToLeft();
