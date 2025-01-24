@@ -27,8 +27,7 @@ export default function Menu() {
   useEffect(() => {
     if (!menuBoxRef?.current) return;
     const observer = new ResizeObserver(() => {
-      if (store.getState().menu.openned) return;
-      hideToLeft();
+      if (store.getState().menu.openned) hideMenu();
     });
     observer.observe(menuBoxRef.current);
 
