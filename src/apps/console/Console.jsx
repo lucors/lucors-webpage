@@ -9,13 +9,20 @@ export default function Console() {
   const inputRef = useRef(null);
   const containerRef = useRef(null);
   const [log, setLog] = useState(welcomeMessage);
+  const [history, setHistory] = useState([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
 
   useEffect(() => {
     if (!containerRef?.current) return;
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   }, [log]);
 
+  const addHistory = (cmd) => {
+    setHistory([cmd, ...history]);
+  }
+
   const handleCommand = (cmdRaw = "") => {
+    addHistory(cmdRaw);
     const _log = log + "\n> " + cmdRaw;
     const args = cmdRaw.trim().toLowerCase().split(" ");
     if (args[0] === "clear") {
@@ -30,8 +37,26 @@ export default function Console() {
     setLog(_log + "\n" + handler(args.slice(1)));
   };
 
+  const setFromHistory = (i) => {
+    setHistoryIndex(i);
+    inputRef.current.value = history?.[i] ?? "";
+  }
+
   const handleKeyDown = (event) => {
     if (!inputRef?.current) return;
+    if (event.key === "ArrowUp") {
+      let i = historyIndex + 1;
+      if (i >= history.length) i = history.length-1; 
+      setFromHistory(i);
+      return;
+    }
+    if (event.key === "ArrowDown") {
+      let i = historyIndex - 1;
+      if (i < 0) i = 0; 
+      setFromHistory(i);
+      return;
+    }
+    setHistoryIndex(-1);
     if (inputRef.current.value && event.key === "Enter") {
       handleCommand(inputRef.current.value);
       inputRef.current.value = "";
