@@ -56,6 +56,7 @@ function Paint() {
   };
 
   const clearCanvas = () => {
+    if (!confirm("Вы уверены, что хотите очистить полотно?")) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -82,7 +83,6 @@ function Paint() {
         onMouseOut={handleMouseUp}
       />
       <div className="controls">
-        <button onClick={clearCanvas}>Очистить</button>
         <input type="color" value={color} onChange={handleColorChange} />
         <input
           type="range"
@@ -91,6 +91,7 @@ function Paint() {
           value={brushSize}
           onChange={handleBrushSizeChange}
         />
+        <button onClick={clearCanvas}>Очистить</button>
       </div>
     </div>
   );
