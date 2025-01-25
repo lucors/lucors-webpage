@@ -11,11 +11,17 @@ import { useTranslation } from "react-i18next";
 export default function Footer() {
   const dispatch = useDispatch();
   const windowsList = useSelector((state) => state.windows.list) ?? [];
+  const expanded = useSelector((state) => {
+    for (const win of state.windows.list) {
+      if (win?.expanded && !win?.collapsed) return true;
+    }
+    return false;
+  }) ?? false;
   const mobile = useSelector((state) => state.screen.mobile);
   const { t } = useTranslation();
 
   return (
-    <footer>
+    <footer className={expanded ? "expanded" : ""}>
       <div id="footer-body">
         {/* <div className="leftFootBox"> */}
         <div id="startButt" onClick={() => dispatch(toogleMenu())}>

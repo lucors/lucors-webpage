@@ -79,12 +79,6 @@
   -o-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
 }
-/*#startButt.active > .menuImg {
-	transform: rotate(0deg);
-}*/
-/* #startButt:hover .menuImg {
-	scale: 1 0.5;
-} */
 .menuText {
   font-size: 18px;
   padding-left: 5px;
