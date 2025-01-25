@@ -10,7 +10,8 @@
   width: 100%;
   border: none;
   font-size: 1.2em;
-  position: sticky;
+  height: 1.2em;
+  position: absolute;
   bottom: 0;
 }
 
@@ -18,6 +19,7 @@
   padding: 0.5em;
   min-height: calc(100% - 3em);
   text-wrap: auto;
+  margin-bottom: 1.4em;
 }
 
 .window .main > .right:has(.console-container) {
