@@ -5,7 +5,11 @@ footer {
   width: 100%;
   z-index: 100;
   background-color: transparent;
+<<<<<<< HEAD
   /* overflow: hidden; */
+=======
+  overflow: hidden;
+>>>>>>> 1c349636bb1a134784f5813381f161432180ea50
   /* transition: background-color 0.3s; */
 }
 
