@@ -1,0 +1,38 @@
+
+.window.frame .main > .left {
+  display: none;
+}
+.window.frame .main > .right {
+  max-height: none;
+  margin: 0;
+}
+.frame-block {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  opacity: 0.5;
+  display: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.frame-block.active {
+  display: initial;
+}
+.frame-block.alt {
+  display: initial;
+  opacity: 0.1;
+}
+
+.window.frame {
+  background-color: #060b16;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  background-image: url("img/loading.gif");
+  background-size: 7em;
+  background-position: center;
+  background-repeat: no-repeat;
+}

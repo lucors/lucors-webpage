@@ -172,6 +172,331 @@ iframe {
   background: white;
 }
 
+.formsButtons {
+  width: 100%;
+}
+
+.ajax {
+  cursor: pointer;
+}
+
+nav {
+  width: 100%;
+  margin: 0 !important;
+  /* margin-bottom: 1em !important; */
+}
+nav > ul {
+  margin: 0;
+  padding: 0;
+}
+nav > ul > li {
+  display: inline;
+}
+nav > ul > li.sep {
+  margin: 0 0.5em;
+  display: inline-block;
+  width: 0.3em;
+  height: 0.3em;
+  background-color: #bdbdbd;
+  border-radius: 100%;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.example {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-animation: showFromRotateX 0.5s forwards;
+  animation: showFromRotateX 0.5s forwards;
+  background-color: var(--color-liteblack);
+  min-width: 90%;
+  max-width: 100%;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: var(--radius1);
+}
+.example * {
+  line-height: 1.3;
+}
+.example .head,
+.example .body,
+.example .foot {
+  /*padding: 1.4%;*/
+  padding: 0.9em;
+  /* overflow-x: scroll; */
+}
+.example .head {
+  background-color: var(--color-liteblue);
+}
+.example .foot {
+  background-color: var(--color-liteblack);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.example .body ul,
+.example .body ol {
+  margin: 0;
+}
+.example .body ol li {
+  width: 100%;
+  display: inline;
+  /*display: block;*/
+}
+.example .img {
+  height: auto;
+  width: 100%;
+  margin: auto;
+}
+w,
+.wheat {
+  color: var(--color-wheat);
+  border-radius: var(--radius1);
+}
+.no-transition {
+  -webkit-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+.reference {
+  cursor: pointer;
+  color: var(--color-textButtton);
+  padding: 0.3%;
+  border-radius: var(--radius1);
+}
+.reference:hover {
+  background-color: var(--color-pushedButton);
+}
+
+/* PRISM OVERRIDE */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #1e213d !important;
+  border-radius: var(--radius1) !important;
+}
+div.code-toolbar > .toolbar > .toolbar-item {
+  margin-left: 0.2em !important;
+}
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  border-radius: var(--radius1) !important;
+}
+.toolbar-item > .copy-to-clipboard-button {
+  cursor: pointer !important;
+}
+:not(pre) > code.language-none {
+  color: var(--color-textButtton) !important;
+  background-color: var(--color-pushedButton) !important;
+  border-radius: var(--radius1) !important;
+}
+
+.section.arcticle-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: calc(100% - 2em);
+  min-width: 12em;
+  padding: 1em;
+}
+.section.arcticle-list h2 {
+  margin: 0;
+  margin-left: 0;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+.arcticle-list > .article {
+  margin: 0.2em 0px;
+}
+
+/* Новый год */
+#garland {
+  position: fixed;
+  left: 0;
+  top: -2vh;
+  width: 100vw;
+  height: 10vh;
+  background-image: url("img/garland.gif");
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+.wem1 {
+  width: 1em;
+}
+.mwem1 {
+  min-width: 1em;
+}
+.wem5 {
+  width: 5em;
+}
+.mwem5 {
+  min-width: 5em;
+}
+.wem10 {
+  width: 10em;
+}
+.mwem10 {
+  min-width: 10em;
+}
+.wem15 {
+  width: 15em;
+}
+.mwem15 {
+  min-width: 15em;
+}
+.wem20 {
+  width: 20em;
+}
+.mwem20 {
+  min-width: 20em;
+}
+.wem25 {
+  width: 25em;
+}
+.mwem25 {
+  min-width: 25em;
+}
+.wem30 {
+  width: 30em;
+}
+.mwem30 {
+  min-width: 30em;
+}
+.wem35 {
+  width: 35em;
+}
+.mwem35 {
+  min-width: 35em;
+}
+
+/* ------------АНИМАЦИИ------------ */
+@-webkit-keyframes err {
+  from {
+    text-shadow: 0 0 0 orange;
+  }
+  to {
+    text-shadow: 0px 8px 10px orange;
+  }
+}
+@keyframes err {
+  from {
+    text-shadow: 0 0 0 orange;
+  }
+  to {
+    text-shadow: 0px 8px 10px orange;
+  }
+}
+@-webkit-keyframes hueRotate {
+  from {
+    background-color: rgb(83, 27, 61);
+  }
+  to {
+    background-color: rgb(27, 83, 60);
+  }
+}
+@keyframes hueRotate {
+  from {
+    background-color: rgb(83, 27, 61);
+  }
+  to {
+    background-color: rgb(27, 83, 60);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes flashing {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes flashing {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes showFromLeft {
+  from {
+    left: 50%;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes showFromLeft {
+  from {
+    left: 50%;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes showFromRotateX {
+  from {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes showFromRotateX {
+  from {
+    -webkit-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {
   :root {
@@ -186,6 +511,39 @@ iframe {
 @media screen and (min-width: 769px) and (max-width: 1240px) {
   :root {
     --default-font-size: var(--default-font-size-laptop);
+  }
+  .leftFootBox {
+    width: 100%;
+  }
+  .formsButtons * {
+    font-size: 18px;
+  }
+
+  .example .head,
+  .example .body,
+  .example .foot {
+    overflow-x: scroll;
+  }
+  #garland {
+    background-size: cover;
+  }
+  .wem1,
+  .mwem1,
+  .wem5,
+  .mwem5,
+  .wem10,
+  .mwem10,
+  .wem15,
+  .mwem15,
+  .wem20,
+  .mwem20,
+  .wem25,
+  .mwem25,
+  .wem30,
+  .mwem30,
+  .wem35,
+  .mwem35 {
+    min-width: unset;
   }
 }
 

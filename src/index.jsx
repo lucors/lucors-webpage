@@ -2,7 +2,6 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import "./common/i18n.js";
 import "./index.css";
-import "./oldstyle.css";
 import "./prism.css";
 import App from "./App.jsx";
 import store from "./store/store.js";
