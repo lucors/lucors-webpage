@@ -505,20 +505,6 @@ div.code-toolbar > .toolbar > .toolbar-item > span {
     --logo-h: 2.3em;
     --default-font-size: var(--default-font-size-mobile);
   }
-}
-
-/*LAPTOP*/
-@media screen and (min-width: 769px) and (max-width: 1240px) {
-  :root {
-    --default-font-size: var(--default-font-size-laptop);
-  }
-  .leftFootBox {
-    width: 100%;
-  }
-  .formsButtons * {
-    font-size: 18px;
-  }
-
   .example .head,
   .example .body,
   .example .foot {
@@ -544,6 +530,19 @@ div.code-toolbar > .toolbar > .toolbar-item > span {
   .wem35,
   .mwem35 {
     min-width: unset;
+  }
+}
+
+/*LAPTOP*/
+@media screen and (min-width: 769px) and (max-width: 1240px) {
+  :root {
+    --default-font-size: var(--default-font-size-laptop);
+  }
+  .leftFootBox {
+    width: 100%;
+  }
+  .formsButtons * {
+    font-size: 18px;
   }
 }
 
