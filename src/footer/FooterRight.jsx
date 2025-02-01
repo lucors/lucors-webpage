@@ -8,12 +8,12 @@ export function ChangeLanguage() {
   const { i18n } = useTranslation();
 
   function toggleLang() {
-    i18n.changeLanguage(i18n.language == "ru" ? "en" : "ru");
+    i18n.changeLanguage(i18n.language.includes("ru") ? "en" : "ru");
   }
 
   return (
     <Button className="change-lang" onClick={toggleLang}>
-      {i18n.language}
+      {i18n.language.includes("ru") ? "ru" : "en"}
     </Button>
   );
 }
