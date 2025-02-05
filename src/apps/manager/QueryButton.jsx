@@ -9,12 +9,14 @@ export default function QueryButton({
   className = "",
   onClick,
   children,
+  primary,
   subActionAllow = true,
   inline = false,
 }) {
   return (
     <Button
       className={className}
+      primary={primary}
       onClick={() => {
         setWindowQuery(title, query, winid);
         if (onClick) onClick();

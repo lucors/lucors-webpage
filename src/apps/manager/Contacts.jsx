@@ -4,6 +4,7 @@ import "./Contacts.css";
 import { useTranslation } from "react-i18next";
 import { WINDOW_APP_MANAGER } from "./shared";
 import i18next from "i18next";
+import Button from "#common/Button.jsx";
 
 i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   c1: "Hello!",
@@ -29,6 +30,10 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   r4: "Name",
   r5: "Review",
   r6: "Send",
+  h1: "About me",
+  h2: "Links",
+  h3: "Feedback",
+  h4: "What is 'lucors'?",
 });
 i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   c1: "Привет!",
@@ -54,13 +59,17 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   r4: "Имя",
   r5: "Отзыв",
   r6: "Отправить",
+  h1: "О себе",
+  h2: "Ссылки",
+  h3: "Обратная связь",
+  h4: "Что за 'lucors'?",
 });
 
 export default function Contacts() {
   const [sended, setSended] = useState(false);
   const textRef = useRef(null);
   const nameRef = useRef(null);
-  const {t} = useTranslation(WINDOW_APP_MANAGER);
+  const { t } = useTranslation(WINDOW_APP_MANAGER);
 
   const sendForm = () => {
     if (!textRef?.current?.value || !nameRef?.current?.value) return;
@@ -85,46 +94,65 @@ export default function Contacts() {
 
   return (
     <div className="contactsContent">
-      <div className="aboutmeField">
-        <span className="aboutmeText">
-          <div className="avatar-container">
-            <div className="text">
-              <div className="makishimudesu">
-                {t("c1")}<br /> {t("c2")}<div className="name">{t("c3")}</div>
-              </div>
-              <div>
-                {t("c4")} <code className="language-none">lucors</code>
-              </div>
-              <div className="watashinopage">{t("c5")}</div>
-            </div>
-            <img className="avatar" src="img/logo-avatar-small-alpha.png" alt={t("cphoto")} />
+      <div className="section avatar-container">
+        <div className="text">
+          <div className="makishimudesu">
+            {t("c1")}
+            <br /> {t("c2")}
+            <div className="name">{t("c3")}</div>
           </div>
-          {t("c6")}{" "}
-          <a href="https://ru.wikipedia.org/wiki/Саратов" target="_blank">
-            {t("c7")}
-          </a>
-          . <br />
-          {t("c8")}{" "}
-          <a href="https://www.sgu.ru/" target="_blank">
-            {t("c9")}
-          </a>{" "}
-          {t("c10")} <br />
-          {t("c11")} <br />
-          <br />
-          {t("c12")}{" "}
-          <code className="language-none">lucors (ˈlukərz)</code>
+          <div>
+            {t("c4")} <code className="language-none">lucors</code>
+          </div>
+          <div className="watashinopage">{t("c5")}</div>
+        </div>
+        <img
+          className="avatar"
+          src="img/logo-avatar-small-alpha.png"
+          alt={t("cphoto")}
+        />
+      </div>
+
+      <div className="section">
+        <h2>{t("h1")}</h2>
+        {t("c6")}{" "}
+        <a href="https://ru.wikipedia.org/wiki/Саратов" target="_blank">
+          {t("c7")}
+        </a>
+        . <br />
+        {t("c8")}{" "}
+        <a href="https://www.sgu.ru/" target="_blank">
+          {t("c9")}
+        </a>{" "}
+        {t("c10")} <br />
+        {t("c11")} <br />
+      </div>
+
+      <div className="section">
+        <h2>{t("h4")}</h2>
+        {t("c12")}{" "}
+        <code className="language-none textLucors">
           <img
-            className="playLucors"
-            src="img/play-sound.png"
-            alt={t("csound")}
+            src="img/lucors-text.png"
+            alt="lucors (ˈlukərz)"
             onClick={playLucors}
-          />{" "}
-          {t("c13")} <br />
-          <br />
+          />
+        </code>
+        <img
+          className="playLucors"
+          src="img/play-sound.png"
+          alt={t("csound")}
+          onClick={playLucors}
+        />{" "}
+        {t("c13")}
+      </div>
+
+      <div className="section links">
+        <div className="desc">
+          <h2>{t("h2")}</h2>
           {t("c14")} <br />
           {t("c15")} <span className="heart">❤</span> <br />
-        </span>
-
+        </div>
         <div className="aboutmeHrefs">
           <a
             target="_blank"
@@ -176,14 +204,14 @@ export default function Contacts() {
         </div>
       </div>
 
-      <div className="contactsField">
-        {sended && <h3 className="reviewSent">{t("r1")}</h3>}
+      <div className="section">
+        <div className="desc">
+          <h2>{t("h3")}</h2>
+          {!sended && t("r3")}
+          {sended && t("r1")}
+        </div>
         {!sended && (
           <>
-            <span className="contactsText">
-              <h3>{t("r2")}</h3>
-              {t("r3")}
-            </span>
             <div className="sendForm">
               <input
                 ref={nameRef}
@@ -197,13 +225,9 @@ export default function Contacts() {
                 name="review"
                 placeholder={t("r5")}
               ></textarea>
-              <input
-                className="formButton"
-                type="submit"
-                value={t("r6")}
-                title={t("r6")}
-                onClick={sendForm}
-              />
+              <Button className="formButton" onClick={sendForm} primary={true}>
+                {t("r6")}
+              </Button>
             </div>
           </>
         )}

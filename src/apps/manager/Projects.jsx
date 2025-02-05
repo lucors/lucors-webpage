@@ -287,6 +287,7 @@ export default function Projects({ isArchive }) {
           query={isArchive ? "projects" : "archive"}
           subActionAllow={false}
           inline={false}
+          primary={true}
           className="archive-button"
         >
           {isArchive ? "Показать текущие" : "Показать архив"}

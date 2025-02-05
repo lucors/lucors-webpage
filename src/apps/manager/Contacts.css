@@ -17,17 +17,14 @@
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
-А .aboutmeField {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: rgba(81, 87, 128, 0.28);
-  margin-bottom: 20px;
-  border-radius: var(--radius1);
+
+.contactsContent .desc {
+  margin-bottom: 0.5em;
+}
+
+.contactsContent h2 {
+  margin-top: 0em;
+  margin-bottom: 0.4em;
 }
 
 .contactsField {
@@ -35,9 +32,10 @@
   display: -ms-flexbox;
   display: flex;
   justify-content: center;
-  background-color: rgba(81, 87, 128, 0.28);
-  border-radius: var(--radius1);
+  /* background-color: rgba(81, 87, 128, 0.28);
+  border-radius: var(--radius1); */
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .sendForm {
@@ -48,36 +46,39 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 40%;
+  width: 90%;
   height: 100%;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   padding: 10px;
+  margin: auto;
 }
 
 .formReview {
-  height: 50px;
+  height: 4.5em;
   resize: none;
   border-radius: var(--radius1);
   border: none;
   margin-top: 0.4em;
   font-size: 0.8em;
+  min-height: 1em;
 }
 
 .formName {
   border-radius: var(--radius1);
   border: none;
   font-size: 0.8em;
+  min-height: 1.7em;
 }
 
 .formButton {
   border: none;
   background: none;
   outline: none;
-  padding: 10px 6px 10px 6px;
+  /* padding: 10px 6px 10px 6px; */
   color: white;
-  font-size: 16px;
+  font-size: 1em;
   font-family: Monofur;
   cursor: pointer;
   -webkit-transition: 0.25s ease-in-out;
@@ -85,12 +86,17 @@
   transition: 0.25s ease-in-out;
   border-radius: var(--radius1);
   margin-top: 0.4em;
+  min-height: 1.7em;
+  /* background-color: #17172d; */
+}
+.formButton > * {
+  text-align: center;
 }
 
-.formButton:hover {
+/* .formButton:hover {
   background-color: #bfceff24;
   color: #c6d4ff;
-}
+} */
 
 .reviewSent {
   margin: 1em;
@@ -104,22 +110,6 @@
   max-width: 50%;
 }
 
-.aboutmeField {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: rgba(81, 87, 128, 0.28);
-  border-radius: var(--radius1);
-  margin-bottom: 0.5em;
-}
-.aboutmeText {
-  padding: 10px;
-  /*box-shadow: 0px -2px 0px 0px white inset;*/
-}
 .aboutmeHrefs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -128,7 +118,7 @@
   justify-content: center;
   /* background-color: rgba(81, 87, 128, 0.28); */
   border-radius: var(--radius1);
-  margin-bottom: 0.5em;
+  /* margin-bottom: 0.5em; */
   flex-wrap: wrap;
 }
 .aboutmeHrefs .about {
@@ -208,12 +198,28 @@
   display: flex;
   justify-content: center;
   /* justify-content: space-around; */
-  background-color: #00000052;
+  /* background-color: #00000052; */
   border-radius: var(--radius1);
   padding-top: 0.6em;
   padding-bottom: 0.6em;
-  margin-bottom: 0.6em;
+  /* margin-bottom: 0.6em; */
   flex-wrap: wrap;
+  position: relative;
+  /* background-color: #00000057; */
+  background-color: transparent;
+}
+
+.avatar-container:before {
+  /* content: ""; */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(img/background_blur.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .avatar-container .text {
@@ -242,10 +248,21 @@
   border-radius: var(--radius1);
 }
 
+.textLucors {
+  display: inline-flex;
+}
+.textLucors img {
+  height: 1em;
+}
+
 .playLucors {
   cursor: pointer;
   height: 0.9em;
   margin-left: 0.1em;
+}
+
+.section.links {
+  margin-top: 3em;
 }
 
 /*MOBILE*/
