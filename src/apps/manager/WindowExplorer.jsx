@@ -2,7 +2,7 @@ import { memo } from "react";
 import QueryButton from "./QueryButton";
 import Window from "#main/windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import { contentMenu, managerMenu, WINDOW_APP_MANAGER } from "./shared";
+import { contentMenu, managerMenu, WINDOW_APP_MANAGER, WINDOW_ICON } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
@@ -58,6 +58,7 @@ export default memo(function WindowExplorer({ data }) {
   return (
     <Window
       data={data}
+      icon={WINDOW_ICON}
       title={title}
       menu={<Menu winid={data.id} />}
       content={contentType[data.query]}
