@@ -34,7 +34,7 @@ footer {
   border-radius: var(--radius1);
   margin: auto;
   margin-bottom: 0.5em;
-  box-shadow: 0 .2em #4d4d55;
+  /* box-shadow: 0 .2em #4d4d55; */
 }
 
 #task-bar {
@@ -125,6 +125,7 @@ footer.expanded:before {
 footer.expanded #footer-body {
   border-radius: 0 0 var(--radius1) var(--radius1);
   /* box-shadow: 0em 0.2em 0 0em #4d4d55; */
+  box-shadow: 0 0.15em #4d4d55;
 }
 
 .lined {
