@@ -6,6 +6,14 @@ import QueryButton from "./QueryButton";
 // TODO: ID не в ту сторону))
 const projects = [
   {
+    id: -1,
+    name: "Godot Demo",
+    shortname: "prj-godot-demo",
+    logo: "godotExample.png",
+    frameAllow: true,
+    startHref: "https://lucors.ru/emergency-procedure",
+  },
+  {
     id: 0,
     name: "Screen Portals",
     shortname: "prj-screen-portals",

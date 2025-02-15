@@ -72,6 +72,11 @@ export default function About() {
           href="https://react.dev/"
         />
         <LibIcon
+          title="Redux"
+          src="img/logo-redux.png"
+          href="https://redux.js.org/"
+        />
+        <LibIcon
           title="Vite"
           src="img/logo-vite.png"
           href="https://vite.dev/"

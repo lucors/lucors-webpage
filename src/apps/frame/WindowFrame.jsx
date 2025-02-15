@@ -18,6 +18,7 @@ export default memo(function WindowFrame({ data }) {
           <iframe
             src={data?.href}
             allow="autoplay; camera; microphone; display-capture; fullscreen;"
+            sandbox="allow-scripts allow-same-origin"
             allowFullScreen={true}
           ></iframe>
         </>
