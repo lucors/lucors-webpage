@@ -185,8 +185,9 @@ footer.expanded #startButt {
     margin-bottom: 0;
     border-radius: 0 var(--radius1) 0 0;
     border: none;
-    border-top: var(--border1) solid #4d4d55;
-    border-right: var(--border1) solid #4d4d55;
+    /*border-top: var(--border1) solid #4d4d55;*/
+    /*border-right: var(--border1) solid #4d4d55;*/
+    margin-bottom: 0.5em;
   }
 
   #startButt {
