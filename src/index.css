@@ -14,7 +14,7 @@
 :root {
   --window-header: 26px;
   --height-header: 0px;
-  --height-footer: calc(40px + 0.5em);
+  --height-footer: calc(40px + 0.7em);
   --border1: 0.15em;
   --logo-h: 55px;
   --projectBox-w: 220px;
@@ -43,8 +43,7 @@
   --color-pRLD: var(--color-font);
   --color-wheat: #ffdd9d;
 
-  font-family: Monofur;
-  color: white;
+  font-family: Monofur, serif;
   overflow-x: hidden;
   color: var(--color-font);
   font-size: var(--default-font-size);
@@ -102,7 +101,7 @@ h2 {
   /*color: #c1e3f8;*/
   /*text-shadow: 0em 0.1em 0.1em #c1e3f873;*/
   color: #c6d4ff;
-  text-shadow: 0em 0.1em 0.1em #c6d4ff45;
+  text-shadow: 0 0.1em 0.1em #c6d4ff45;
 }
 
 h3 {
