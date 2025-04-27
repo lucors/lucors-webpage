@@ -21,8 +21,6 @@
   height: -moz-fit-content;
   height: fit-content;
   min-height: 14em;
-  
-  /*margin-bottom: 0.5em;*/
   border-radius: var(--radius1);
   border: var(--border1) solid #4d4d55;
 }
@@ -61,7 +59,7 @@
 
 #menuContent {
   height: 100%;
-  padding: 15px 5px 15px 5px;
+  padding: 15px 1em 15px 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,7 +72,6 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  /*    min-width: 9vw;*/
   min-width: 11.5rem;
 }
 
@@ -100,7 +97,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 3em;
 }
+
 .menuLeft > .actions > * {
   margin: 0.3em;
 }
@@ -108,7 +107,6 @@
 .menuImg {
   height: 25px;
   width: auto;
-  /*	transform: rotate(90deg);*/
   -webkit-transition: transform 0.4s ease;
   -o-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
@@ -123,7 +121,6 @@
   height: var(--logo-h);
   width: auto;
   border-radius: var(--radius1);
-  /*border: 2px outset ghostwhite;*/
   padding: 1px 1px 1px 1px;
   margin: 8px 8px 8px 8px;
 }
@@ -136,13 +133,41 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: column-reverse;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.menu-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-section > .section-title {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #2c2c49;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.2em;
+  padding-top: 0.5em;
+}
+
+.menu-section:first-child > .section-title {
+  padding-top: 0;
+}
+
+.menu-section > .section-title span {
+  margin-left: 0.3em;
+}
+
+.menu-section > .section-title img {
+  height: 1.5em;
+  width: auto;
+  max-width: 1.5em;
 }
 
 #startButt {
@@ -173,10 +198,6 @@
   background-color: #2c2c49;
 }
 
-/*footer.expanded #startButt {*/
-/*  border-radius: 0 0 var(--radius1) var(--radius1);*/
-/*}*/
-
 /*MOBILE*/
 @media screen and (min-width: 320px) and (max-width: 768px) {
   #menuBox {
@@ -185,13 +206,11 @@
     margin-bottom: 0;
     border-radius: 0 var(--radius1) 0 0;
     border: none;
-    /*border-top: var(--border1) solid #4d4d55;*/
-    /*border-right: var(--border1) solid #4d4d55;*/
     margin-bottom: 0.5em;
   }
 
   #startButt {
-    border-radius: 0 var(--radius1) var(--radius1) 0
+    border-radius: 0 var(--radius1) var(--radius1) 0;
   }
 
   #logoPlaceProgram {

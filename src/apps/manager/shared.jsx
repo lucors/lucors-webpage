@@ -17,16 +17,20 @@ export const WINDOW_APP_MANAGER = "explorer";
 export const WINDOW_DEFAULT_QUERY = "main-page";
 
 i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
+  menuSectionTitle: "Common",
   menu1: "Main page",
   menu2: "Contacts",
   menu3: "Projects",
+  menu3alt: "Archival projects",
   menu5: "Articles",
   menu8: "About",
 });
 i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
+  menuSectionTitle: "Общее",
   menu1: "Главная страница",
   menu2: "Контакты",
   menu3: "Проекты",
+  menu3alt: "Архивные проекты",
   menu5: "Статьи",
   menu8: "О сайте",
 });
@@ -131,6 +135,12 @@ export const contentMenu = [
     id: 3,
     title: "menu3",
     query: "projects",
+  },
+  {
+    id: 4,
+    title: "menu3alt",
+    query: "archive",
+    hide: true,
   },
   {
     id: 5,

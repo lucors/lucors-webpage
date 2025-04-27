@@ -75,6 +75,21 @@ body {
   transition-timing-function: ease-in;
 }
 
+#monitor {
+  display: none;
+  width: auto;
+  height: 100vh;
+  position: fixed;
+}
+
+body.old {
+  background-color: black;
+}
+
+body.old #monitor {
+  display: initial;
+}
+
 body.fade {
   background-color: black;
   transform: scale(0.9);

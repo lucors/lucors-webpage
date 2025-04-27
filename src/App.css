@@ -22,6 +22,14 @@
   background-position-x: center;
 }
 
+body.old #app {
+  min-height: 0 !important;
+  height: 61.3vh !important;
+  width: 69vh !important;
+  margin-top: 10vh;
+  filter: saturate(0.5);
+}
+
 #fade {
   position: fixed;
   left: 0;

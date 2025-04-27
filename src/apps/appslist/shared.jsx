@@ -2,6 +2,7 @@ import { cmds } from "#apps/console/shared.jsx";
 import { appsComponents } from "#common/apps.js";
 import { getSingletonAppCreator } from "#common/utils.js";
 import { lazy } from "react";
+import i18next from "i18next";
 import IconAppManager from "#apps/manager/IconAppManager.jsx";
 import IconAppUrl2Frame from "#apps/url2frame/IconAppUrl2Frame.jsx";
 import IconAppChat from "#apps/chat/IconAppChat.jsx";
@@ -14,6 +15,15 @@ import IconAppConsole from "#apps/console/IconAppConsole.jsx";
 export const WINDOW_TITLE = "Приложения";
 export const WINDOW_ICON = "img/apps.png";
 export const WINDOW_APP_APPSLIST = "app_appslist";
+
+i18next.addResourceBundle("ru", WINDOW_APP_APPSLIST, {
+  menuSectionTitle: "Остальное",
+  menuItem: "Остальные приложения",
+});
+i18next.addResourceBundle("en", WINDOW_APP_APPSLIST, {
+  menuSectionTitle: "Other",
+  menuItem: "Other apps",
+});
 
 appsComponents.set(
   WINDOW_APP_APPSLIST,
@@ -40,7 +50,7 @@ export function IconsList() {
       <IconAppCalc />
       <IconAppPaint />
       <IconAppDvd />
-      <IconAppConsole/>
+      <IconAppConsole />
       <IconAppTrash />
     </div>
   );

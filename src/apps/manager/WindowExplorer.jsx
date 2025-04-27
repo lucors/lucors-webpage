@@ -28,7 +28,7 @@ const contentType = {
 function Menu({ winid }) {
   const {t} = useTranslation(WINDOW_APP_MANAGER);
 
-  return managerMenu.map((v) => {
+  return managerMenu.filter((v) => !v.hide).map((v) => {
     const title = t(v.title);
     if (v.onClick) {
       return (
