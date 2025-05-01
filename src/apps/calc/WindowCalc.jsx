@@ -69,7 +69,7 @@ function Calculator() {
   };
 
   return (
-    <div className="calculator">
+    <div className="calculator section">
       <div className="display">{displayValue}</div>
       <div className="ops">
         <span className={operator == "/" ? "active" : ""}>/</span>

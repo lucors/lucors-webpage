@@ -1,20 +1,12 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import ru from "./i18n/ru";
+import en from "./i18n/en";
 
 const resources = {
-  en: {
-    translation: {
-      hello: "Hello world!",
-      menu: "Menu",
-    },
-  },
-  ru: {
-    translation: {
-      hello: "Привет мир!",
-      menu: "Меню",
-    },
-  },
+  en: en,
+  ru: ru,
 };
 
 i18next

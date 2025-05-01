@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import "./common/i18n.js";
+import "#providers/i18n.js";
 import "./index.css";
 import "./prism.css";
 import App from "./App.jsx";
@@ -8,14 +8,11 @@ import store from "./store/store.js";
 import backgroundEvents, { prepareWindow } from "./backgroundEvents.js";
 import { createExplorer } from "#apps/manager/shared.jsx";
 import { addWindowFromUri, parseQuery } from "#common/utils.js";
+import { t } from "i18next";
 
 const params = parseQuery(window.location.search);
 const firstTime = !!!localStorage.getItem("persistantState");
-if (firstTime) {
-  console.log(
-    "Ох, тебя я еще не видел! Привет и добро пожаловать на мой сайт~"
-  );
-}
+if (firstTime) console.log(t("welcome"));
 
 prepareWindow();
 createRoot(document.getElementById("app")).render(

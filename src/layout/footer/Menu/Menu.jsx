@@ -7,28 +7,23 @@ import FullscreenButton from "./FullscreenButton";
 import { setMenu } from "#store/menuSlice.js";
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import Button from "#common/Button.jsx";
 
 import ShutdownButton from "./ShutdownButton";
 import {
   contentMenu as managerMenu,
   WINDOW_APP_MANAGER,
-  WINDOW_ICON,
 } from "#apps/manager/shared.jsx";
-import {
-  createApp,
-  WINDOW_ICON as APPSLIST_ICON,
-  WINDOW_APP_APPSLIST,
-} from "#apps/appslist/shared.jsx";
 import { useTranslation } from "react-i18next";
 
-function MenuSection({ icon, title, children }) {
+function MenuSection({ icon, title, children, renderTitle = true }) {
   return (
     <div className="menu-section">
-      <div className="section-title">
-        <img src={icon} />
-        <span>{title}</span>
-      </div>
+      {renderTitle && (
+        <div className="section-title">
+          <img src={icon} />
+          <span>{title}</span>
+        </div>
+      )}
       <div>{children}</div>
     </div>
   );
@@ -38,48 +33,35 @@ function MenuSectionManager({ hideMenu }) {
   const { t } = useTranslation(WINDOW_APP_MANAGER);
 
   return (
-    <MenuSection icon={WINDOW_ICON} title={t("menuSectionTitle")}>
-      {managerMenu.filter((v) => !v.hide).map((v) => {
-        const title = t(v.title);
-        if (v.query) {
+    <MenuSection renderTitle={false}>
+      {managerMenu
+        .filter((v) => !v.hide)
+        .map((v) => {
+          const title = t(v.title);
+          if (v.query) {
+            return (
+              <QueryButton
+                key={v.id}
+                title={title}
+                query={v.query}
+                onClick={hideMenu}
+              >
+                {title}
+              </QueryButton>
+            );
+          }
           return (
-            <QueryButton
+            <FrameButton
               key={v.id}
               title={title}
-              query={v.query}
+              href={v.href}
+              icon={v.icon}
               onClick={hideMenu}
             >
               {title}
-            </QueryButton>
+            </FrameButton>
           );
-        }
-        return (
-          <FrameButton
-            key={v.id}
-            title={title}
-            href={v.href}
-            icon={v.icon}
-            onClick={hideMenu}
-          >
-            {title}
-          </FrameButton>
-        );
-      })}
-    </MenuSection>
-  );
-}
-
-function MenuSectionOther({ hideMenu }) {
-  const { t } = useTranslation(WINDOW_APP_APPSLIST);
-
-  const clickHandler = () => {
-    createApp();
-    hideMenu();
-  };
-
-  return (
-    <MenuSection icon={APPSLIST_ICON} title={t("menuSectionTitle")}>
-      <Button onClick={clickHandler}>{t("menuItem")}</Button>
+        })}
     </MenuSection>
   );
 }
@@ -136,7 +118,6 @@ export default function Menu() {
       </div>
       <div id="menuContent">
         <MenuSectionManager hideMenu={hideMenu} />
-        <MenuSectionOther hideMenu={hideMenu} />
       </div>
     </div>
   );

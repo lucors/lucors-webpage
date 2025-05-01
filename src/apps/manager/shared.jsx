@@ -10,6 +10,13 @@ import {
 } from "#store/windowsSlice.js";
 import { lazy } from "react";
 import i18next from "i18next";
+import IconAppUrl2Frame from "#apps/url2frame/IconAppUrl2Frame.jsx";
+import IconAppChat from "#apps/chat/IconAppChat.jsx";
+import IconAppCalc from "#apps/calc/IconAppCalc.jsx";
+import IconAppPaint from "#apps/paint/IconAppPaint.jsx";
+import IconAppDvd from "#apps/dvd/IconAppDvd.jsx";
+import IconAppTrash from "#apps/trash/IconAppTrash.jsx";
+import IconAppConsole from "#apps/console/IconAppConsole.jsx";
 
 export const WINDOW_TITLE = "Менеджер справки";
 export const WINDOW_ICON = "img/manager.svg";
@@ -24,6 +31,7 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   menu3alt: "Archival projects",
   menu5: "Articles",
   menu8: "About",
+  menu9: "Apps",
 });
 i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menuSectionTitle: "Общее",
@@ -33,7 +41,16 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menu3alt: "Архивные проекты",
   menu5: "Статьи",
   menu8: "О сайте",
+  menu9: "Приложения",
 });
+// i18next.addResourceBundle("ru", WINDOW_APP_APPSLIST, {
+//   menuSectionTitle: "Остальное",
+//   menuItem: "Остальные приложения",
+// });
+// i18next.addResourceBundle("en", WINDOW_APP_APPSLIST, {
+//   menuSectionTitle: "Other",
+//   menuItem: "Other apps",
+// });
 
 appsComponents.set(
   WINDOW_APP_MANAGER,
@@ -133,6 +150,11 @@ export const contentMenu = [
   },
   {
     id: 3,
+    title: "menu9",
+    query: "applist",
+  },
+  {
+    id: 4,
     title: "menu3",
     query: "projects",
   },
@@ -178,3 +200,19 @@ export const managerMenu = [
   //   icon: "https://lucors.ru/iochat/assets/img/favicon.png",
   // },
 ].sort((a, b) => a.id - b.id);
+
+// TODO: Сейчас это прогружает сведения о всех существующих приложениях
+// Без этого ломается загрузка приложений, если не был запущен manager 
+export function AppsList() {
+  return (
+    <div className="section mwem20 desktop-icons">
+      <IconAppUrl2Frame />
+      <IconAppChat />
+      <IconAppCalc />
+      <IconAppPaint />
+      <IconAppDvd />
+      <IconAppConsole />
+      <IconAppTrash />
+    </div>
+  );
+}
