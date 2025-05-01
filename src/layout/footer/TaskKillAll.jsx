@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteAllWindows } from "../store/windowsSlice";
+import { deleteAllWindows } from "#store/windowsSlice";
 import "./Task.css";
 import "./TaskKillAll.css";
 

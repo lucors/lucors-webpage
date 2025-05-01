@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { cursor } from "../backgroundEvents";
+import { cursor } from "#backgroundEvents";
 
 export function setCanvas(canvas) {
   if (!canvas) return;

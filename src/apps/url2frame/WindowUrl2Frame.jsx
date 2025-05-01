@@ -1,5 +1,5 @@
 import { memo, useRef } from "react";
-import Window from "#main/windows/Window";
+import Window from "#layout/main/windows/Window";
 import { createFrame } from "#apps/frame/shared.js";
 import "./WindowUrl2Frame.css";
 import { WINDOW_TITLE } from "./shared";

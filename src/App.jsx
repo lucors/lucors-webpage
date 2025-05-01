@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Footer from "./footer/Footer";
-import Header from "./header/Header";
-import Main from "./main/Main.jsx";
+import Footer from "#layout/footer/Footer";
+import Header from "#layout/header/Header";
+import Main from "#layout/main/Main.jsx";
 import { setShutdown } from "#store/screenSlice.js";
 import { lazy, Suspense } from "react";
 

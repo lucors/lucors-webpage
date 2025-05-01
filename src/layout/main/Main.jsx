@@ -7,7 +7,6 @@ import "./Main.css";
 import DesktopCanvas from "./DesktopCanvas";
 import Clock from "#common/Clock.jsx";
 import { useSelector } from "react-redux";
-import IconAppAppsList from "#apps/appslist/IconAppAppsList.jsx";
 
 export default function Main() {
   const mainRef = useRef(null);

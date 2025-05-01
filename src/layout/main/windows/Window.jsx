@@ -9,7 +9,7 @@ import {
   updateWindow,
 } from "#store/windowsSlice";
 import "./Window.css";
-import { cursor, flags } from "#backgroundEvents";
+import { cursor, flags } from "#/backgroundEvents";
 import store from "#store/store";
 
 export function ContentLoadError({ message = "" }) {

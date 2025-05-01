@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Window from "#main/windows/Window";
+import Window from "#layout/main/windows/Window";
 import { IconsList, WINDOW_TITLE } from "./shared";
 
 export default memo(function WindowAppsList({ data }) {

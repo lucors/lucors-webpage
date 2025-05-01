@@ -1,6 +1,6 @@
 import { memo } from "react";
 import QueryButton from "./QueryButton";
-import Window from "#main/windows/Window";
+import Window from "#layout/main/windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
 import { contentMenu, managerMenu, WINDOW_APP_MANAGER, WINDOW_ICON } from "./shared";
 import Welcome from "./Welcome";

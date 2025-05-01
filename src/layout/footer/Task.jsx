@@ -3,7 +3,7 @@ import {
   isCurrent,
   setCurrentWindowById,
   updateWindow,
-} from "../store/windowsSlice";
+} from "#store/windowsSlice";
 import "./Task.css";
 
 export default function Task({ data }) {
