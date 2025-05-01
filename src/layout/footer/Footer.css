@@ -24,7 +24,7 @@ footer {
   -ms-flex-align: center;
   align-items: center;
   background-color: #212125;
-  min-width: 80vw;
+  /* min-width: 80vw; */
   width: 90%;
   max-width: 95vw;
   border-radius: var(--radius1);

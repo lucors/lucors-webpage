@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import Trashzone from "./Trashzone";
 import { WINDOW_TITLE } from "./shared";
 

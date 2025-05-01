@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 
 function Content() {
   return <div>Контент окна</div>;

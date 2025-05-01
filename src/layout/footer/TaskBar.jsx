@@ -20,8 +20,8 @@ export default function TaskBar() {
 
   return (
     <div id="task-bar" ref={taskBar}>
-      {windowsList.map((v) => (
-        <Task key={v.id} data={v} />
+      {windowsList.map((window) => (
+        <Task key={window.id} data={window} />
       ))}
     </div>
   );

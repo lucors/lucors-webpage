@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
 import $ from "jquery";
-import WindowsList from "./windows/WindowsList";
+import WindowsList from "#windows/WindowsList";
 import store from "#store/store";
 import { setMenu } from "#store/menuSlice";
 import "./Main.css";
 import DesktopCanvas from "./DesktopCanvas";
 import Clock from "#common/Clock.jsx";
 import { useSelector } from "react-redux";
-import IconAppAppsList from "#apps/appslist/IconAppAppsList.jsx";
 
 export default function Main() {
   const mainRef = useRef(null);
@@ -27,7 +26,6 @@ export default function Main() {
   return (
     <main ref={mainRef}>
       <DesktopCanvas />
-      <IconAppAppsList />
       <WindowsList />
       {mobile && <Clock />}
     </main>

@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import Console from "./Console";
 import { WINDOW_TITLE } from "./shared";
 

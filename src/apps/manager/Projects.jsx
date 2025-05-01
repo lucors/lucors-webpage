@@ -1,6 +1,22 @@
 import { createFrame } from "#apps/frame/shared.js";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import "./Projects.css";
 import QueryButton from "./QueryButton";
+import { WINDOW_APP_MANAGER } from "./shared";
+
+i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
+  projectsTitle: "Projects",
+  archiveTitle: "Archive",
+  projectsShowCurrent: "Show current",
+  projectsShowArchive: "Show archived",
+});
+i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
+  projectsTitle: "Проекты",
+  archiveTitle: "Архив",
+  projectsShowCurrent: "Показать текущие",
+  projectsShowArchive: "Показать архив",
+});
 
 // TODO: Использовать БД
 // TODO: ID не в ту сторону))
@@ -287,18 +303,20 @@ export function Project({
 }
 
 export default function Projects({ isArchive }) {
+  const { t } = useTranslation(WINDOW_APP_MANAGER);
+
   return (
     <>
       <div className="projectsRoot section">
         <QueryButton
-          title={isArchive ? "Проекты" : "Архив"}
+          title={isArchive ? t("projectsTitle") : t("archiveTitle")}
           query={isArchive ? "projects" : "archive"}
           subActionAllow={false}
           inline={false}
           primary={true}
           className="archive-button"
         >
-          {isArchive ? "Показать текущие" : "Показать архив"}
+          {isArchive ? t("projectsShowCurrent") : t("projectsShowArchive")}
         </QueryButton>
         {(isArchive ? archive : projects).map((v) => (
           <Project key={v.id} {...v} />

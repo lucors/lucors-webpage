@@ -1,8 +1,8 @@
 import { memo } from "react";
 import QueryButton from "./QueryButton";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import { contentMenu, managerMenu, WINDOW_APP_MANAGER, WINDOW_ICON } from "./shared";
+import { AppsList, contentMenu, managerMenu, WINDOW_APP_MANAGER, WINDOW_ICON } from "./shared";
 import Welcome from "./Welcome";
 import Contacts from "./Contacts";
 import Projects from "./Projects";
@@ -19,6 +19,7 @@ const contentType = {
   projects: <Projects isArchive={false} />,
   archive: <Projects isArchive={true} />,
   about: <About />,
+  applist: <AppsList/>,
   // Статьи
   articles: <Articles />,
   "article-category-common": <CommonIndex />,
@@ -28,7 +29,7 @@ const contentType = {
 function Menu({ winid }) {
   const {t} = useTranslation(WINDOW_APP_MANAGER);
 
-  return managerMenu.map((v) => {
+  return managerMenu.filter((v) => !v.hide).map((v) => {
     const title = t(v.title);
     if (v.onClick) {
       return (

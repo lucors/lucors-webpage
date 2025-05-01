@@ -66,11 +66,22 @@ export const windowsSlice = createSlice({
 
 function saveCurrentWindowToURI(state) {
   /**
+   * Пояснения для сокращений
    * i  = icon
    * tp = type
    * tt = title
    * m  = meta (query/href)
    */
+  
+  // Особенные условия для менеджера
+  if (state.current?.type === "explorer") {
+    saveLocation({
+      tp: state.current?.type,
+      m: state.current?.query
+    });
+    return;
+  } 
+
   if (!state.current?.icon || !state.current?.type || !state.current?.title) {
     return;
   }

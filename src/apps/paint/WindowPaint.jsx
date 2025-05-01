@@ -1,5 +1,5 @@
 import { memo, useRef, useEffect, useState } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import "./WindowPaint.css";
 import { WINDOW_TITLE } from "./shared";
 

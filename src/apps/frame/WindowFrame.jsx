@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import "./WindowFrame.css";
 
 export default memo(function WindowFrame({ data }) {

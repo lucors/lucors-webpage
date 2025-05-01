@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import Window from "#main/windows/Window";
+import Window from "#windows/Window";
 import "./WindowCalc.css";
 import { WINDOW_TITLE } from "./shared";
 
@@ -69,7 +69,7 @@ function Calculator() {
   };
 
   return (
-    <div className="calculator">
+    <div className="calculator section">
       <div className="display">{displayValue}</div>
       <div className="ops">
         <span className={operator == "/" ? "active" : ""}>/</span>

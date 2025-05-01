@@ -23,7 +23,6 @@ export default function Footer() {
   return (
     <footer className={expanded ? "expanded" : ""}>
       <div id="footer-body">
-        {/* <div className="leftFootBox"> */}
         <div id="startButt" onClick={() => dispatch(toogleMenu())}>
           <img className="menuImg" src="img/menu.svg" />
           <span className="menuText">{t("menu")}</span>
@@ -31,7 +30,6 @@ export default function Footer() {
         <Separator />
         <TaskBar />
         <Menu />
-        {/* </div> */}
         <FooterRight isMobile={mobile} winCount={windowsList.length}/>
       </div>
     </footer>
