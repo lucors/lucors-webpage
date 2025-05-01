@@ -5,11 +5,14 @@ import {
   updateWindow,
 } from "#store/windowsSlice";
 import "./Task.css";
+import { WINDOW_ICON } from "#apps/manager/shared.jsx";
 
 export default function Task({ data }) {
   const dispatch = useDispatch();
   const collapsed = data?.collapsed;
   const current = useSelector((state) => isCurrent(state, data.id));
+  // TODO: плохо
+  const icon = data.type === "explorer" ? WINDOW_ICON : data.icon;
 
   function clickHandler() {
     if (collapsed) {
@@ -28,7 +31,7 @@ export default function Task({ data }) {
       title={data.title}
       onClick={clickHandler}
     >
-      <img className="task-icon" src={data.icon} />
+      <img className="task-icon" src={icon} />
     </div>
   );
 }

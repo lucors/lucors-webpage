@@ -43,14 +43,6 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menu8: "О сайте",
   menu9: "Приложения",
 });
-// i18next.addResourceBundle("ru", WINDOW_APP_APPSLIST, {
-//   menuSectionTitle: "Остальное",
-//   menuItem: "Остальные приложения",
-// });
-// i18next.addResourceBundle("en", WINDOW_APP_APPSLIST, {
-//   menuSectionTitle: "Other",
-//   menuItem: "Other apps",
-// });
 
 appsComponents.set(
   WINDOW_APP_MANAGER,
