@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import Window from "#layout/main/windows/Window";
+import Window from "#windows/Window";
 import "./WindowCalc.css";
 import { WINDOW_TITLE } from "./shared";
 

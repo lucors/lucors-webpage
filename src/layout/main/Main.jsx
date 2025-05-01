@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import $ from "jquery";
-import WindowsList from "./windows/WindowsList";
+import WindowsList from "#windows/WindowsList";
 import store from "#store/store";
 import { setMenu } from "#store/menuSlice";
 import "./Main.css";
