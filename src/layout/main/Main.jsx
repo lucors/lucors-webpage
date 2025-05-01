@@ -26,7 +26,6 @@ export default function Main() {
   return (
     <main ref={mainRef}>
       <DesktopCanvas />
-      {/* <IconAppAppsList /> */}
       <WindowsList />
       {mobile && <Clock />}
     </main>
