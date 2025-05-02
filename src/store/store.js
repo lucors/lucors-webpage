@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import menuReducer from './menuSlice'
 import screenReducer from "./screenSlice";
 import windowsReducer from "./windowsSlice";
+import settingsReducer from "./settingsSlice";
 
 
 function loadFromLocalStorage() {
@@ -28,7 +29,8 @@ const store = configureStore({
   reducer: {
     menu: menuReducer,
     screen: screenReducer,
-    windows: windowsReducer
+    windows: windowsReducer,
+    settings: settingsReducer,
   },
   preloadedState: loadFromLocalStorage()
 });

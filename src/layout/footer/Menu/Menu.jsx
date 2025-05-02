@@ -4,11 +4,11 @@ import { useEffect, useRef } from "react";
 import store from "#store/store";
 import "./Menu.css";
 import FullscreenButton from "./FullscreenButton";
+import ShutdownButton from "./ShutdownButton";
+import SettingsButton from "./SettingsButton";
 import { setMenu } from "#store/menuSlice.js";
 import QueryButton from "#apps/manager/QueryButton.jsx";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-
-import ShutdownButton from "./ShutdownButton";
 import {
   contentMenu as managerMenu,
   WINDOW_APP_MANAGER,
@@ -112,6 +112,7 @@ export default function Menu() {
           <img className="logoType" src="img/lucors-logo.svg" />
         </div> */}
         <div className="actions">
+          <SettingsButton />
           <FullscreenButton />
           <ShutdownButton />
         </div>

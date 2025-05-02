@@ -1,0 +1,17 @@
+.setting-row-wrapper:nth-child(n + 2) {
+  margin-top: 1em;
+}
+
+.setting-row  {
+  display: flex;
+  align-items: center;
+}
+.setting-row input {
+  width: 100%;
+}
+.setting-row > img.reset {
+  height: 1em;
+  width: auto;
+  margin-top: 0.4em;
+  cursor: pointer;
+}

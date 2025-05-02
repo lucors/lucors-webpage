@@ -1,0 +1,16 @@
+#settings-button {
+  border-radius: var(--radius1);
+  width: 80%;
+  height: 1.8em;
+  cursor: pointer;
+}
+#settings-button > .ico {
+  background-image: url("img/settings.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+}
+#settings-button:hover {
+  background-color: #bfceff24;
+}

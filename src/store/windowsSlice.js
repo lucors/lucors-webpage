@@ -81,6 +81,12 @@ function saveCurrentWindowToURI(state) {
     });
     return;
   } 
+  if (state.current?.type === "settings") {
+    saveLocation({
+      tp: state.current?.type
+    });
+    return;
+  } 
 
   if (!state.current?.icon || !state.current?.type || !state.current?.title) {
     return;

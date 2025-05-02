@@ -12,7 +12,11 @@ import { t } from "i18next";
 
 const params = parseQuery(window.location.search);
 const firstTime = !!!localStorage.getItem("persistantState");
-if (firstTime) console.log(t("welcome"));
+if (firstTime) {
+  console.log(t("welcome"));
+} else {
+  document.body.style.setProperty("--radius1", store.getState().settings.radius + "em");
+}
 
 prepareWindow();
 createRoot(document.getElementById("app")).render(
