@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const settingsSlice = createSlice({
   name: "settings",
   initialState: {
-    radius: 1,
+    radius: 0.2,
   },
   reducers: {
     setRadius: (state, action) => {
