@@ -4,48 +4,38 @@ import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
 import "./WindowSettings.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setRadius } from "#store/settingsSlice.js";
-import { ChangeLanguage } from "#layout/footer/FooterRight.jsx";
+import { ChangeLanguageButton } from "#layout/footer/FooterRight.jsx";
+import Button from "#common/Button.jsx";
 
-function Content() {
+export function FlatRadiusButton() {
   const radius = useSelector((state) => state.settings.radius);
   const dispatch = useDispatch();
 
-  function onRadiusChange(e) {
-    dispatch(setRadius(e.target.valueAsNumber));
+  function onRadiusChange() {
+    dispatch(setRadius((radius > 0) ? 0 : 0.2));
   }
 
-  function onRadiusReset() {
-    dispatch(setRadius(0.2));
-  }
+  return (
+    <Button className="primary" onClick={onRadiusChange}>
+      {(radius > 0) ? "Мягкий" : "Острый"}
+    </Button>
+  );
+}
+
+function Content() {
 
   return (
     <div className="section">
       <div className="setting-row-wrapper">
-        <label htmlFor="setting-radius">Радиус скругления</label>
+        <label>Радиус скругления</label>
         <div className="setting-row">
-          <input
-            id="setting-radius"
-            className="formInput"
-            placeholder="Радиус скругления"
-            type="number"
-            step="0.1"
-            min="0"
-            max="2"
-            value={radius}
-            onChange={onRadiusChange}
-          />
-          <img
-            class="reset"
-            src="img/close.png"
-            title="Сбросить значение"
-            onClick={onRadiusReset}
-          />
+          <FlatRadiusButton />
         </div>
       </div>
       <div className="setting-row-wrapper">
-        <label htmlFor="setting-radius">Язык</label>
+        <label>Язык</label>
         <div className="setting-row">
-          <ChangeLanguage />
+          <ChangeLanguageButton primary />
         </div>
       </div>
     </div>

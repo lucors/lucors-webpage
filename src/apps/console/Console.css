@@ -1,27 +1,53 @@
 .console-container {
   height: 100%;
   width: 100%;
-  background-color: rgb(23 28 59);
   overflow-y: scroll;
   overflow-x: hidden;
-}
-
-.console-container input {
-  width: 100%;
-  border: none;
-  font-size: 1.2em;
-  height: 1.2em;
-  position: absolute;
-  bottom: 0;
+  outline: none;
 }
 
 .console-container pre {
   padding: 0.5em;
-  min-height: calc(100% - 3em);
   text-wrap: auto;
+  word-break: break-all;
   margin-bottom: 1.4em;
+  line-height: 1.2em;
+  font-size: 1.1em;
+  font-family: 'Munro', monospace;
+  color: #ffffff;
+}
+
+.window:has(.console-container) {
+  image-rendering: pixelated;
+  border-radius: 0;
+}
+
+.window:has(.console-container) > .body > .header > .title {
+  font-family: 'Munro', monospace;
 }
 
 .window .main > .right:has(.console-container) {
   margin: 0;
+}
+
+.console-container::-webkit-scrollbar-track-piece {
+  border-radius: 0;
+}
+.console-container::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 0.2em;
+  height: 1.2em;
+  background-color: #ffffff;;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }

@@ -25,7 +25,7 @@ export const WINDOW_DEFAULT_QUERY = "main-page";
 
 i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   menuSectionTitle: "Common",
-  menu1: "Main page",
+  menu1: "Index",
   menu2: "Contacts",
   menu3: "Projects",
   menu3alt: "Archival projects",
@@ -35,7 +35,7 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
 });
 i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menuSectionTitle: "Общее",
-  menu1: "Главная страница",
+  menu1: "Главная",
   menu2: "Контакты",
   menu3: "Проекты",
   menu3alt: "Архивные проекты",
@@ -160,6 +160,7 @@ export const contentMenu = [
     id: 5,
     title: "menu5",
     query: "articles",
+    hide: true,
   },
   {
     id: 8,
@@ -198,12 +199,12 @@ export const managerMenu = [
 export function AppsList() {
   return (
     <div className="section mwem20 desktop-icons">
-      <IconAppUrl2Frame />
       <IconAppChat />
+      <IconAppConsole />
       <IconAppCalc />
       <IconAppPaint />
-      <IconAppDvd />
-      <IconAppConsole />
+      {/*<IconAppDvd />*/}
+      <IconAppUrl2Frame />
       <IconAppTrash />
     </div>
   );

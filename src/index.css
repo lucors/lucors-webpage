@@ -3,6 +3,11 @@
   src: url(font/monof55.ttf);
 }
 
+@font-face {
+  font-family: Munro;
+  src: url(font/munro.otf);
+}
+
 ::-moz-selection {
   background: #9ba0eb4a;
 }

@@ -2,71 +2,66 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Console.css";
 import { cmds } from "./shared";
 
-const welcomeMessage =
-  "Консоль еще в разработке.\nВведите `help` для справки.\n";
+const inputTemplate = "> ";
+const welcomeMessage = "Введите `help` для справки.\n" + inputTemplate;
+
+const specialKeys = [
+  'Shift', 'Control', 'Alt', 'Meta', 'CapsLock',
+  'Tab', 'Escape', 'ContextMenu',
+  "ArrowUp", "ArrowDown", "ArrowRight", "ArrowLeft"
+];
+
 
 export default function Console() {
-  const inputRef = useRef(null);
   const containerRef = useRef(null);
   const [log, setLog] = useState(welcomeMessage);
-  const [history, setHistory] = useState([]);
-  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [command, setCommand] = useState("");
 
   useEffect(() => {
     if (!containerRef?.current) return;
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   }, [log]);
 
-  const addHistory = (cmd) => {
-    setHistory([cmd, ...history]);
-  }
-
-  const handleCommand = (cmdRaw = "") => {
-    addHistory(cmdRaw);
-    const _log = log + "\n> " + cmdRaw;
+  const handleCommand = () => {
+    const cmdRaw = command;
+    setCommand("");
+    const _log = log;
     const args = cmdRaw.trim().toLowerCase().split(" ");
     if (args[0] === "clear") {
-      setLog("");
+      setLog(inputTemplate);
       return;
     }
     const handler = cmds.get(args[0]);
     if (!handler) {
-      setLog(_log + "\nНеизвестная команда");
+      setLog(_log + `\nНеизвестная команда\n${inputTemplate}`);
       return;
     }
-    setLog(_log + "\n" + handler(args.slice(1)));
+    setLog(_log + `\n${handler(args.slice(1))}\n${inputTemplate}`);
   };
 
-  const setFromHistory = (i) => {
-    setHistoryIndex(i);
-    inputRef.current.value = history?.[i] ?? "";
-  }
-
   const handleKeyDown = (event) => {
-    if (!inputRef?.current) return;
-    if (event.key === "ArrowUp") {
-      let i = historyIndex + 1;
-      if (i >= history.length) i = history.length-1; 
-      setFromHistory(i);
+    if (event.key === "Enter") {
+      handleCommand();
       return;
     }
-    if (event.key === "ArrowDown") {
-      let i = historyIndex - 1;
-      if (i < 0) i = 0; 
-      setFromHistory(i);
+    if (specialKeys.includes(event.key)) {
       return;
     }
-    setHistoryIndex(-1);
-    if (inputRef.current.value && event.key === "Enter") {
-      handleCommand(inputRef.current.value);
-      inputRef.current.value = "";
+    if (event.key === "Backspace") {
+      setLog(log.slice(0, -1));
+      setCommand(command.slice(0, -1));
+      return;
     }
+    setCommand(command + event.key);
+    setLog(log + event.key);
   };
 
   return (
-    <div className="console-container" ref={containerRef}>
-      <pre>{log}</pre>
-      <input ref={inputRef} type="text" onKeyDown={handleKeyDown} />
+    <div className="console-container" ref={containerRef} tabIndex={0} onKeyDown={handleKeyDown}>
+      <pre>
+        {log}
+        <span className="blinking-cursor"></span>
+      </pre>
     </div>
   );
 }

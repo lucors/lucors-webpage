@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Separator from "./Separator";
 import TaskKillAll from "./TaskKillAll";
 
-export function ChangeLanguage() {
+export function ChangeLanguageButton({primary}) {
   const { i18n } = useTranslation();
 
   function toggleLang() {
@@ -12,7 +12,7 @@ export function ChangeLanguage() {
   }
 
   return (
-    <Button className="change-lang" onClick={toggleLang}>
+    <Button className={`change-lang ${primary ? "primary" : ""}`} onClick={toggleLang}>
       {i18n.language.includes("ru") ? "ru" : "en"}
     </Button>
   );
@@ -23,7 +23,7 @@ export default function FooterRight({ isMobile, winCount }) {
     <div className="rightFootBox">
       {winCount > 0 && <TaskKillAll />}
       <Separator />
-      <ChangeLanguage />
+      <ChangeLanguageButton />
       {!isMobile && <Clock />}
     </div>
   );

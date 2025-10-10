@@ -14,7 +14,7 @@ export const cmds = new Map([
     () => {
       return (
         "Доступные команды: " +
-        [...cmds.keys(), "clear"].join(", ")
+        [...cmds.keys()].join(", ")
       );
     },
   ],
@@ -25,9 +25,8 @@ export const cmds = new Map([
       return "Спокойной ночи~";
     },
   ],
-  ["hi", () => "hello"],
-  ["hello", () => "hi"],
   ["echo", (args) => args.join(" ")],
+  ["clear", null]
 ]);
 
 appsComponents.set(

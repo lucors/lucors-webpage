@@ -5,10 +5,13 @@
 .setting-row  {
   display: flex;
   align-items: center;
+  margin-top: 0.15em;
 }
-.setting-row input {
-  width: 100%;
+
+.setting-row .button > * {
+  text-align: center;
 }
+
 .setting-row > img.reset {
   height: 1em;
   width: auto;
