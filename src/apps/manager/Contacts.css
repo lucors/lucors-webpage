@@ -265,6 +265,7 @@
   filter: hue-rotate(122deg);
 }
 .window:has(.makishimudesu) .header > .title,
+.window:has(.makishimudesu) .header .wca.close,
 .window:has(.makishimudesu) .avatar,
 .window:has(.makishimudesu) .heart {
   filter: hue-rotate(-122deg);
