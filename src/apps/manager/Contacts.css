@@ -190,7 +190,7 @@
   color: #ffa1a1;
 }
 .heart:active {
-  color: #ff2d2d;
+  color: #ff2d2d !important;
   transform: scale(1.25) rotate(25deg);
 }
 
