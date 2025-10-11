@@ -8,10 +8,12 @@ import DesktopCanvas from "./DesktopCanvas";
 import Clock from "#common/Clock.jsx";
 import { useSelector } from "react-redux";
 
-function Stars() {
-  useEffect(()=> {
+function Stars({ mobile }) {
+
+  useEffect(() => {
     const starsContainer = document.getElementById('starsContainer');
-    const starCount = 150;
+    const starCount = mobile ? 50 : 150;
+    console.log(starCount);
 
     for (let i = 0; i < starCount; i++) {
       createStar();
@@ -63,7 +65,7 @@ export default function Main() {
 
   return (
     <main ref={mainRef}>
-      <Stars />
+      <Stars mobile={mobile} />
       <DesktopCanvas />
       <WindowsList />
       {mobile && <Clock />}
