@@ -160,20 +160,25 @@ iframe {
 
 /*Ползунок!*/
 ::-webkit-scrollbar {
-  width: 15px;
+  /*width: 15px;*/
+  width: 10px;
 }
 ::-webkit-scrollbar:horizontal {
-  height: 15px;
+  /*height: 15px;*/
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff00;
+  /*background: #ffffff00;*/
+  background: transparent;
 }
 ::-webkit-scrollbar-track-piece {
-  background: #8a80aead;
-  border-radius: var(--radius1);
+  /*background: #8a80aead;*/
+  /*border-radius: var(--radius1);*/
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #404071;
+  /*background: #404071;*/
+  background: #8080df8a;
   border-radius: var(--radius1);
 }
 
