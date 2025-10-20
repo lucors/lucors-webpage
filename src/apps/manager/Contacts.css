@@ -180,17 +180,21 @@
 
 .heart {
   /* color: #ffa1a1; */
-  color: #a8a1ff;
+  /*color: #a8a1ff;*/
+  color: transparent;
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s;
   user-select: none;
+  background: url(/img/lucors-heart-crop-alpha.png) no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.heart:hover {
-  color: #ffa1a1;
-}
+/*.heart:hover {*/
+/*  color: #ffa1a1;*/
+/*}*/
 .heart:active {
-  color: #ff2d2d !important;
+  /*color: #ff2d2d !important;*/
   transform: scale(1.25) rotate(25deg);
 }
 
@@ -266,13 +270,12 @@
 }
 .window:has(.makishimudesu) .header > .title,
 .window:has(.makishimudesu) .header .wca.close,
-.window:has(.makishimudesu) .avatar,
-.window:has(.makishimudesu) .heart {
+.window:has(.makishimudesu) .avatar {
   filter: hue-rotate(-122deg);
 }
-.window:has(.makishimudesu) .heart {
-  color: #c9375f;
-}
+/*.window:has(.makishimudesu) .heart {*/
+/*  color: #c9375f;*/
+/*}*/
 .window:has(.makishimudesu) .aboutmeHrefs {
   filter: hue-rotate(332deg);
 }

@@ -41,20 +41,17 @@
   -ms-flex-align: center;
   align-items: center;
   background-color: #36363c;
-  cursor: pointer;
   -webkit-transition: background-color 0.25s ease-in-out;
   -o-transition: background-color 0.25s ease-in-out;
   transition: background-color 0.25s ease-in-out;
   --rotate-logo-border: none;
+  margin: 0.3em;
+  border-radius: var(--radius1);
 }
 
 #startProgram {
-  border-radius: var(--radius1);
   width: 80%;
-}
-
-#logoPlace:hover {
-  background-color: #bfceff24;
+  cursor: pointer;
 }
 
 #menuContent {
@@ -119,7 +116,7 @@
 
 .logoType {
   height: var(--logo-h);
-  width: auto;
+  width: auto !important;
   border-radius: var(--radius1);
   padding: 1px 1px 1px 1px;
   margin: 8px 8px 8px 8px;
@@ -133,7 +130,7 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column-reverse;
+  flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -219,9 +216,5 @@
 
   #logoPlace:after {
     display: none;
-  }
-
-  #logoPlace .logoType {
-    --logo-h: 3.2em;
   }
 }
