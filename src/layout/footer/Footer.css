@@ -66,6 +66,18 @@ footer {
 #task-bar::-webkit-scrollbar-thumb {
   background-color: transparent !important;
 }
+#task-bar:before {
+  content: "Let's all love Lain";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  overflow: hidden;
+  color: #212125;
+  color: transparent;
+}
 
 .rightFootBox,
 .leftFootBox {
