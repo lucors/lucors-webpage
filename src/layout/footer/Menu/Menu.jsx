@@ -14,6 +14,7 @@ import {
   WINDOW_APP_MANAGER,
 } from "#apps/manager/shared.jsx";
 import { useTranslation } from "react-i18next";
+import Button from "#common/Button.jsx";
 
 function MenuSection({ icon, title, children, renderTitle = true }) {
   return (
@@ -48,6 +49,17 @@ function MenuSectionManager({ hideMenu }) {
               >
                 {title}
               </QueryButton>
+            );
+          }
+          if (v.action) {
+            return (
+              <Button
+                key={v.id}
+                title={title}
+                onClick={() => { v.action(); hideMenu(); }}
+              >
+                {title}
+              </Button>
             );
           }
           return (

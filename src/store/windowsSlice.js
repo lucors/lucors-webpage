@@ -88,13 +88,8 @@ function saveCurrentWindowToURI(state) {
     return;
   } 
 
-  if (!state.current?.icon || !state.current?.type || !state.current?.title) {
-    return;
-  }
   saveLocation({
-    i: state.current?.icon,
     tp: state.current?.type,
-    tt: state.current?.title,
     m: state.current?.query || state.current?.href || 0
   });
 }

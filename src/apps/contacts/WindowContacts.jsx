@@ -1,12 +1,13 @@
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
+import Window from "#windows/Window";
+import "./WindowContacts.css";
+import { WINDOW_APP_CONTACTS } from "./shared";
 import axios from "axios";
-import "./Contacts.css";
 import { useTranslation } from "react-i18next";
-import { WINDOW_APP_MANAGER } from "./shared";
 import i18next from "i18next";
 import Button from "#common/Button.jsx";
 
-i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
+i18next.addResourceBundle("en", WINDOW_APP_CONTACTS, {
   c1: "Hello!",
   c2: "My name is...",
   c3: "Maxim",
@@ -35,7 +36,7 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   h3: "Feedback",
   h4: "What is 'lucors'?",
 });
-i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
+i18next.addResourceBundle("ru", WINDOW_APP_CONTACTS, {
   c1: "Привет!",
   c2: "Меня зовут...",
   c3: "Максим",
@@ -65,11 +66,11 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   h4: "Что за 'lucors'?",
 });
 
-export default function Contacts() {
+function Contacts() {
   const [sended, setSended] = useState(false);
   const textRef = useRef(null);
   const nameRef = useRef(null);
-  const { t } = useTranslation(WINDOW_APP_MANAGER);
+  const { t } = useTranslation(WINDOW_APP_CONTACTS);
 
   const sendForm = () => {
     if (!textRef?.current?.value || !nameRef?.current?.value) return;
@@ -235,3 +236,8 @@ export default function Contacts() {
     </div>
   );
 }
+
+export default memo(function WindowContacts({ data }) {
+  const { t } = useTranslation(WINDOW_APP_CONTACTS);
+  return <Window data={data} title={t("title")} content={<Contacts />} />;
+});

@@ -4,7 +4,6 @@ import Window from "#windows/Window";
 import FrameButton from "#apps/frame/FrameButton.jsx";
 import { AppsList, contentMenu, managerMenu, WINDOW_APP_MANAGER, WINDOW_ICON } from "./shared";
 import Welcome from "./Welcome";
-import Contacts from "./Contacts";
 import Projects from "./Projects";
 import About from "./About";
 import Articles from "./articles/Articles";
@@ -15,7 +14,7 @@ import { useTranslation } from "react-i18next";
 
 const contentType = {
   "main-page": <Welcome />,
-  contacts: <Contacts />,
+  // contacts: <Contacts />,s
   projects: <Projects isArchive={false} />,
   archive: <Projects isArchive={true} />,
   about: <About />,

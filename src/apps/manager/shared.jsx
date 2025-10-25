@@ -14,9 +14,9 @@ import IconAppUrl2Frame from "#apps/url2frame/IconAppUrl2Frame.jsx";
 import IconAppChat from "#apps/chat/IconAppChat.jsx";
 import IconAppCalc from "#apps/calc/IconAppCalc.jsx";
 import IconAppPaint from "#apps/paint/IconAppPaint.jsx";
-import IconAppDvd from "#apps/dvd/IconAppDvd.jsx";
 import IconAppTrash from "#apps/trash/IconAppTrash.jsx";
 import IconAppConsole from "#apps/console/IconAppConsole.jsx";
+import { createApp as createContacts } from "#apps/contacts/shared.jsx";
 
 export const WINDOW_TITLE = "Менеджер справки";
 export const WINDOW_ICON = "img/manager.svg";
@@ -26,7 +26,6 @@ export const WINDOW_DEFAULT_QUERY = "main-page";
 i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   menuSectionTitle: "Common",
   menu1: "Index",
-  menu2: "Contacts",
   menu3: "Projects",
   menu3alt: "Archival projects",
   menu5: "Articles",
@@ -36,7 +35,6 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
 i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   menuSectionTitle: "Общее",
   menu1: "Главная",
-  menu2: "Контакты",
   menu3: "Проекты",
   menu3alt: "Архивные проекты",
   menu5: "Статьи",
@@ -138,7 +136,7 @@ export const contentMenu = [
   {
     id: 2,
     title: "menu2",
-    query: "contacts",
+    action: createContacts,
   },
   {
     id: 3,
@@ -171,31 +169,8 @@ export const contentMenu = [
 
 export const managerMenu = [
   ...contentMenu,
-  // {
-  //   id: 4,
-  //   title: "Архив",
-  //   query: "archive",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Приложения",
-  //   onClick: createApp,
-  // },
-  // {
-  //   id: 6,
-  //   title: "Сайт в окно",
-  //   query: "external-app",
-  // },
-  // {
-  //   id: 7,
-  //   title: "Чат",
-  //   href: "https://lucors.ru/iochat",
-  //   icon: "https://lucors.ru/iochat/assets/img/favicon.png",
-  // },
 ].sort((a, b) => a.id - b.id);
 
-// TODO: Сейчас это прогружает сведения о всех существующих приложениях
-// Без этого ломается загрузка приложений, если не был запущен manager 
 export function AppsList() {
   return (
     <div className="section mwem20 desktop-icons">
