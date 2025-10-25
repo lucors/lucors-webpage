@@ -14,7 +14,7 @@ export const META = new AppMeta(
       width: "50em",
       height: "20em",
     }),
-  "img/manager.svg");
+  "img/about.png");
 
 i18next.addResourceBundle("en", TYPE, {
   title: "About",

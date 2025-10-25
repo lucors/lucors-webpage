@@ -10,7 +10,7 @@ export const META = new AppMeta(
   TYPE,
   lazy(() => import("./WindowAppsList")),
   getSingletonAppCreator(TYPE),
-  "img/exe.svg");
+  "img/apps_alt.png");
 
 i18next.addResourceBundle("en", TYPE, {
   title: "Apps",
