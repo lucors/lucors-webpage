@@ -1,4 +1,4 @@
-import { createFrame } from "#apps/frame/shared.js";
+import { createFrame } from "#apps/frame/shared.jsx";
 import ActionNewWindow from "#common/ActionNewWindow.jsx";
 import Link from "#common/Link.jsx";
 import "./Trashzone.css";

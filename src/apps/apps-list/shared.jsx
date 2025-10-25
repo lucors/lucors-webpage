@@ -1,25 +1,25 @@
 import {cmds} from "#apps/console/shared.jsx";
-import {AppMeta} from "#common/apps.js";
 import {getSingletonAppCreator} from "#common/utils.js";
 import {lazy} from "react";
 import i18next from "i18next";
+import {AppMeta} from "#common/apps.js";
 
-const TYPE = "settings";
+const TYPE = "app_apps_list";
 
 export const META = new AppMeta(
   TYPE,
-  lazy(() => import("./WindowSettings")),
+  lazy(() => import("./WindowAppsList")),
   getSingletonAppCreator(TYPE),
-  "img/settings.png");
+  "img/exe.svg");
 
 i18next.addResourceBundle("en", TYPE, {
-  title: "Settings",
+  title: "Apps",
 });
 i18next.addResourceBundle("ru", TYPE, {
-  title: "Настройки",
+  title: "Приложения",
 });
 
-cmds.set("settings", () => {
+cmds.set("contacts", () => {
   META.createApp();
-  return "Открываю настройки";
+  return "Открываю контакты";
 });

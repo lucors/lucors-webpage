@@ -6,7 +6,7 @@ import "./prism.css";
 import App from "./App.jsx";
 import store from "./store/store.js";
 import backgroundEvents, { prepareWindow } from "./backgroundEvents.js";
-import { createExplorer } from "#apps/manager/shared.jsx";
+import { META as welcomeAppMeta } from "#apps/welcome/shared.jsx";
 import { addWindowFromUri, parseQuery } from "#common/utils.js";
 import { t } from "i18next";
 
@@ -27,7 +27,7 @@ createRoot(document.getElementById("app")).render(
 backgroundEvents();
 
 if (!params && firstTime) {
-  createExplorer();
+  welcomeAppMeta.createApp();
 } else if (params) {
   addWindowFromUri(params);
 }

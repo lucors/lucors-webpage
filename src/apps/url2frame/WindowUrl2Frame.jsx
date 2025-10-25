@@ -1,8 +1,10 @@
 import { memo, useRef } from "react";
 import Window from "#windows/Window";
-import { createFrame } from "#apps/frame/shared.js";
+import { createFrame } from "#apps/frame/shared.jsx";
 import "./WindowUrl2Frame.css";
-import { WINDOW_TITLE } from "./shared";
+import { META } from "./shared";
+import {useTranslation} from "react-i18next";
+import {TITLE_KEY} from "#common/consts.js";
 
 function Url2Window() {
   const urlRef = useRef(null);
@@ -61,5 +63,6 @@ function Url2Window() {
 }
 
 export default memo(function WindowUrl2Frame({ data }) {
-  return <Window data={data} title={WINDOW_TITLE} content={<Url2Window />} />;
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Url2Window />} />;
 });

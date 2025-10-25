@@ -1,24 +1,25 @@
 import { cmds } from "#apps/console/shared.jsx";
-import { appsComponents } from "#common/apps.js";
+import {AppMeta, appsMetas} from "#common/apps.js";
 import { getSingletonAppCreator } from "#common/utils.js";
 import { lazy } from "react";
+import i18next from "i18next";
 
-export const WINDOW_TITLE = "Сайт в окно";
-export const WINDOW_ICON = "img/url2frame.png";
-export const WINDOW_APP_URL2FRAME = "app_url2frame";
+const TYPE = "app_url2frame";
 
-appsComponents.set(
-  WINDOW_APP_URL2FRAME,
-  lazy(() => import("./WindowUrl2Frame"))
-);
+export const META = new AppMeta(
+  TYPE,
+  lazy(() => import("./WindowUrl2Frame")),
+  getSingletonAppCreator(TYPE),
+  "img/url2frame.png");
 
-cmds.set("html2frame", () => {
-  createApp();
-  return "Открываю приложение \"Сайт в окно\"";
+i18next.addResourceBundle("en", TYPE, {
+  title: "URL to Frame",
+});
+i18next.addResourceBundle("ru", TYPE, {
+  title: "Сайт в окно",
 });
 
-export const createApp = getSingletonAppCreator(
-  WINDOW_APP_URL2FRAME,
-  WINDOW_TITLE,
-  WINDOW_ICON
-);
+cmds.set("html2frame", () => {
+  META.createApp();
+  return "Открываю приложение \"Сайт в окно\"";
+});

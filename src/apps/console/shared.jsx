@@ -1,12 +1,30 @@
-import { appsComponents } from "#common/apps.js";
-import { getSingletonAppCreator } from "#common/utils.js";
-import { setShutdown } from "#store/screenSlice.js";
+import {AppMeta} from "#common/apps.js";
+import {getSingletonAppCreator} from "#common/utils.js";
+import {setShutdown} from "#store/screenSlice.js";
 import store from "#store/store.js";
-import { lazy } from "react";
+import {lazy} from "react";
+import i18next from "i18next";
 
-export const WINDOW_TITLE = "Консоль";
-export const WINDOW_ICON = "img/console.svg";
-export const WINDOW_APP_CONSOLE = "app_console";
+const TYPE = "app_console";
+
+export const META = new AppMeta(
+  TYPE,
+  lazy(() => import("./WindowConsole")),
+  getSingletonAppCreator(
+    TYPE, null, null,
+    {
+      width: "50em",
+      height: "20em",
+    }
+  ),
+  "img/console.svg");
+
+i18next.addResourceBundle("en", TYPE, {
+  title: "Console",
+});
+i18next.addResourceBundle("ru", TYPE, {
+  title: "Консоль",
+});
 
 export const cmds = new Map([
   [
@@ -28,18 +46,3 @@ export const cmds = new Map([
   ["echo", (args) => args.join(" ")],
   ["clear", null]
 ]);
-
-appsComponents.set(
-  WINDOW_APP_CONSOLE,
-  lazy(() => import("./WindowConsole"))
-);
-
-export const createApp = getSingletonAppCreator(
-  WINDOW_APP_CONSOLE,
-  WINDOW_TITLE,
-  WINDOW_ICON,
-  {
-    width: "50em",
-    height: "20em",
-  }
-);

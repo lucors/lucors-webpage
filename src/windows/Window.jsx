@@ -11,6 +11,7 @@ import {
 import "./Window.css";
 import { cursor, flags } from "#/backgroundEvents";
 import store from "#store/store";
+import {DEFAULT_APP_ICON} from "#common/consts.js";
 
 export function ContentLoadError({ message = "" }) {
   return (
@@ -177,7 +178,7 @@ export default memo(function Window({
       <div className="body">
         <div className="header">
           <div className="title">
-            <img className="icon" src={icon || data.icon} />
+            <img className="icon" src={icon || data.icon || DEFAULT_APP_ICON} />
             {titleHref && (
               <a className="value draggable" target="_blank" href={titleHref}>
                 {title || data.title}

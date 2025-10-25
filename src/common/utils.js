@@ -5,7 +5,7 @@ import {
   setCurrentWindowById,
   updateWindow,
 } from "#store/windowsSlice.js";
-import { appsComponents } from "./apps";
+import { appsMetas } from "./apps";
 
 export function withDoubleClick(ref, onDoubleClick, onClick = null) {
   return (event) => {

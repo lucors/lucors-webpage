@@ -1,11 +1,13 @@
-import { memo } from "react";
+import {memo} from "react";
 import Window from "#windows/Window";
-import { WINDOW_ICON, WINDOW_TITLE } from "./shared";
+import {META} from "./shared";
 import "./WindowSettings.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setRadius } from "#store/settingsSlice.js";
-import { ChangeLanguageButton } from "#layout/footer/FooterRight.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {setRadius} from "#store/settingsSlice.js";
+import {ChangeLanguageButton} from "#layout/footer/FooterRight.jsx";
 import Button from "#common/Button.jsx";
+import {useTranslation} from "react-i18next";
+import {TITLE_KEY} from "#common/consts.js";
 
 export function FlatRadiusButton() {
   const radius = useSelector((state) => state.settings.radius);
@@ -23,32 +25,25 @@ export function FlatRadiusButton() {
 }
 
 function Content() {
-
   return (
     <div className="section">
       <div className="setting-row-wrapper">
         <label>Радиус скругления</label>
         <div className="setting-row">
-          <FlatRadiusButton />
+          <FlatRadiusButton/>
         </div>
       </div>
       <div className="setting-row-wrapper">
         <label>Язык</label>
         <div className="setting-row">
-          <ChangeLanguageButton primary />
+          <ChangeLanguageButton primary/>
         </div>
       </div>
     </div>
   );
 }
 
-export default memo(function WindowSettings({ data }) {
-  return (
-    <Window
-      data={data}
-      icon={WINDOW_ICON}
-      title={WINDOW_TITLE}
-      content={<Content />}
-    />
-  );
+export default memo(function WindowSettings({data}) {
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Content/>}/>;
 });

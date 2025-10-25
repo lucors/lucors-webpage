@@ -1,24 +1,25 @@
-import { cmds } from "#apps/console/shared.jsx";
-import { appsComponents } from "#common/apps.js";
-import { getSingletonAppCreator } from "#common/utils.js";
-import { lazy } from "react";
+import {cmds} from "#apps/console/shared.jsx";
+import {getSingletonAppCreator} from "#common/utils.js";
+import {lazy} from "react";
+import {AppMeta} from "#common/apps.js";
+import i18next from "i18next";
 
-export const WINDOW_TITLE = "Корзина";
-export const WINDOW_ICON = "img/trashico.svg";
-export const WINDOW_APP_TRASH = "app_trash";
+const TYPE = "app_trash";
 
-appsComponents.set(
-  WINDOW_APP_TRASH,
-  lazy(() => import("./WindowTrash"))
-);
+export const META = new AppMeta(
+  TYPE,
+  lazy(() => import("./WindowTrash")),
+  getSingletonAppCreator(TYPE),
+  "img/trashico.svg");
 
-cmds.set("trash", () => {
-  createApp();
-  return "Открываю корзину";
+i18next.addResourceBundle("en", TYPE, {
+  title: "Trashcan",
+});
+i18next.addResourceBundle("ru", TYPE, {
+  title: "Корзина",
 });
 
-export const createApp = getSingletonAppCreator(
-  WINDOW_APP_TRASH,
-  WINDOW_TITLE,
-  WINDOW_ICON
-);
+cmds.set("trash", () => {
+  META.createApp();
+  return "Открываю корзину";
+});

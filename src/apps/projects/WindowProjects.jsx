@@ -1,22 +1,11 @@
-import { createFrame } from "#apps/frame/shared.js";
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-import "./Projects.css";
-import QueryButton from "./QueryButton";
-import { WINDOW_APP_MANAGER } from "./shared";
-
-i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
-  projectsTitle: "Projects",
-  archiveTitle: "Archive",
-  projectsShowCurrent: "Show current",
-  projectsShowArchive: "Show archived",
-});
-i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
-  projectsTitle: "Проекты",
-  archiveTitle: "Архив",
-  projectsShowCurrent: "Показать текущие",
-  projectsShowArchive: "Показать архив",
-});
+import {memo, useState} from "react";
+import Window from "#windows/Window";
+import "./WindowProjects.css";
+import {META} from "./shared";
+import {useTranslation} from "react-i18next";
+import {TITLE_KEY} from "#common/consts.js";
+import {createFrame} from "#apps/frame/shared.jsx";
+import Button from "#common/Button.jsx";
 
 // TODO: Использовать БД
 // TODO: ID не в ту сторону))
@@ -221,15 +210,15 @@ const archive = [
 ];
 
 export function Project({
-  shortname,
-  logo,
-  name,
-  icon,
-  frameAllow,
-  startHref,
-  infoHref,
-  downloadHref,
-}) {
+                          shortname,
+                          logo,
+                          name,
+                          icon,
+                          frameAllow,
+                          startHref,
+                          infoHref,
+                          downloadHref,
+                        }) {
   function openFrame() {
     console.log(`Открыть фрейм "${startHref}"`);
   }
@@ -302,22 +291,22 @@ export function Project({
   );
 }
 
-export default function Projects({ isArchive }) {
-  const { t } = useTranslation(WINDOW_APP_MANAGER);
+function Projects() {
+  const { t } = useTranslation(META.type);
+  const [isArchive, setIsArchive] = useState(false);
 
   return (
     <>
       <div className="projectsRoot section">
-        <QueryButton
+        <Button
           title={isArchive ? t("projectsTitle") : t("archiveTitle")}
-          query={isArchive ? "projects" : "archive"}
-          subActionAllow={false}
+          onClick={() => setIsArchive(!isArchive)}
           inline={false}
           primary={true}
           className="archive-button"
         >
           {isArchive ? t("projectsShowCurrent") : t("projectsShowArchive")}
-        </QueryButton>
+        </Button>
         {(isArchive ? archive : projects).map((v) => (
           <Project key={v.id} {...v} />
         ))}
@@ -325,3 +314,8 @@ export default function Projects({ isArchive }) {
     </>
   );
 }
+
+export default memo(function WindowContacts({data}) {
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Projects/>}/>;
+});

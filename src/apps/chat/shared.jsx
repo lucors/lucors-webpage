@@ -1,11 +1,32 @@
-import { cmds } from "#apps/console/shared.jsx";
-import { createFrame } from "#apps/frame/shared.js";
+import {cmds} from "#apps/console/shared.jsx";
+import {AppMeta} from "#common/apps.js";
+import i18next from "i18next";
+import {lazy} from "react";
+import {getSingletonAppCreator} from "#common/utils.js";
 
-cmds.set("chat", () => {
-  createApp();
-  return "Открываю чат";
+const TYPE = "chat";
+const ICON = "https://lucors.ru/iochat/assets/img/favicon.png";
+
+export const CHAT_URL = "https://lucors.ru/iochat";
+
+export const META = new AppMeta(
+  TYPE,
+  lazy(() => import("./WindowChat")),
+  getSingletonAppCreator(TYPE, null, null,
+    {
+      width: "20em",
+      height: "30em",
+    }),
+  ICON);
+
+i18next.addResourceBundle("en", TYPE, {
+  title: "Chat",
+});
+i18next.addResourceBundle("ru", TYPE, {
+  title: "Чат",
 });
 
-export function createApp() {
-  createFrame("Чат", "https://lucors.ru/iochat", "https://lucors.ru/iochat/assets/img/favicon.png");
-}
+cmds.set("chat", () => {
+  META.createApp();
+  return "Открываю чат";
+});

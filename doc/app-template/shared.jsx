@@ -1,4 +1,4 @@
-import { appsComponents } from "#common/apps.js";
+import { appsMetas } from "#common/apps.js";
 import { getSingletonAppCreator } from "#common/utils.js";
 import { lazy } from "react";
 
@@ -6,7 +6,7 @@ export const WINDOW_TITLE = "Название приложения";
 export const WINDOW_ICON = "img/calc.png";
 export const WINDOW_APP_NAME = "app_name";
 
-appsComponents.set(
+appsMetas.set(
   WINDOW_APP_NAME,
   lazy(() => import("./WindowName"))
 );
