@@ -61,7 +61,6 @@ export default memo(function WindowExplorer({ data }) {
       data={data}
       icon={WINDOW_ICON}
       title={title}
-      menu={<Menu winid={data.id} />}
       content={contentType[data.query]}
     />
   );
