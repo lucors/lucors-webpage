@@ -159,9 +159,9 @@ export default function Menu() {
   return (
     <div id="menuBox" ref={menuBoxRef}>
       <div className="menuLeft">
-        <div id="logoPlace">
-          <img className="logoType" src="img/lucors-heart-crop-alpha.png"/>
-        </div>
+        {/*<div id="logoPlace">*/}
+        {/*  <img className="logoType" src="img/lucors-heart-crop-alpha.png"/>*/}
+        {/*</div>*/}
         <div className="actions">
           <SettingsButton/>
           <FullscreenButton/>
