@@ -14,6 +14,7 @@ import "#apps/dvd/shared.jsx";
 import "#apps/frame/shared.jsx";
 import "#apps/projects/shared.jsx";
 import "#apps/settings/shared.jsx";
+import "#apps/testing/shared.jsx";
 import "#apps/trash/shared.jsx";
 import "#apps/url2frame/shared.jsx";
 import "#apps/welcome/shared.jsx";

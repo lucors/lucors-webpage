@@ -16,6 +16,7 @@ import {META as appMetaContacts} from "#apps/contacts/shared.jsx";
 import {META as appMetaAppsList} from "#apps/apps-list/shared.jsx";
 import {META as appMetaProjects} from "#apps/projects/shared.jsx";
 import {META as appMetaAbout} from "#apps/about/shared.jsx";
+import {META as appMetaTesting} from "#apps/testing/shared.jsx";
 
 export const MENU_I18_KEY = "_menu";
 
@@ -26,6 +27,7 @@ i18next.addResourceBundle("en", MENU_I18_KEY, {
   menu3: "Projects",
   menu8: "About page",
   menu9: "Apps",
+  menu10: "About tests",
 });
 i18next.addResourceBundle("ru", MENU_I18_KEY, {
   menuSectionTitle: "Общее",
@@ -34,6 +36,7 @@ i18next.addResourceBundle("ru", MENU_I18_KEY, {
   menu3: "Проекты",
   menu8: "О сайте",
   menu9: "Приложения",
+  menu10: "О тестах",
 });
 
 export const contentMenu = [
@@ -56,6 +59,11 @@ export const contentMenu = [
     id: 2,
     title: "menu2",
     action: appMetaContacts.createApp,
+  },
+  {
+    id: 10,
+    title: "menu10",
+    action: appMetaTesting.createApp,
   },
   {
     id: 8,
