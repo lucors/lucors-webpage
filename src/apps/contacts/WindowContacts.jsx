@@ -50,7 +50,7 @@ i18next.addResourceBundle("en", META.type, {
   re8: "\"about page\"",
   re9: "for information about the software stack used to create this webpage.",
   re10: "There you will also find a link to the project repository.",
-  re11: "Resume in PDF format.",
+  re11: "Resume in PDF format",
 });
 i18next.addResourceBundle("ru", META.type, {
   c1: "Привет!",
