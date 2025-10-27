@@ -22,15 +22,15 @@ export const MENU_I18_KEY = "_menu";
 i18next.addResourceBundle("en", MENU_I18_KEY, {
   menuSectionTitle: "Common",
   menu1: "Index",
-  menu2: "Contacts",
+  menu2: "About me",
   menu3: "Projects",
-  menu8: "About",
+  menu8: "About page",
   menu9: "Apps",
 });
 i18next.addResourceBundle("ru", MENU_I18_KEY, {
   menuSectionTitle: "Общее",
   menu1: "Главная",
-  menu2: "Контакты",
+  menu2: "Обо мне",
   menu3: "Проекты",
   menu8: "О сайте",
   menu9: "Приложения",

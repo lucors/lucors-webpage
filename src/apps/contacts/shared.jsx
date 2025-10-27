@@ -17,10 +17,10 @@ export const META = new AppMeta(
   "img/contacts.png");
 
 i18next.addResourceBundle("en", TYPE, {
-  title: "Contacts",
+  title: "About me",
 });
 i18next.addResourceBundle("ru", TYPE, {
-  title: "Контакты",
+  title: "Обо мне",
 });
 
 cmds.set("contacts", () => {

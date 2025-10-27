@@ -17,7 +17,7 @@ export const META = new AppMeta(
   "img/about.png");
 
 i18next.addResourceBundle("en", TYPE, {
-  title: "About",
+  title: "About page",
   a1: "This website is my PET project.",
   a2: "More about me in the section",
   a3: "Project Repository",
@@ -26,7 +26,7 @@ i18next.addResourceBundle("en", TYPE, {
   a5: "To display content from other pages on this domain or external domain names, this site uses",
   a6: "State of windows is saved on your device in the storage: ",
   a7: "This website uses third-party libraries:",
-  contacts: "contacts",
+  contacts: "\"about me\"",
 });
 i18next.addResourceBundle("ru", TYPE, {
   title: "О сайте",
@@ -38,7 +38,7 @@ i18next.addResourceBundle("ru", TYPE, {
   a5: "Для отображения контента с других страниц данного домена или внешних доменных имен используется",
   a6: "Состояние окон сохраняется на вашем устройстве в хранилище",
   a7: "На странице используются сторонние библиотеки:",
-  contacts: "контакты",
+  contacts: "\"обо мне\"",
 });
 
 cmds.set("about", () => {

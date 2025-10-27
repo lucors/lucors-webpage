@@ -117,7 +117,7 @@ function Contacts() {
       </div>
 
       <div className="section">
-        <h2>{t("h1")}</h2>
+        {/*<h2>{t("h1")}</h2>*/}
         {t("c6")}{" "}
         <a href="https://ru.wikipedia.org/wiki/Саратов" target="_blank">
           {t("c7")}
