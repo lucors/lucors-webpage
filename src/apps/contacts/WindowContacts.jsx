@@ -167,16 +167,8 @@ function Contacts() {
           </a>
           <a
             target="_blank"
-            className="about aboutmeVk"
-            href="https://vk.com/lucors"
-            title="VK"
-          >
-            <img src="img/contact-vk.png"/>
-          </a>
-          <a
-            target="_blank"
             className="about aboutmeYamail"
-            href="mailto:thesourcecode.max@yandex.ru"
+            href="mailto:lucors.dev@yandex.ru"
             title="Yandex Mail"
           >
             <img src="img/contact-ya.png"/>
@@ -195,14 +187,6 @@ function Contacts() {
             title="GitHub"
           >
             <img src="img/contact-gh.png"/>
-          </a>
-          <a
-            target="_blank"
-            className="about aboutmeGitLab"
-            href="https://gitlab.com/lucors-dev"
-            title="GitLab"
-          >
-            <img src="img/contact-gl.png"/>
           </a>
         </div>
       </div>
