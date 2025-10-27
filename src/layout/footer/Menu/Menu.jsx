@@ -43,11 +43,6 @@ export const contentMenu = [
     action: appMetaWelcome.createApp,
   },
   {
-    id: 2,
-    title: "menu2",
-    action: appMetaContacts.createApp,
-  },
-  {
     id: 3,
     title: "menu9",
     action: appMetaAppsList.createApp,
@@ -56,6 +51,11 @@ export const contentMenu = [
     id: 4,
     title: "menu3",
     action: appMetaProjects.createApp,
+  },
+  {
+    id: 2,
+    title: "menu2",
+    action: appMetaContacts.createApp,
   },
   {
     id: 8,
