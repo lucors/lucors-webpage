@@ -1,26 +1,75 @@
 import $ from "jquery";
-import { useSelector } from "react-redux";
-import { useEffect, useRef } from "react";
+import {useSelector} from "react-redux";
+import {useEffect, useRef} from "react";
 import store from "#store/store";
 import "./Menu.css";
 import FullscreenButton from "./FullscreenButton";
 import ShutdownButton from "./ShutdownButton";
 import SettingsButton from "./SettingsButton";
-import { setMenu } from "#store/menuSlice.js";
-import QueryButton from "#apps/manager/QueryButton.jsx";
+import {setMenu} from "#store/menuSlice.js";
 import FrameButton from "#apps/frame/FrameButton.jsx";
-import {
-  contentMenu as managerMenu,
-  WINDOW_APP_MANAGER,
-} from "#apps/manager/shared.jsx";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
+import Button from "#common/Button.jsx";
+import i18next from "i18next";
+import {META as appMetaWelcome} from "#apps/welcome/shared.jsx";
+import {META as appMetaContacts} from "#apps/contacts/shared.jsx";
+import {META as appMetaAppsList} from "#apps/apps-list/shared.jsx";
+import {META as appMetaProjects} from "#apps/projects/shared.jsx";
+import {META as appMetaAbout} from "#apps/about/shared.jsx";
 
-function MenuSection({ icon, title, children, renderTitle = true }) {
+export const MENU_I18_KEY = "_menu";
+
+i18next.addResourceBundle("en", MENU_I18_KEY, {
+  menuSectionTitle: "Common",
+  menu1: "Index",
+  menu2: "About me",
+  menu3: "Projects",
+  menu8: "About page",
+  menu9: "Apps",
+});
+i18next.addResourceBundle("ru", MENU_I18_KEY, {
+  menuSectionTitle: "Общее",
+  menu1: "Главная",
+  menu2: "Обо мне",
+  menu3: "Проекты",
+  menu8: "О сайте",
+  menu9: "Приложения",
+});
+
+export const contentMenu = [
+  {
+    id: 1,
+    title: "menu1",
+    action: appMetaWelcome.createApp,
+  },
+  {
+    id: 2,
+    title: "menu2",
+    action: appMetaContacts.createApp,
+  },
+  {
+    id: 3,
+    title: "menu9",
+    action: appMetaAppsList.createApp,
+  },
+  {
+    id: 4,
+    title: "menu3",
+    action: appMetaProjects.createApp,
+  },
+  {
+    id: 8,
+    title: "menu8",
+    action: appMetaAbout.createApp,
+  },
+];
+
+function MenuSection({icon, title, children, renderTitle = true}) {
   return (
     <div className="menu-section">
       {renderTitle && (
         <div className="section-title">
-          <img src={icon} />
+          <img src={icon}/>
           <span>{title}</span>
         </div>
       )}
@@ -29,25 +78,27 @@ function MenuSection({ icon, title, children, renderTitle = true }) {
   );
 }
 
-function MenuSectionManager({ hideMenu }) {
-  const { t } = useTranslation(WINDOW_APP_MANAGER);
+function MenuSectionManager({hideMenu}) {
+  const {t} = useTranslation(MENU_I18_KEY);
 
   return (
     <MenuSection renderTitle={false}>
-      {managerMenu
+      {contentMenu
         .filter((v) => !v.hide)
         .map((v) => {
           const title = t(v.title);
-          if (v.query) {
+          if (v.action) {
             return (
-              <QueryButton
+              <Button
                 key={v.id}
                 title={title}
-                query={v.query}
-                onClick={hideMenu}
+                onClick={() => {
+                  v.action();
+                  hideMenu();
+                }}
               >
                 {title}
-              </QueryButton>
+              </Button>
             );
           }
           return (
@@ -108,17 +159,17 @@ export default function Menu() {
   return (
     <div id="menuBox" ref={menuBoxRef}>
       <div className="menuLeft">
-        <div id="logoPlace">
-          <img className="logoType" src="img/lucors-heart-crop-alpha.png" />
-        </div>
+        {/*<div id="logoPlace">*/}
+        {/*  <img className="logoType" src="img/lucors-heart-crop-alpha.png"/>*/}
+        {/*</div>*/}
         <div className="actions">
-          <SettingsButton />
-          <FullscreenButton />
-          <ShutdownButton />
+          <SettingsButton/>
+          <FullscreenButton/>
+          <ShutdownButton/>
         </div>
       </div>
       <div id="menuContent">
-        <MenuSectionManager hideMenu={hideMenu} />
+        <MenuSectionManager hideMenu={hideMenu}/>
       </div>
     </div>
   );

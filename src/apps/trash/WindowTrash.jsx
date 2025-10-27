@@ -1,8 +1,11 @@
-import { memo } from "react";
+import {memo} from "react";
 import Window from "#windows/Window";
 import Trashzone from "./Trashzone";
-import { WINDOW_TITLE } from "./shared";
+import {useTranslation} from "react-i18next";
+import {META} from "./shared.jsx";
+import {TITLE_KEY} from "#common/consts.js";
 
 export default memo(function WindowTrash({ data }) {
-  return <Window data={data} title={WINDOW_TITLE} content={<Trashzone />} />;
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Trashzone />} />;
 });

@@ -1,22 +1,19 @@
-import { appsComponents } from "#common/apps.js";
-import { getSingletonAppCreator } from "#common/utils.js";
-import { lazy } from "react";
+import {AppMeta} from "#common/apps.js";
+import {getSingletonAppCreator} from "#common/utils.js";
+import {lazy} from "react";
+import i18next from "i18next";
 
-export const WINDOW_TITLE = "Скринсейвер";
-export const WINDOW_ICON = "img/dvd.png";
-export const WINDOW_APP_DVD = "app_dvd";
+const TYPE = "app_dvd";
 
-appsComponents.set(
-  WINDOW_APP_DVD,
-  lazy(() => import("./WindowDvd"))
-);
+export const META = new AppMeta(
+  TYPE,
+  lazy(() => import("./WindowDvd")),
+  getSingletonAppCreator(TYPE),
+  "img/dvd.png");
 
-export const createApp = getSingletonAppCreator(
-  WINDOW_APP_DVD,
-  WINDOW_TITLE,
-  WINDOW_ICON,
-  {
-    width: "50em",
-    height: "20em",
-  }
-);
+i18next.addResourceBundle("en", TYPE, {
+  title: "Screensaver",
+});
+i18next.addResourceBundle("ru", TYPE, {
+  title: "Скринсейвер",
+});

@@ -1,12 +1,14 @@
-import { useRef, useState } from "react";
+import {memo, useRef, useState} from "react";
+import Window from "#windows/Window";
+import "./WindowContacts.css";
+import {META} from "./shared";
 import axios from "axios";
-import "./Contacts.css";
-import { useTranslation } from "react-i18next";
-import { WINDOW_APP_MANAGER } from "./shared";
+import {useTranslation} from "react-i18next";
 import i18next from "i18next";
 import Button from "#common/Button.jsx";
+import {TITLE_KEY} from "#common/consts.js";
 
-i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
+i18next.addResourceBundle("en", META.type, {
   c1: "Hello!",
   c2: "My name is...",
   c3: "Maxim",
@@ -35,7 +37,7 @@ i18next.addResourceBundle("en", WINDOW_APP_MANAGER, {
   h3: "Feedback",
   h4: "What is 'lucors'?",
 });
-i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
+i18next.addResourceBundle("ru", META.type, {
   c1: "Привет!",
   c2: "Меня зовут...",
   c3: "Максим",
@@ -65,11 +67,11 @@ i18next.addResourceBundle("ru", WINDOW_APP_MANAGER, {
   h4: "Что за 'lucors'?",
 });
 
-export default function Contacts() {
+function Contacts() {
   const [sended, setSended] = useState(false);
   const textRef = useRef(null);
   const nameRef = useRef(null);
-  const { t } = useTranslation(WINDOW_APP_MANAGER);
+  const {t} = useTranslation(META.type);
 
   const sendForm = () => {
     if (!textRef?.current?.value || !nameRef?.current?.value) return;
@@ -79,9 +81,10 @@ export default function Contacts() {
     setSended(true);
     axios
       .post("https://lucors.ru/send_rev.php", formData, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
       })
-      .then((response) => {})
+      .then((response) => {
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -98,7 +101,7 @@ export default function Contacts() {
         <div className="text">
           <div className="makishimudesu">
             {t("c1")}
-            <br /> {t("c2")}
+            <br/> {t("c2")}
             <div className="name">{t("c3")}</div>
           </div>
           <div>
@@ -114,18 +117,18 @@ export default function Contacts() {
       </div>
 
       <div className="section">
-        <h2>{t("h1")}</h2>
+        {/*<h2>{t("h1")}</h2>*/}
         {t("c6")}{" "}
         <a href="https://ru.wikipedia.org/wiki/Саратов" target="_blank">
           {t("c7")}
         </a>
-        . <br />
+        . <br/>
         {t("c8")}{" "}
         <a href="https://www.sgu.ru/" target="_blank">
           {t("c9")}
         </a>{" "}
-        {t("c10")} <br />
-        {t("c11")} <br />
+        {t("c10")} <br/>
+        {t("c11")} <br/>
       </div>
 
       <div className="section">
@@ -150,8 +153,8 @@ export default function Contacts() {
       <div className="section links">
         <div className="desc">
           <h2>{t("h2")}</h2>
-          {t("c14")} <br />
-          {t("c15")} <span className="heart">❤</span> <br />
+          {t("c14")} <br/>
+          {t("c15")} <span className="heart">❤</span> <br/>
         </div>
         <div className="aboutmeHrefs">
           <a
@@ -160,30 +163,22 @@ export default function Contacts() {
             href="https://t.me/lucors"
             title="Telegram"
           >
-            <img src="img/contact-tg.png" />
-          </a>
-          <a
-            target="_blank"
-            className="about aboutmeVk"
-            href="https://vk.com/lucors"
-            title="VK"
-          >
-            <img src="img/contact-vk.png" />
+            <img src="img/contact-tg.png"/>
           </a>
           <a
             target="_blank"
             className="about aboutmeYamail"
-            href="mailto:thesourcecode.max@yandex.ru"
+            href="mailto:lucors.dev@yandex.ru"
             title="Yandex Mail"
           >
-            <img src="img/contact-ya.png" />
+            <img src="img/contact-ya.png"/>
           </a>
           <a
             className="about aboutmeGmail"
             href="mailto:lucors.dev@gmail.com"
             title="Gmail"
           >
-            <img src="img/contact-gm.png" />
+            <img src="img/contact-gm.png"/>
           </a>
           <a
             target="_blank"
@@ -191,15 +186,7 @@ export default function Contacts() {
             href="https://github.com/lucors"
             title="GitHub"
           >
-            <img src="img/contact-gh.png" />
-          </a>
-          <a
-            target="_blank"
-            className="about aboutmeGitLab"
-            href="https://gitlab.com/lucors-dev"
-            title="GitLab"
-          >
-            <img src="img/contact-gl.png" />
+            <img src="img/contact-gh.png"/>
           </a>
         </div>
       </div>
@@ -235,3 +222,8 @@ export default function Contacts() {
     </div>
   );
 }
+
+export default memo(function WindowContacts({data}) {
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Contacts/>}/>;
+});

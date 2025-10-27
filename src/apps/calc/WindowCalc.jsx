@@ -1,7 +1,9 @@
 import { memo, useState } from "react";
 import Window from "#windows/Window";
 import "./WindowCalc.css";
-import { WINDOW_TITLE } from "./shared";
+import { META } from "./shared";
+import {useTranslation} from "react-i18next";
+import {TITLE_KEY} from "#common/consts.js";
 
 function Calculator() {
   const [displayValue, setDisplayValue] = useState("0");
@@ -102,5 +104,6 @@ function Calculator() {
 }
 
 export default memo(function WindowCalc({ data }) {
-  return <Window data={data} title={WINDOW_TITLE} content={<Calculator />} />;
+  const {t} = useTranslation(META.type);
+  return <Window data={data} title={t(TITLE_KEY)} icon={META.icon} content={<Calculator />} />;
 });

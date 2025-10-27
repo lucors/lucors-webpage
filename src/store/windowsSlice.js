@@ -72,30 +72,24 @@ function saveCurrentWindowToURI(state) {
    * tt = title
    * m  = meta (query/href)
    */
-  
-  // Особенные условия для менеджера
-  if (state.current?.type === "explorer") {
-    saveLocation({
-      tp: state.current?.type,
-      m: state.current?.query
-    });
-    return;
-  } 
-  if (state.current?.type === "settings") {
-    saveLocation({
-      tp: state.current?.type
-    });
-    return;
-  } 
 
-  if (!state.current?.icon || !state.current?.type || !state.current?.title) {
+  if (!state.current?.type) {
     return;
   }
+
+  // Особенные условия для менеджера
+  if (state.current?.type === "frame") {
+    saveLocation({
+      i: state.current?.icon,
+      tt: state.current?.title,
+      tp: state.current?.type,
+      m: state.current?.query || state.current?.href || 0
+    });
+    return;
+  }
+
   saveLocation({
-    i: state.current?.icon,
-    tp: state.current?.type,
-    tt: state.current?.title,
-    m: state.current?.query || state.current?.href || 0
+    tp: state.current?.type
   });
 }
 
