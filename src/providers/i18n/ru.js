@@ -7,5 +7,6 @@ export default {
     open_settings: "Открыть настройки",
     set_fullscreen: "Во весь экран",
     shutdown: "Завершение работы",
+    loading: "Загрузка",
   },
 };

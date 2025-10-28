@@ -7,5 +7,6 @@ export default {
     open_settings: "Open settings",
     set_fullscreen: "Toggle fullScreen",
     shutdown: "Shutdown",
+    loading: "Loading",
   },
 };

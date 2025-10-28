@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import Window from "./Window";
-import { Suspense } from "react";
-import { appsMetas } from "#common/apps.js";
+import {Suspense} from "react";
+import {appsMetas} from "#common/apps.js";
+import WindowLoading from "#windows/WindowLoading.jsx";
 
 //TODO: Придумать как обходить
 import "#apps/about/shared.jsx";
@@ -27,8 +28,8 @@ export default function WindowsList() {
       {windowsList.map((v) => {
         const WindowComponent = appsMetas.get(v.type)?.component ?? Window;
         return (
-          <Suspense key={v.id}>
-            <WindowComponent key={v.id} data={v} />
+          <Suspense key={v.id} fallback={<WindowLoading/>}>
+            <WindowComponent key={v.id} data={v}/>
           </Suspense>
         );
       })}
