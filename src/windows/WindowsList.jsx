@@ -4,21 +4,10 @@ import {Suspense} from "react";
 import {appsMetas} from "#common/apps.js";
 import WindowLoading from "#windows/WindowLoading.jsx";
 
-//TODO: Придумать как обходить
-import "#apps/about/shared.jsx";
-import "#apps/apps-list/shared.jsx";
-import "#apps/calc/shared.jsx";
-import "#apps/chat/shared.jsx";
-import "#apps/console/shared.jsx";
-import "#apps/contacts/shared.jsx";
-import "#apps/dvd/shared.jsx";
-import "#apps/frame/shared.jsx";
-import "#apps/projects/shared.jsx";
-import "#apps/settings/shared.jsx";
-import "#apps/testing/shared.jsx";
-import "#apps/trash/shared.jsx";
-import "#apps/url2frame/shared.jsx";
-import "#apps/welcome/shared.jsx";
+const modules = import.meta.glob('../apps/*/shared.jsx');
+for (const path in modules) {
+  modules[path]().then((module) => console.log(`Imported ${path}`));
+}
 
 export default function WindowsList() {
   const windowsList = useSelector((state) => state.windows.list) ?? [];
