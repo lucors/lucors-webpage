@@ -9,9 +9,11 @@ import backgroundEvents, { prepareWindow } from "./backgroundEvents.js";
 import { META as welcomeAppMeta } from "#apps/welcome/shared.jsx";
 import { addWindowFromUri, parseQuery } from "#common/utils.js";
 import { t } from "i18next";
+import localforage from "localforage";
 
+window.localforage = localforage;
 const params = parseQuery(window.location.search);
-const firstTime = !!!localStorage.getItem("persistantState");
+const firstTime = !!!(await localforage.getItem("persistantState"));
 if (firstTime) {
   console.log(t("welcome"));
 } else {

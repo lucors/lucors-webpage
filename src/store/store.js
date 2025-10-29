@@ -3,11 +3,11 @@ import menuReducer from './menuSlice'
 import screenReducer from "./screenSlice";
 import windowsReducer from "./windowsSlice";
 import settingsReducer from "./settingsSlice";
+import localforage from "localforage";
 
-
-function loadFromLocalStorage() {
+async function loadFromLocalStorage() {
   try {
-    const serialisedState = localStorage.getItem("persistantState");
+    const serialisedState = await localforage.getItem("persistantState");
     if (!serialisedState) return undefined;
     return JSON.parse(serialisedState);
   } catch (e) {
@@ -16,10 +16,10 @@ function loadFromLocalStorage() {
   }
 }
 
-function saveToLocalStorage(state) {
+async function saveToLocalStorage(state) {
   try {
     const serialisedState = JSON.stringify(state);
-    localStorage.setItem("persistantState", serialisedState);
+    await localforage.setItem("persistantState", serialisedState);
   } catch (e) {
     console.error(e);
   }
@@ -32,8 +32,11 @@ const store = configureStore({
     windows: windowsReducer,
     settings: settingsReducer,
   },
-  preloadedState: loadFromLocalStorage()
+  preloadedState: await loadFromLocalStorage()
 });
-store.subscribe(() => saveToLocalStorage(store.getState()));
+
+store.subscribe(async () => 
+  await saveToLocalStorage(store.getState())
+);
 
 export default store;
