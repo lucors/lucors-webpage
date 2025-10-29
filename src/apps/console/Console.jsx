@@ -35,7 +35,7 @@ export default function Console() {
     const handler = cmds.get(args[0]);
     if (!handler) {
       try {
-        const f = new Function("return " + cmdRaw);
+        const f = new Function(cmdRaw);
         setLog(_log + `\n${f()}\n${inputTemplate}`);
       } catch (e) {
         setLog(_log + `\n${e}\n${inputTemplate}`);
