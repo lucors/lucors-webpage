@@ -103,21 +103,20 @@ footer {
 /* footer.expanded {
   background-color: hsl(240deg 5.71% 13.73%);
 } */
-footer:before {
+/* footer:before {
   content: "";
   position: absolute;
   left: 0;
   top: 100%;
   height: 100%;
   width: 100%;
-  /*background-color: #212125;*/
   background-color: #121212;
   z-index: -1;
   transition: top 0.2s;
 }
 footer.expanded:before {
   top: 0;
-}
+} */
 
 /* footer #footer-body { */
   /* border-radius: 0 0 var(--radius1) var(--radius1); */

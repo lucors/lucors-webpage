@@ -248,9 +248,10 @@
 /*Стиль полноэкранного окна-------------------------------*/
 .window.expanded {
   width: 100vw !important;
-  height: calc(
+  /* height: calc(
     100vh - (var(--height-footer) + var(--height-header))
-  ) !important;
+  ) !important; */
+  height: calc(100vh - var(--height-header)) !important;
   /* height: 100vh !important; */
   max-height: 100vh !important;
   max-width: 100vw !important;
@@ -259,6 +260,12 @@
   resize: none;
   border-radius: 0;
   border: none !important;
+}
+
+.window.expanded .main {
+  position: absolute;
+  top: var(--window-header);
+  height: calc(100% - (var(--window-header) + var(--height-footer)));
 }
 
 .window.expanded .main > .right {

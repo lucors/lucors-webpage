@@ -41,7 +41,7 @@ function About() {
       {t("a5")} <code className="language-none">iframe</code>.
       <br />
       {t("a6")}{" "}
-      <code className="language-none">LocalStorage</code>.
+      <code className="language-none">localforage</code>.
       <br />
       <br />
       {t("a7")}
