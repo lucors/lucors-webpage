@@ -41,10 +41,14 @@
   display: inline-block;
   width: 0.2em;
   height: 1.2em;
-  background-color: #ffffff;;
-  animation: blink 1s infinite;
   margin-left: 2px;
+  background-color: #ffffff00;
   vertical-align: text-bottom;
+}
+
+.blinking-cursor.true {
+  background-color: #ffffff;
+  animation: blink 1s infinite;
 }
 
 @keyframes blink {

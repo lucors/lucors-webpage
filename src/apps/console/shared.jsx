@@ -31,8 +31,7 @@ export const cmds = new Map([
     "help",
     () => {
       return (
-        "Доступные команды: " +
-        [...cmds.keys()].join(", ")
+        `Доступные команды: ${[...cmds.keys()].join(", ")}.\nДоступно исполнение js скриптов.`
       );
     },
   ],
