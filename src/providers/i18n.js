@@ -9,7 +9,7 @@ const resources = {
   ru: ru,
 };
 
-i18next
+await i18next
   .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .init({

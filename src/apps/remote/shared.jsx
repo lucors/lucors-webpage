@@ -9,7 +9,8 @@ const TYPE = "remote_test";
 export const META = new AppMeta(
   TYPE,
   lazy(() => import("remote_apps/Test")),
-  getSingletonAppCreator(TYPE));
+  getSingletonAppCreator(TYPE))
+  .remote();
 
 i18next.addResourceBundle("en", TYPE, {
   title: "Remote component",

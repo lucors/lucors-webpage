@@ -7,6 +7,7 @@ export class AppMeta {
   component;
   createApp;
   icon;
+  #remote = false;
 
   constructor(type, component, createApp, icon = DEFAULT_APP_ICON) {
     this.type = type;
@@ -14,6 +15,15 @@ export class AppMeta {
     this.createApp = createApp;
     this.icon = icon;
     appsMetas.set(type, this);
+  }
+
+  remote() {
+    this.remote = true;
+    return this;
+  }
+
+  isRemote() {
+    return this.remote;
   }
 }
 

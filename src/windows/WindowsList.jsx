@@ -15,10 +15,19 @@ export default function WindowsList() {
   return (
     <div id="windows">
       {windowsList.map((v) => {
-        const WindowComponent = appsMetas.get(v.type)?.component ?? Window;
+        const META = appsMetas.get(v.type);
+        const WindowComponent = META?.component ?? Window;
+
+        const props = {
+          key: v.id,
+          data: v,
+          META: (META?.isRemote() ? META : null),
+          Window: (META?.isRemote() ? Window : null),
+        }
+
         return (
           <Suspense key={v.id} fallback={<WindowLoading/>}>
-            <WindowComponent key={v.id} data={v}/>
+            <WindowComponent {...props} />
           </Suspense>
         );
       })}
