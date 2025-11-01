@@ -11,7 +11,7 @@ export default defineConfig({
       remotes: {
         remote_apps: {
           type: 'module',
-          entry: 'http://localhost:3000/remoteEntry.js'
+          entry: 'https://lucors.ru/remote_apps/remoteEntry.js'
         }
       },
       shared: {

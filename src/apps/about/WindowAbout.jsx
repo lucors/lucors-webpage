@@ -40,6 +40,9 @@ function About() {
       <br />
       {t("a5")} <code className="language-none">iframe</code>.
       <br />
+      {t("a5_1")} <code className="language-none">vite-plugin-federation</code>. {t("a5_2")} {" "}
+      <a href="https://github.com/lucors/lucors-remote-apps">{t("a5_3")}</a>.
+      <br />
       {t("a6")}{" "}
       <code className="language-none">localforage</code>.
       <br />

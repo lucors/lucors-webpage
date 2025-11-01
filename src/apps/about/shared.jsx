@@ -24,8 +24,11 @@ i18next.addResourceBundle("en", TYPE, {
   a4: "By continuing to use this site you agree with",
   a4C: "cookie policy",
   a5: "To display content from other pages on this domain or external domain names, this site uses",
+  a5_1: "Integrated windows (applications) are displayed via",
+  a5_2: "Application catalog in the",
+  a5_3: "repository",
   a6: "State of windows is saved on your device using ",
-  a7: "This website uses third-party libraries:",
+  a7: "In addition to those listed, this website also uses third-party libraries:",
   contacts: "\"about me\"",
 });
 i18next.addResourceBundle("ru", TYPE, {
@@ -36,8 +39,11 @@ i18next.addResourceBundle("ru", TYPE, {
   a4: "Продолжая пользоваться сайтом вы соглашаетесь с условиями использования файлов",
   a4C: "cookie",
   a5: "Для отображения контента с других страниц данного домена или внешних доменных имен используется",
+  a5_1: "Интегрированные окна (приложения)  отображаются посредством",
+  a5_2: "Каталог приложений в",
+  a5_3: "репозитории",
   a6: "Состояние окон сохраняется на вашем устройстве посредством ",
-  a7: "На странице используются сторонние библиотеки:",
+  a7: "Помимо указанных, на странице также используются сторонние библиотеки:",
   contacts: "\"обо мне\"",
 });
 
