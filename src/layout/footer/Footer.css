@@ -5,8 +5,8 @@ footer {
   width: 100%;
   z-index: 100;
   background-color: transparent;
-  /* overflow: hidden; */
-  /* transition: background-color 0.3s; */
+  /*overflow: hidden;*/
+  transition: background-color 0.3s;
 }
 
 #footer-body {
@@ -100,10 +100,10 @@ footer {
   text-align: center;
 }
 
-/* footer.expanded {
-  background-color: hsl(240deg 5.71% 13.73%);
-} */
-/* footer:before {
+/*footer.expanded {*/
+/*  background-color: hsl(240deg 5.71% 13.73%);*/
+/*}*/
+footer:before {
   content: "";
   position: absolute;
   left: 0;
@@ -116,7 +116,7 @@ footer {
 }
 footer.expanded:before {
   top: 0;
-} */
+}
 
 /* footer #footer-body { */
   /* border-radius: 0 0 var(--radius1) var(--radius1); */
