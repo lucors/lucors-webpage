@@ -17,14 +17,14 @@
   color: #ffffff;
 }
 
-.window:has(.console-container) {
-  image-rendering: pixelated;
-  border-radius: 0;
-}
+/*.window:has(.console-container) {*/
+/*  image-rendering: pixelated;*/
+/*  border-radius: 0;*/
+/*}*/
 
-.window:has(.console-container) > .body > .header > .title {
-  font-family: 'Munro', monospace;
-}
+/*.window:has(.console-container) > .body > .header > .title {*/
+/*  font-family: 'Munro', monospace;*/
+/*}*/
 
 .window .main > .right:has(.console-container) {
   margin: 0;

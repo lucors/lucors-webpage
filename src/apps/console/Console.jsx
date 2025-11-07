@@ -32,6 +32,10 @@ export default function Console() {
       setLog(inputTemplate);
       return;
     }
+    if (cmdRaw === "_ <") {
+      setLog(_log + `\n(─‿‿─)♡\n${inputTemplate}`);
+      return;
+    }
     const handler = cmds.get(args[0]);
     if (!handler) {
       try {
