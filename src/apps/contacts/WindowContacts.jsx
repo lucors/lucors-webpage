@@ -103,13 +103,11 @@ function Contacts() {
 
   const sendForm = () => {
     if (!textRef?.current?.value || !nameRef?.current?.value) return;
-    const formData = new FormData();
-    formData.append("name", nameRef.current.value);
-    formData.append("review", textRef.current.value);
     setSended(true);
     axios
-      .post("https://lucors.ru/send_rev.php", formData, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      .post("https://lucors.ru/api/review", {
+        name: nameRef.current.value,
+        review: textRef.current.value,
       })
       .then((response) => {
       })

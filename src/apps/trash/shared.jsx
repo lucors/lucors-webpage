@@ -10,7 +10,7 @@ export const META = new AppMeta(
   TYPE,
   lazy(() => import("./WindowTrash")),
   getSingletonAppCreator(TYPE),
-  "img/trashico.svg");
+  "img/trashico.png");
 
 i18next.addResourceBundle("en", TYPE, {
   title: "Trashcan",

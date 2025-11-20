@@ -8,5 +8,6 @@ export default {
     set_fullscreen: "Во весь экран",
     shutdown: "Завершение работы",
     loading: "Загрузка",
+    kill_all_tasks: "Закрыть все окна",
   },
 };

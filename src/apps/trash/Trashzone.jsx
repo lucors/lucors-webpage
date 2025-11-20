@@ -2,12 +2,26 @@ import { createFrame } from "#apps/frame/shared.jsx";
 import ActionNewWindow from "#common/ActionNewWindow.jsx";
 import Link from "#common/Link.jsx";
 import "./Trashzone.css";
+import i18next from "i18next";
+import {META} from "./shared";
+import {useTranslation} from "react-i18next";
+
+i18next.addResourceBundle("en", META.type, {
+  h1: "Welcome to the trash zone",
+  h2: "Only trash inside this page",
+});
+i18next.addResourceBundle("ru", META.type, {
+  h1: "Добро пожаловать в корзину",
+  h2: "Тут только отборный хлам",
+});
 
 export default function Trashzone() {
+  const {t} = useTranslation(META.type);
+
   return (
     <div id="trashcanContent" className="section">
-      <h1>Welcome to the trash zone</h1>
-      <h4>Only trash inside this page</h4>
+      <h1>{t("h1")}</h1>
+      <h4>{t("h2")}</h4>
 
       <Link
         href="https://lucors.ru/jekarws-game-2/"
@@ -35,34 +49,6 @@ export default function Trashzone() {
         }
       >
         JekaRWS.game
-      </Link>
-
-      <Link
-        href="https://lucors.ru/avb64"
-        target="_blank"
-        subAction={
-          <ActionNewWindow
-            onClick={() =>
-              createFrame("Ansible Vault Base64", "https://lucors.ru/avb64")
-            }
-          />
-        }
-      >
-        Ansible Vault Base64
-      </Link>
-
-      <Link
-        href="https://lucors.ru/tc_tracking"
-        target="_blank"
-        subAction={
-          <ActionNewWindow
-            onClick={() =>
-              createFrame("Контроль ТК", "https://lucors.ru/tc_tracking")
-            }
-          />
-        }
-      >
-        Контроль ТК
       </Link>
 
       <Link
@@ -170,20 +156,6 @@ export default function Trashzone() {
       </Link>
 
       <Link
-        href="https://lucors.ru/old_ui"
-        target="_blank"
-        subAction={
-          <ActionNewWindow
-            onClick={() =>
-              createFrame("Старый дизайн", "https://lucors.ru/old_ui")
-            }
-          />
-        }
-      >
-        Старый дизайн
-      </Link>
-
-      <Link
         href="https://lucors.ru/stepuha"
         target="_blank"
         subAction={
@@ -198,23 +170,6 @@ export default function Trashzone() {
         }
       >
         Сколько осталось до степухи
-      </Link>
-
-      <Link
-        href="https://lucors.ru/ipsilon/addon/"
-        target="_blank"
-        subAction={
-          <ActionNewWindow
-            onClick={() =>
-              createFrame(
-                "Фейк IpsilonUni (БД)",
-                "https://lucors.ru/ipsilon/addon/"
-              )
-            }
-          />
-        }
-      >
-        Фейк IpsilonUni (БД)
       </Link>
     </div>
   );

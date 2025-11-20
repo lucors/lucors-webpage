@@ -8,5 +8,6 @@ export default {
     set_fullscreen: "Toggle fullScreen",
     shutdown: "Shutdown",
     loading: "Loading",
+    kill_all_tasks: "Close all windows",
   },
 };

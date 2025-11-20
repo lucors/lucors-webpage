@@ -5,7 +5,7 @@ export const screenSlice = createSlice({
   initialState: {
     fullscreen: false,
     mobile: false,
-    shutdown: false,
+    shutdown: true,
   },
   reducers: {
     setFullscreen: (state, action) => {

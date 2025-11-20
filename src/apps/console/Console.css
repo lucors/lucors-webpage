@@ -12,8 +12,10 @@
   word-break: break-all;
   margin-bottom: 1.4em;
   line-height: 1.2em;
-  font-size: 1.1em;
-  font-family: 'Munro', monospace;
+  /*font-size: 1.1em;*/
+  /*font-family: 'Munro', monospace;*/
+  font-size: 1.4em;
+  font-family: "8bitoperator Regular", monospace;
   color: #ffffff;
 }
 
@@ -39,8 +41,8 @@
 
 .blinking-cursor {
   display: inline-block;
-  width: 0.2em;
-  height: 1.2em;
+  width: 0.15em;
+  height: 1.1em;
   margin-left: 2px;
   background-color: #ffffff00;
   vertical-align: text-bottom;

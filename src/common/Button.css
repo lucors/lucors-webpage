@@ -34,7 +34,7 @@
 }
 
 .button * {
-  /* all: unset; */
+  all: unset;
   width: 100%;
   color: white;
   font-size: 16px;

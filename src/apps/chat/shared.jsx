@@ -14,8 +14,8 @@ export const META = new AppMeta(
   lazy(() => import("./WindowChat")),
   getSingletonAppCreator(TYPE, null, null,
     {
-      width: "20em",
-      height: "30em",
+      width: "30em",
+      height: "40em",
     }),
   ICON);
 

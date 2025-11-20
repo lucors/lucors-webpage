@@ -8,6 +8,11 @@
   src: url(font/munro.otf);
 }
 
+@font-face {
+  font-family: "8bitoperator Regular";
+  src: url(font/8bitfont.ttf);
+}
+
 ::-moz-selection {
   background: #9ba0eb4a;
 }

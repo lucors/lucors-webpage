@@ -28,7 +28,7 @@ function AppsList() {
     <div className="section mwem20 desktop-icons">
       <IconApp meta={chatAppMeta}/>
       <IconApp meta={consoleAppMeta}/>
-      <IconApp meta={calcAppMeta}/>
+      {/*<IconApp meta={calcAppMeta}/>*/}
       {/*<IconApp meta={dvdAppMeta}/>*/}
       <IconApp meta={url2FrameAppMeta}/>
       <IconApp meta={trashAppMeta}/>

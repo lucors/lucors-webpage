@@ -137,6 +137,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  border-radius: 0.1em;
 }
 
 .menu-section {

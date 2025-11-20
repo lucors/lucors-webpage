@@ -10,10 +10,12 @@ import Code from "#common/Code.jsx";
 i18next.addResourceBundle("en", META.type, {
   h1: "Oops!",
   c1: "This section isn't ready yet.",
+  c2: "Code of the Day: Deserializing a cat",
 });
 i18next.addResourceBundle("ru", META.type, {
   h1: "Упс!",
   c1: "Раздел еще не готов.",
+  c2: "Код дня: Десериализация кота",
 });
 
 function Content() {
@@ -24,6 +26,7 @@ function Content() {
       <div className="section">
         <h2>{t("h1")}</h2>
         {t("c1")} <br/>
+        {t("c2")} <br/>
         <Code lang="java">
           {`
 try (FileInputStream fin = new FileInputStream("cat.obj");

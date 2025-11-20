@@ -160,7 +160,7 @@
 }
 
 .window .header > .title > .icon {
-  height: 70%;
+  height: 80%;
   margin: 0 0.2em;
 }
 
@@ -526,6 +526,6 @@
   }
 
   .window .header > .title > .icon {
-    height: 60%;
+    height: 70%;
   }
 }
