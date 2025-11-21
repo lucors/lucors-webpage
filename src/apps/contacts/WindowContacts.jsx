@@ -171,14 +171,14 @@ function Contacts() {
         {t("re3")} <br /><br />
 
         {t("re4")}<br />
-        {t("re5")} <Button
+        {t("re5")}{" "} <Button
           onClick={appMetaTesting.createApp}
           inline={true}
         >
           {t("re6")}
         </Button>. <br /><br />
 
-        {t("re7")} <Button
+        {t("re7")}{" "} <Button
           onClick={appMetaAbout.createApp}
           inline={true}
         >
