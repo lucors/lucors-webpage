@@ -270,7 +270,7 @@ function Contacts() {
                 name="review"
                 placeholder={t("r5")}
               ></textarea>
-              <Button className="formButton" onClick={sendForm} primary={true}>
+              <Button className="formButton center" onClick={sendForm} primary={true}>
                 {t("r6")}
               </Button>
             </div>

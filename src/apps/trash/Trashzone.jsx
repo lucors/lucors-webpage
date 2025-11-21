@@ -24,20 +24,6 @@ export default function Trashzone() {
       <h4>{t("h2")}</h4>
 
       <Link
-        href="https://lucors.ru/jekarws-game-2/"
-        target="_blank"
-        subAction={
-          <ActionNewWindow
-            onClick={() =>
-              createFrame("JekaRWS.game 2", "https://lucors.ru/jekarws-game-2/")
-            }
-          />
-        }
-      >
-        JekaRWS.game 2
-      </Link>
-
-      <Link
         href="https://lucors.ru/jekarws-game/"
         target="_blank"
         subAction={

@@ -21,12 +21,22 @@ i18next.addResourceBundle("en", TYPE, {
   archiveTitle: "Archive",
   projectsShowCurrent: "Show current",
   projectsShowArchive: "Show archived",
+  projectLogo: "Project logotype",
+  projectInfo: "About project",
+  inNewTab: "Open in new tab",
+  start: "Open in window",
+  download: "Download",
 });
 i18next.addResourceBundle("ru", TYPE, {
   title: "Проекты",
   archiveTitle: "Архив",
   projectsShowCurrent: "Показать текущие",
   projectsShowArchive: "Показать архив",
+  projectLogo: "Логотип проекта",
+  projectInfo: "Информация о проекте",
+  inNewTab: "В новой вкладке",
+  start: "В окно",
+  download: "Скачать",
 });
 
 cmds.set("projects", () => {

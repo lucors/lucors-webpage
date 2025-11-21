@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import {TITLE_KEY} from "#common/consts.js";
 import {createFrame} from "#apps/frame/shared.jsx";
 import Button from "#common/Button.jsx";
+import {META as appMetaAbout} from "#apps/about/shared.jsx";
 
 // TODO: Использовать БД
 // TODO: ID не в ту сторону))
@@ -15,7 +16,7 @@ const projects = [
     name: "Godot Demo",
     shortname: "prj-godot-demo",
     logo: "godotExample.png",
-    frameAllow: true,
+    frameAllow: false,
     startHref: "https://lucors.ru/emergency-procedure",
   },
   {
@@ -90,8 +91,6 @@ const projects = [
     shortname: "",
     logo: "escardsProject.png",
     icon: "https://escards.lucors.ru/assets/img/favicon.png",
-    frameAllow: true,
-    startHref: "https://escards.lucors.ru/",
     infoHref: "https://github.com/lucors/escards",
   },
   {
@@ -100,8 +99,6 @@ const projects = [
     shortname: "",
     logo: "chaoticProject.png",
     icon: "https://chaotic.lucors.ru/assets/img/favicon.png",
-    frameAllow: true,
-    startHref: "https://chaotic.lucors.ru/",
     infoHref: "https://github.com/lucors/chaotic",
   },
   {
@@ -136,7 +133,7 @@ const projects = [
     icon: "img/lucors-logo.svg",
     frameAllow: true,
     startHref: "https://lucors.ru/",
-    infoHref: "https://github.com/lucors/lucors-webpage",
+    infoButton: appMetaAbout.createApp,
   },
 ];
 
@@ -217,18 +214,17 @@ export function Project({
                           frameAllow,
                           startHref,
                           infoHref,
+                          infoButton,
                           downloadHref,
                         }) {
-  function openFrame() {
-    console.log(`Открыть фрейм "${startHref}"`);
-  }
+  const {t} = useTranslation(META.type);
 
   return (
     <div shortname={shortname} className="projectBox">
       <img
         className="projectLogo"
         src={`projects/${logo}`}
-        alt="Логотип проекта"
+        alt={t("projectLogo")}
       />
       <div className="projectBottom">
         <span className="projectName" title={name}>
@@ -240,9 +236,18 @@ export function Project({
               className="projectAboutA"
               target="_blank"
               href={infoHref}
-              title="Информация о проекте"
+              title={t("projectInfo")}
             >
-              <img className="projectAboutImg" src="img/project-about.svg" />
+              <img className="projectAboutImg" src="img/project-about.svg"/>
+            </a>
+          )}
+          {infoButton && (
+            <a
+              className="projectAboutA"
+              title={t("projectInfo")}
+              onClick={infoButton}
+            >
+              <img className="projectAboutImg" src="img/project-about.svg"/>
             </a>
           )}
           {startHref && (
@@ -251,7 +256,7 @@ export function Project({
                 className="projectStartA"
                 target="_blank"
                 href={startHref}
-                title="В новой вкладке"
+                title={t("inNewTab")}
               >
                 <img
                   className="projectStartImg"
@@ -261,7 +266,7 @@ export function Project({
               {frameAllow && (
                 <div
                   className="projectStartA"
-                  title="Запустить"
+                  title={t("start")}
                   onClick={() => createFrame(name, startHref, icon)}
                 >
                   <img
@@ -277,7 +282,7 @@ export function Project({
               className="projectDownloadA"
               target="_blank"
               href={downloadHref}
-              title="Скачать"
+              title={t("download")}
             >
               <img
                 className="projectDownloadImg"
@@ -292,7 +297,7 @@ export function Project({
 }
 
 function Projects() {
-  const { t } = useTranslation(META.type);
+  const {t} = useTranslation(META.type);
   const [isArchive, setIsArchive] = useState(false);
 
   return (
@@ -303,7 +308,7 @@ function Projects() {
           onClick={() => setIsArchive(!isArchive)}
           inline={false}
           primary={true}
-          className="archive-button"
+          className="center archive-button"
         >
           {isArchive ? t("projectsShowCurrent") : t("projectsShowArchive")}
         </Button>

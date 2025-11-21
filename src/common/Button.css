@@ -21,6 +21,10 @@
   background-color: #3f4468;
 }
 
+.button.center {
+  justify-content: center;
+}
+
 .button:hover {
   background-color: #bfceff24;
   color: #c6d4ff;
@@ -35,7 +39,7 @@
 
 .button * {
   all: unset;
-  width: 100%;
+  /*width: 100%;*/
   color: white;
   font-size: 16px;
   font-family: Monofur;
